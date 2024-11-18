@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "package": "dev.muon.otherworldapoth.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "otherworldapoth.refmap.json",
+  "plugin": "dev.muon.otherworldapoth.OtherworldApothMixinPlugin",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "AffixConvertLootModifierMixin",
+    "AffixLootModifierMixin",
+    "BossEventsMixin",
+    "GemLootModifierMixin",
+    "MobMixin",
+    "RandomizableContainerBlockEntityMixin",
+    "client.LevelDisplayRendererMixin"
+  ],
+  "client": [
+  ],
+  "minVersion": "0.8"
+}
