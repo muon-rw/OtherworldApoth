@@ -2,15 +2,15 @@ package dev.muon.otherworldapoth;
 
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.LoadingModList;
+import net.minecraftforge.fml.loading.moddiscovery.ModInfo;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
-import net.minecraftforge.fml.loading.moddiscovery.ModInfo;
 
 import java.util.List;
 import java.util.Set;
 
-public class OtherworldApothMixinPlugin implements IMixinConfigPlugin {
+public class OWApothMixinPlugin implements IMixinConfigPlugin {
     @Override
     public void onLoad(String mixinPackage) {
     }

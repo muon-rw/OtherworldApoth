@@ -3,7 +3,10 @@ package dev.muon.otherworldapoth;
 import dev.muon.otherworldapoth.config.LootConfig;
 import dev.muon.otherworldapoth.loot.LeveledAffixLootModifier;
 import dev.muon.otherworldapoth.loot.LeveledGemLootModifier;
+import dev.muon.otherworldapoth.replacer.OWApothSource;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
+import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -27,6 +30,13 @@ public class OtherworldApoth {
         LootConfig.init();
         IEventBus modEventBus = context.getModEventBus();
         modEventBus.addListener(this::registerLootModifiers);
+        modEventBus.addListener(this::addReplacerPack);
+    }
+
+    private void addReplacerPack(AddPackFindersEvent event) {
+        if (event.getPackType() == PackType.SERVER_DATA) {
+            event.addRepositorySource(new OWApothSource(PackType.SERVER_DATA));
+        }
     }
 
     private void registerLootModifiers(RegisterEvent event) {

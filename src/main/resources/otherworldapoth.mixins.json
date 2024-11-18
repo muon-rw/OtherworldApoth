@@ -3,7 +3,7 @@
   "package": "dev.muon.otherworldapoth.mixin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "otherworldapoth.refmap.json",
-  "plugin": "dev.muon.otherworldapoth.OtherworldApothMixinPlugin",
+  "plugin": "dev.muon.otherworldapoth.OWApothMixinPlugin",
   "injectors": {
     "defaultRequire": 1
   },
