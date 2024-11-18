@@ -6,32 +6,32 @@
 		"common": {
 			"min": 0.125,
 			"steps": 3,
-			"step": 0.062
+			"step": 0.0625
 		},
 		"uncommon": {
 			"min": 0.125,
 			"steps": 3,
-			"step": 0.062
+			"step": 0.0625
 		},
 		"rare": {
-			"min": 0.188,
+			"min": 0.1875,
 			"steps": 3,
-			"step": 0.062
+			"step": 0.0625
 		},
 		"epic": {
 			"min": 0.25,
 			"steps": 3,
-			"step": 0.062
+			"step": 0.0625
 		},
 		"mythic": {
-			"min": 0.312,
+			"min": 0.3125,
 			"steps": 3,
-			"step": 0.062
+			"step": 0.0625
 		},
 		"ancient": {
 			"min": 0.375,
 			"steps": 3,
-			"step": 0.062
+			"step": 0.0625
 		}
 	},
 	"types": [

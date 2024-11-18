@@ -27,7 +27,7 @@
 			"amplifier": {
 				"min": 0.0,
 				"steps": 8,
-				"step": 0.032
+				"step": 0.0325
 			},
 			"cooldown": 80
 		},
@@ -40,7 +40,7 @@
 			"amplifier": {
 				"min": 0.0,
 				"steps": 16,
-				"step": 0.032
+				"step": 0.0325
 			},
 			"cooldown": 80
 		}

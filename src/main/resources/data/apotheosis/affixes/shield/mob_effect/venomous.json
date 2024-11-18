@@ -34,7 +34,7 @@
 			"amplifier": {
 				"min": 0.0,
 				"steps": 2,
-				"step": 0.128
+				"step": 0.1275
 			},
 			"cooldown": 300
 		},
