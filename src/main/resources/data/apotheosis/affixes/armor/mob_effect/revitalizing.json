@@ -12,23 +12,24 @@
 			"duration": 1,
 			"_comment": "This weird amplifier setup gives a 20% chance of Instant Health II being granted",
 			"amplifier": {
-				"min": 0,
+				"min": 0.0,
 				"steps": 4,
-				"step": 0.3
+				"step": 0.075
 			},
 			"cooldown": 240
 		},
 		"ancient": {
 			"duration": 1,
 			"amplifier": {
-				"min": 1,
+				"min": 0.25,
 				"steps": 1,
-				"step": 1
+				"step": 0.25
 			},
 			"cooldown": 200
 		}
 	},
 	"types": [
-		"chestplate", "leggings"
+		"chestplate",
+		"leggings"
 	]
 }

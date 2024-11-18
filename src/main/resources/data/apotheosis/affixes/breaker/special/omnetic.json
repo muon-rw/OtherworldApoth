@@ -4,7 +4,8 @@
 	"values": {
 		"rare": {
 			"name": "iron",
-			"items": [{
+			"items": [
+				{
 					"item": "minecraft:iron_axe"
 				},
 				{
@@ -23,7 +24,8 @@
 		},
 		"epic": {
 			"name": "diamond",
-			"items": [{
+			"items": [
+				{
 					"item": "minecraft:diamond_axe"
 				},
 				{
@@ -42,7 +44,8 @@
 		},
 		"mythic": {
 			"name": "netherite",
-			"items": [{
+			"items": [
+				{
 					"item": "minecraft:netherite_axe"
 				},
 				{
@@ -61,7 +64,8 @@
 		},
 		"ancient": {
 			"name": "netherite",
-			"items": [{
+			"items": [
+				{
 					"item": "minecraft:netherite_axe"
 				},
 				{

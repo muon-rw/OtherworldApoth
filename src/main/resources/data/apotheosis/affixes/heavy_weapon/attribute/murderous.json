@@ -4,34 +4,34 @@
 	"operation": "ADDITION",
 	"values": {
 		"common": {
-			"min": 3,
+			"min": 0.75,
 			"steps": 8,
-			"step": 0.25
+			"step": 0.062
 		},
 		"uncommon": {
-			"min": 3,
+			"min": 0.75,
 			"steps": 8,
-			"step": 0.25
+			"step": 0.062
 		},
 		"rare": {
-			"min": 3.5,
+			"min": 0.875,
 			"steps": 8,
-			"step": 0.25
+			"step": 0.062
 		},
 		"epic": {
-			"min": 4,
+			"min": 1.0,
 			"steps": 10,
-			"step": 0.25
+			"step": 0.062
 		},
 		"mythic": {
-			"min": 5,
+			"min": 1.25,
 			"steps": 10,
-			"step": 0.25
+			"step": 0.062
 		},
 		"ancient": {
-			"min": 7,
+			"min": 1.75,
 			"steps": 10,
-			"step": 0.25
+			"step": 0.062
 		}
 	},
 	"types": [

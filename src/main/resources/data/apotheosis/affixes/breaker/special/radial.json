@@ -1,7 +1,7 @@
 {
 	"_comment": "Area Break - x/y are the area, offsets can move the center.",
 	"type": "apotheosis:radial",
-	"values": {		
+	"values": {
 		"uncommon": [
 			{
 				"x": 1,

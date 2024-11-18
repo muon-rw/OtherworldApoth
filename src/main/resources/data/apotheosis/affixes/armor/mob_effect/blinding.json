@@ -5,36 +5,36 @@
 	"values": {
 		"rare": {
 			"duration": {
-				"min": 40,
+				"min": 10.0,
 				"steps": 2,
-				"step": 20
+				"step": 5.0
 			},
 			"amplifier": 0,
 			"cooldown": 200
 		},
 		"epic": {
 			"duration": {
-				"min": 40,
+				"min": 10.0,
 				"steps": 2,
-				"step": 20
+				"step": 5.0
 			},
 			"amplifier": 0,
 			"cooldown": 200
 		},
 		"mythic": {
 			"duration": {
-				"min": 60,
+				"min": 15.0,
 				"steps": 2,
-				"step": 20
+				"step": 5.0
 			},
 			"amplifier": 0,
 			"cooldown": 160
 		},
 		"ancient": {
 			"duration": {
-				"min": 60,
+				"min": 15.0,
 				"steps": 4,
-				"step": 20
+				"step": 5.0
 			},
 			"amplifier": 0,
 			"cooldown": 160

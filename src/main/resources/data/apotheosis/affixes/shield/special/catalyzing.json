@@ -2,19 +2,19 @@
 	"type": "apotheosis:catalyzing",
 	"values": {
 		"epic": {
-			"min": 200,
+			"min": 50.0,
 			"steps": 10,
-			"step": 20
+			"step": 5.0
 		},
 		"mythic": {
-			"min": 300,
+			"min": 75.0,
 			"steps": 10,
-			"step": 20
+			"step": 5.0
 		},
 		"ancient": {
-			"min": 600,
+			"min": 150.0,
 			"steps": 10,
-			"step": 20
+			"step": 5.0
 		}
 	}
 }
