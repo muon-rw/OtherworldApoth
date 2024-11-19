@@ -29,7 +29,9 @@ public class LootControllerMixin {
 
                     if (AffixSchoolMapper.isElementalAffix(affixId)) {
                         SchoolType affixSpellSchool = AffixSchoolMapper.getSpellSchoolForAffix(affixId);
-                        return affixSpellSchool != null && gearSpellSchools.contains(affixSpellSchool);
+                        if (affixSpellSchool != null) {
+                            return gearSpellSchools.contains(affixSpellSchool);
+                        }
                     }
 
                     if (AffixSchoolMapper.isGenericSpellAffix(affixId)) {

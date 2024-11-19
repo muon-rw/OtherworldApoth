@@ -1,15 +1,8 @@
 {
-  "fabric:load_conditions": [
-    {
-      "condition": "fabric:all_mods_loaded",
-      "values": [
-        "more_rpg_classes"
-      ]
-    }
-  ],
   "weight": 5,
   "quality": 2,
   "dimensions": [],
+  "unique": true,
   "bonuses": [
     {
       "type": "apotheosis:attribute",
@@ -19,15 +12,15 @@
           "staff"
         ]
       },
-      "attribute": "irons_spellbooks:nature_spell_power",
+      "attribute": "irons_spellbooks:spell_power",
       "operation": "MULTIPLY_BASE",
       "values": {
-        "common": 0.03,
-        "uncommon": 0.06,
-        "rare": 0.09,
-        "epic": 0.12,
-        "mythic": 0.15,
-        "ancient": 0.18
+        "common": 0.01,
+        "uncommon": 0.02,
+        "rare": 0.04,
+        "epic": 0.06,
+        "mythic": 0.08,
+        "ancient": 0.10
       }
     },
     {
@@ -39,15 +32,15 @@
           "heavy_weapon"
         ]
       },
-      "attribute": "irons_spellbooks:nature_spell_power",
+      "attribute": "irons_spellbooks:spell_resist",
       "operation": "MULTIPLY_BASE",
       "values": {
-        "common": 0.15,
-        "uncommon": 0.3,
-        "rare": 0.45,
-        "epic": 0.6,
-        "mythic": 0.75,
-        "ancient": 0.9
+        "common": 0.01,
+        "uncommon": 0.02,
+        "rare": 0.03,
+        "epic": 0.045,
+        "mythic": 0.06,
+        "ancient": 0.08
       }
     },
     {
@@ -62,9 +55,9 @@
       "enchantment": "unbreaking",
       "values": {
         "rare": 1,
-        "epic": 2,
-        "mythic": 3,
-        "ancient": 4
+        "epic": 1,
+        "mythic": 2,
+        "ancient": 3
       }
     },
     {
@@ -77,14 +70,14 @@
         ]
       },
       "attribute": "minecraft:generic.knockback_resistance",
-      "operation": "MULTIPLY_BASE",
+      "operation": "ADDITION",
       "values": {
-        "common": 0.06,
-        "uncommon": 0.12,
-        "rare": 0.18,
-        "epic": 0.24,
-        "mythic": 0.3,
-        "ancient": 0.42
+        "common": 0.05,
+        "uncommon": 0.10,
+        "rare": 0.15,
+        "epic": 0.2,
+        "mythic": 0.25,
+        "ancient": 0.3
       }
     }
   ]

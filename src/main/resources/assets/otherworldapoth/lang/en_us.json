@@ -12,7 +12,17 @@
   "item.apotheosis.gem.otherworldapoth:core/sirens_aquamarine": "Siren's Aquamarine",
   "item.apotheosis.gem.otherworldapoth:core/sky_meteoritill": "Sky Meteoritill",
 
-  "gem_class.magic_weapons": "Magic Weapons",
+  "attribute.otherworldapoth.fire_spell_level": "Fire Spell Levels",
+  "attribute.otherworldapoth.ice_spell_level": "Ice Spell Levels",
+  "attribute.otherworldapoth.lightning_spell_level": "Lightning Spell Levels",
+  "attribute.otherworldapoth.holy_spell_level": "Holy Spell Levels",
+  "attribute.otherworldapoth.ender_spell_level": "Ender Spell Levels",
+  "attribute.otherworldapoth.blood_spell_level": "Blood Spell Levels",
+  "attribute.otherworldapoth.evocation_spell_level": "Evocation Spell Levels",
+  "attribute.otherworldapoth.nature_spell_level": "Nature Spell Levels",
+  "attribute.otherworldapoth.eldritch_spell_level": "Eldritch Spell Levels",
+
+  "gem_class.magic_weapons": "Staffs",
   "affix.apotheosis.target.spell_cast_self": "On spell cast, gain %s",
   "affix.apotheosis.target.spell_cast_target": "On spell cast, inflict %s",
 
@@ -38,6 +48,8 @@
   "affix.otherworldapoth:magic_weapons/mob_effect/obliviating.suffix": "of the ender Tome",
   "affix.otherworldapoth:magic_weapons/mob_effect/smothering": "Smothering",
   "affix.otherworldapoth:magic_weapons/mob_effect/smothering.suffix": "of the Overwhelming Fog",
+  "affix.otherworldapoth:elemental/school_none/attribute": "Arcane",
+  "affix.otherworldapoth:elemental/school_none/attribute.suffix": "of the Archmage",
   "affix.otherworldapoth:elemental/school_lightning/attribute": "Charged",
   "affix.otherworldapoth:elemental/school_lightning/attribute.suffix": "of Scattering Sparks",
   "affix.otherworldapoth:elemental/school_lightning/electromancers": "Electromancer's",

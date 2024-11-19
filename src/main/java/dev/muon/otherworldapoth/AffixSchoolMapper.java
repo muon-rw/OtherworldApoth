@@ -47,6 +47,7 @@ public class AffixSchoolMapper {
             for (String part : pathParts) {
                 if (part.startsWith("school_")) {
                     String schoolName = part.substring("school_".length());
+                    // returns null if no SchoolType match
                     return SchoolRegistry.getSchool(new ResourceLocation("irons_spellbooks", schoolName));
                 }
             }

@@ -1,15 +1,8 @@
 {
-  "fabric:load_conditions": [
-    {
-      "condition": "fabric:all_mods_loaded",
-      "values": [
-        "more_rpg_classes"
-      ]
-    }
-  ],
   "weight": 5,
   "quality": 2,
   "dimensions": [],
+  "unique": true,
   "bonuses": [
     {
       "type": "apotheosis:attribute",
@@ -22,12 +15,12 @@
       "attribute": "irons_spellbooks:evocation_spell_power",
       "operation": "MULTIPLY_BASE",
       "values": {
-        "common": 0.03,
-        "uncommon": 0.06,
-        "rare": 0.09,
-        "epic": 0.12,
-        "mythic": 0.15,
-        "ancient": 0.18
+        "common": 0.04,
+        "uncommon": 0.08,
+        "rare": 0.12,
+        "epic": 0.16,
+        "mythic": 0.20,
+        "ancient": 0.25
       }
     },
     {
@@ -39,15 +32,15 @@
           "heavy_weapon"
         ]
       },
-      "attribute": "irons_spellbooks:evocation_spell_power",
+      "attribute": "irons_spellbooks:evocation_magic_resist",
       "operation": "MULTIPLY_BASE",
       "values": {
-        "common": 0.15,
-        "uncommon": 0.3,
-        "rare": 0.45,
-        "epic": 0.6,
-        "mythic": 0.75,
-        "ancient": 0.9
+        "common": 0.025,
+        "uncommon": 0.05,
+        "rare": 0.10,
+        "epic": 0.125,
+        "mythic": 0.15,
+        "ancient": 0.20
       }
     },
     {
@@ -61,12 +54,11 @@
       "attribute": "minecraft:generic.movement_speed",
       "operation": "MULTIPLY_BASE",
       "values": {
-        "common": 0.06,
-        "uncommon": 0.15,
-        "rare": 0.21,
-        "epic": 0.27,
-        "mythic": 0.33,
-        "ancient": 0.42
+        "uncommon": 0.05,
+        "rare": 0.075,
+        "epic": 0.125,
+        "mythic": 0.15,
+        "ancient": 0.2
       }
     },
     {
@@ -77,8 +69,8 @@
           "chestplate"
         ]
       },
-      "attribute": "attributeslib:max_mana:dodge_chance",
-      "operation": "MULTIPLY_BASE",
+      "attribute": "attributeslib:dodge_chance",
+      "operation": "ADDITION",
       "values": {
         "common": 0.015,
         "uncommon": 0.03,
