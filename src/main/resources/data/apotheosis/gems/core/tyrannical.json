@@ -16,12 +16,11 @@
 			"attribute": "attributeslib:current_hp_damage",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.0075,
-				"uncommon": 0.015,
-				"rare": 0.03,
-				"epic": 0.045,
-				"mythic": 0.06,
-				"ancient": 0.075
+				"uncommon": 0.01,
+				"rare": 0.02,
+				"epic": 0.03,
+				"mythic": 0.04,
+				"ancient": 0.05
 			}
 		},
 		{

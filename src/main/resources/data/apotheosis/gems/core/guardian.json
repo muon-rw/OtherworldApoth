@@ -36,12 +36,11 @@
 			"attribute": "attributeslib:life_steal",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.015,
-				"uncommon": 0.03,
-				"rare": 0.045,
-				"epic": 0.06,
-				"mythic": 0.075,
-				"ancient": 0.09
+				"uncommon": 0.01,
+				"rare": 0.02,
+				"epic": 0.03,
+				"mythic": 0.04,
+				"ancient": 0.05
 			}
 		},
 		{

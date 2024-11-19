@@ -55,12 +55,10 @@
 			"attribute": "forge:step_height_addition",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.075,
-				"uncommon": 0.15,
-				"rare": 1,
-				"epic": 0.5,
+				"rare": 0.5,
+				"epic": 0.75,
 				"mythic": 1,
-				"ancient": 2
+				"ancient": 1.5
 			}
 		}
 	]

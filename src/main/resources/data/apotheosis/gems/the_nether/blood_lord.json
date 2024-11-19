@@ -19,12 +19,11 @@
 			"attribute": "attributeslib:life_steal",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.015,
-				"uncommon": 0.075,
-				"rare": 0.12,
-				"epic": 0.1575,
-				"mythic": 0.195,
-				"ancient": 0.225
+				"uncommon": 0.025,
+				"rare": 0.05,
+				"epic": 0.075,
+				"mythic": 0.1,
+				"ancient": 0.125
 			}
 		},
 		{
@@ -41,11 +40,11 @@
 					"attribute": "minecraft:generic.attack_damage",
 					"operation": "MULTIPLY_TOTAL",
 					"values": {
-						"uncommon": 0.15,
-						"rare": 0.25,
-						"epic": 0.35,
-						"mythic": 0.45,
-						"ancient": 0.5
+						"uncommon": 0.1,
+						"rare": 0.2,
+						"epic": 0.25,
+						"mythic": 0.3,
+						"ancient": 0.35
 					}
 				},
 				{
