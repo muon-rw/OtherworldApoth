@@ -3,9 +3,9 @@
 	"weight": 10,
 	"quality": 0,
 	"unique": true,
-	"dimensions": [
-	],
-	"bonuses": [{
+	"dimensions": [],
+	"bonuses": [
+		{
 			"type": "apotheosis:attribute",
 			"gem_class": {
 				"key": "ranged_weapon",
@@ -17,12 +17,12 @@
 			"attribute": "attributeslib:draw_speed",
 			"operation": "MULTIPLY_BASE",
 			"values": {
-				"common": 0.10,
-				"uncommon": 0.25,
-				"rare": 0.35,
-				"epic": 0.45,
-				"mythic": 0.5,
-				"ancient": 0.60
+				"common": 0.03,
+				"uncommon": 0.075,
+				"rare": 0.105,
+				"epic": 0.135,
+				"mythic": 0.15,
+				"ancient": 0.18
 			}
 		},
 		{
@@ -37,12 +37,12 @@
 			"attribute": "attributeslib:mining_speed",
 			"operation": "MULTIPLY_BASE",
 			"values": {
-				"common": 0.05,
-				"uncommon": 0.15,
-				"rare": 0.225,
-				"epic": 0.30,
-				"mythic": 0.375,
-				"ancient": 0.45
+				"common": 0.015,
+				"uncommon": 0.045,
+				"rare": 0.0675,
+				"epic": 0.09,
+				"mythic": 0.1125,
+				"ancient": 0.135
 			}
 		},
 		{
@@ -56,12 +56,12 @@
 			"attribute": "attributeslib:dodge_chance",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.025,
-				"uncommon": 0.05,
-				"rare": 0.075,
-				"epic": 0.10,
-				"mythic": 0.125,
-				"ancient": 0.15
+				"common": 0.0075,
+				"uncommon": 0.015,
+				"rare": 0.0225,
+				"epic": 0.03,
+				"mythic": 0.0375,
+				"ancient": 0.045
 			}
 		}
 	]

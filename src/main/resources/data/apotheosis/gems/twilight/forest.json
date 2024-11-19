@@ -1,8 +1,10 @@
 {
-	"conditions": [{
-		"type": "forge:mod_loaded",
-		"modid": "twilightforest"
-	}],
+	"conditions": [
+		{
+			"type": "forge:mod_loaded",
+			"modid": "twilightforest"
+		}
+	],
 	"weight": 5,
 	"quality": 1.5,
 	"dimensions": [
@@ -10,12 +12,17 @@
 	],
 	"unique": true,
 	"min_rarity": "rare",
-	"bonuses": [{
+	"bonuses": [
+		{
 			"type": "apotheosis:twilight_treasure_goblin",
 			"gem_class": {
 				"key": "weapon",
 				"types": [
-					"heavy_weapon", "sword", "trident", "bow", "crossbow"
+					"heavy_weapon",
+					"sword",
+					"trident",
+					"bow",
+					"crossbow"
 				]
 			},
 			"values": {
@@ -46,14 +53,15 @@
 					"shield"
 				]
 			},
-			"modifiers": [{
+			"modifiers": [
+				{
 					"attribute": "attributeslib:healing_received",
 					"operation": "MULTIPLY_BASE",
 					"values": {
-						"rare": 0.10,
-						"epic": 0.20,
-						"mythic": 0.30,
-						"ancient": 0.40
+						"rare": 0.1,
+						"epic": 0.2,
+						"mythic": 0.3,
+						"ancient": 0.4
 					}
 				},
 				{
@@ -61,9 +69,9 @@
 					"operation": "MULTIPLY_TOTAL",
 					"values": {
 						"rare": -0.05,
-						"epic": -0.10,
+						"epic": -0.1,
 						"mythic": -0.15,
-						"ancient": -0.20
+						"ancient": -0.2
 					}
 				}
 			]
@@ -77,10 +85,10 @@
 				]
 			},
 			"values": {
-				"rare": 24,
-				"epic": 20,
-				"mythic": 16,
-				"ancient": 12
+				"rare": 12,
+				"epic": 10,
+				"mythic": 8,
+				"ancient": 6
 			}
 		},
 		{
@@ -92,12 +100,13 @@
 					"chestplate"
 				]
 			},
-			"modifiers": [{
+			"modifiers": [
+				{
 					"attribute": "attributeslib:armor_shred",
 					"operation": "MULTIPLY_TOTAL",
 					"values": {
 						"rare": 0.35,
-						"epic": 0.50,
+						"epic": 0.5,
 						"mythic": 0.75,
 						"ancient": 1
 					}
@@ -107,9 +116,9 @@
 					"operation": "MULTIPLY_TOTAL",
 					"values": {
 						"rare": -0.25,
-						"epic": -0.40,
-						"mythic": -0.60,
-						"ancient": -0.80
+						"epic": -0.4,
+						"mythic": -0.6,
+						"ancient": -0.8
 					}
 				},
 				{
@@ -117,9 +126,9 @@
 					"operation": "MULTIPLY_TOTAL",
 					"values": {
 						"rare": -0.25,
-						"epic": -0.40,
-						"mythic": -0.60,
-						"ancient": -0.80
+						"epic": -0.4,
+						"mythic": -0.6,
+						"ancient": -0.8
 					}
 				}
 			]

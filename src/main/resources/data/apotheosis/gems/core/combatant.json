@@ -2,10 +2,10 @@
 	"variant": "combatant",
 	"weight": 10,
 	"quality": 0,
-	"dimensions": [
-	],
+	"dimensions": [],
 	"unique": true,
-	"bonuses": [{
+	"bonuses": [
+		{
 			"type": "apotheosis:attribute",
 			"gem_class": {
 				"key": "ranged_weapon",
@@ -18,12 +18,12 @@
 			"attribute": "attributeslib:arrow_damage",
 			"operation": "MULTIPLY_BASE",
 			"values": {
-				"common": 0.05,
-				"uncommon": 0.15,
-				"rare": 0.20,
-				"epic": 0.30,
-				"mythic": 0.40,
-				"ancient": 0.50
+				"common": 0.015,
+				"uncommon": 0.045,
+				"rare": 0.06,
+				"epic": 0.09,
+				"mythic": 0.12,
+				"ancient": 0.15
 			}
 		},
 		{
@@ -37,12 +37,12 @@
 			},
 			"damage_type": "physical",
 			"values": {
-				"common": 0.05,
-				"uncommon": 0.075,
-				"rare": 0.125,
-				"epic": 0.175,
-				"mythic": 0.225,
-				"ancient": 0.275
+				"common": 0.015,
+				"uncommon": 0.0225,
+				"rare": 0.0375,
+				"epic": 0.0525,
+				"mythic": 0.0675,
+				"ancient": 0.0825
 			}
 		},
 		{
@@ -55,12 +55,12 @@
 				]
 			},
 			"values": {
-				"common": 0.05,
-				"uncommon": 0.10,
-				"rare": 0.15,
-				"epic": 0.225,
-				"mythic": 0.30,
-				"ancient": 0.40
+				"common": 0.015,
+				"uncommon": 0.03,
+				"rare": 0.045,
+				"epic": 0.0675,
+				"mythic": 0.09,
+				"ancient": 0.12
 			}
 		}
 	]

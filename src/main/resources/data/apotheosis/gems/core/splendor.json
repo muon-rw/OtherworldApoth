@@ -2,9 +2,9 @@
 	"variant": "splendor",
 	"weight": 10,
 	"quality": 0,
-	"dimensions": [
-	],
-	"bonuses": [{
+	"dimensions": [],
+	"bonuses": [
+		{
 			"type": "apotheosis:attribute",
 			"gem_class": {
 				"key": "core_armor",
@@ -16,12 +16,12 @@
 			"attribute": "minecraft:generic.luck",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.5,
-				"uncommon": 1.5,
-				"rare": 2.75,
-				"epic": 4,
-				"mythic": 5,
-				"ancient": 6
+				"common": 0.15,
+				"uncommon": 0.5,
+				"rare": 1.0,
+				"epic": 2,
+				"mythic": 2,
+				"ancient": 3
 			}
 		},
 		{
@@ -41,12 +41,12 @@
 			"attribute": "attributeslib:experience_gained",
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
-				"common": 0.075,
-				"uncommon": 0.15,
-				"rare": 0.225,
-				"epic": 0.3,
-				"mythic": 0.35,
-				"ancient": 0.4
+				"common": 0.0225,
+				"uncommon": 0.045,
+				"rare": 0.0675,
+				"epic": 0.09,
+				"mythic": 0.105,
+				"ancient": 0.12
 			}
 		},
 		{
@@ -60,12 +60,12 @@
 			"attribute": "minecraft:generic.movement_speed",
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
-				"common": 0.10,
-				"uncommon": 0.25,
-				"rare": 0.35,
-				"epic": 0.45,
-				"mythic": 0.55,
-				"ancient": 0.70
+				"common": 0.03,
+				"uncommon": 0.075,
+				"rare": 0.105,
+				"epic": 0.135,
+				"mythic": 0.165,
+				"ancient": 0.21
 			}
 		}
 	]

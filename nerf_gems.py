@@ -14,8 +14,11 @@ def reduce_value(value, operation=None, reduction_factor=0.3):
     else:
         reduced = value * reduction_factor
         if operation == "ADDITION":
-            return round_to_half(reduced)
-        else:  # MULTIPLY_BASE, MULTIPLY_TOTAL, etc.
+            if value <= 1.0:
+                return round_to_quarter_percent(reduced)
+            else:
+                return round_to_half(reduced)
+        else:  
             return round_to_quarter_percent(reduced)
 
 def process_gem_file(data):

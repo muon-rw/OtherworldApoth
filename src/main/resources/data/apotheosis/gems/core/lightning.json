@@ -2,9 +2,9 @@
 	"variant": "lightning",
 	"weight": 10,
 	"quality": 0,
-	"dimensions": [
-	],
-	"bonuses": [{
+	"dimensions": [],
+	"bonuses": [
+		{
 			"type": "apotheosis:attribute",
 			"gem_class": {
 				"key": "ranged_weapon",
@@ -16,12 +16,12 @@
 			"attribute": "attributeslib:arrow_velocity",
 			"operation": "MULTIPLY_BASE",
 			"values": {
-				"common": 0.05,
-				"uncommon": 0.15,
-				"rare": 0.25,
-				"epic": 0.35,
-				"mythic": 0.425,
-				"ancient": 0.55
+				"common": 0.015,
+				"uncommon": 0.045,
+				"rare": 0.075,
+				"epic": 0.105,
+				"mythic": 0.1275,
+				"ancient": 0.165
 			}
 		},
 		{
@@ -36,12 +36,12 @@
 			"attribute": "attributeslib:mining_speed",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.05,
-				"uncommon": 0.15,
-				"rare": 0.25,
-				"epic": 0.35,
-				"mythic": 0.425,
-				"ancient": 0.50
+				"common": 0.015,
+				"uncommon": 0.045,
+				"rare": 0.075,
+				"epic": 0.105,
+				"mythic": 0.1275,
+				"ancient": 0.15
 			}
 		},
 		{
@@ -49,18 +49,19 @@
 			"gem_class": {
 				"key": "lower_armor",
 				"types": [
-					"boots", "leggings"
+					"boots",
+					"leggings"
 				]
 			},
 			"attribute": "minecraft:generic.movement_speed",
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
-				"common": 0.10,
-				"uncommon": 0.225,
-				"rare": 0.375,
-				"epic": 0.40,
-				"mythic": 0.55,
-				"ancient": 0.70
+				"common": 0.03,
+				"uncommon": 0.0675,
+				"rare": 0.1125,
+				"epic": 0.12,
+				"mythic": 0.165,
+				"ancient": 0.21
 			}
 		}
 	]

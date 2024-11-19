@@ -21,9 +21,9 @@
 			"must_exist": true,
 			"values": {
 				"rare": 1,
-				"epic": 2,
-				"mythic": 3,
-				"ancient": 4
+				"epic": 1,
+				"mythic": 2,
+				"ancient": 2
 			}
 		},
 		{
@@ -39,9 +39,9 @@
 			"must_exist": true,
 			"values": {
 				"rare": 1,
-				"epic": 2,
-				"mythic": 3,
-				"ancient": 4
+				"epic": 1,
+				"mythic": 2,
+				"ancient": 2
 			}
 		},
 		{
@@ -57,9 +57,9 @@
 			"must_exist": true,
 			"values": {
 				"rare": 1,
-				"epic": 2,
-				"mythic": 3,
-				"ancient": 4
+				"epic": 1,
+				"mythic": 2,
+				"ancient": 2
 			}
 		}
 	]

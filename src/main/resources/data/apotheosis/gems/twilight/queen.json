@@ -1,8 +1,10 @@
 {
-	"conditions": [{
-		"type": "forge:mod_loaded",
-		"modid": "twilightforest"
-	}],
+	"conditions": [
+		{
+			"type": "forge:mod_loaded",
+			"modid": "twilightforest"
+		}
+	],
 	"weight": 5,
 	"quality": 1.5,
 	"dimensions": [
@@ -10,7 +12,8 @@
 	],
 	"unique": true,
 	"min_rarity": "rare",
-	"bonuses": [{
+	"bonuses": [
+		{
 			"type": "apotheosis:twilight_fortification",
 			"gem_class": {
 				"key": "chestplate",
@@ -24,7 +27,7 @@
 					"cooldown": 6000
 				},
 				"epic": {
-					"chance": 0.10,
+					"chance": 0.1,
 					"cooldown": 5400
 				},
 				"mythic": {
@@ -48,10 +51,10 @@
 			"attribute": "attributeslib:cold_damage",
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
-				"rare": 0.50,
-				"epic": 0.625,
-				"mythic": 0.75,
-				"ancient": 0.90
+				"rare": 0.15,
+				"epic": 0.1875,
+				"mythic": 0.225,
+				"ancient": 0.27
 			}
 		},
 		{
@@ -65,10 +68,10 @@
 			"attribute": "attributeslib:cold_damage",
 			"operation": "ADDITION",
 			"values": {
-				"rare": 6,
-				"epic": 8,
-				"mythic": 10,
-				"ancient": 12.5
+				"rare": 3,
+				"epic": 4,
+				"mythic": 5,
+				"ancient": 4.0
 			}
 		},
 		{

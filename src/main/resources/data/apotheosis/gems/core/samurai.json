@@ -2,10 +2,10 @@
 	"variant": "samurai",
 	"weight": 10,
 	"quality": 0,
-	"dimensions": [
-	],
+	"dimensions": [],
 	"unique": true,
-	"bonuses": [{
+	"bonuses": [
+		{
 			"type": "apotheosis:attribute",
 			"gem_class": {
 				"key": "light_ranged",
@@ -19,12 +19,12 @@
 			"attribute": "attributeslib:crit_chance",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.05,
-				"uncommon": 0.15,
-				"rare": 0.25,
-				"epic": 0.35,
-				"mythic": 0.40,
-				"ancient": 0.45
+				"common": 0.015,
+				"uncommon": 0.045,
+				"rare": 0.075,
+				"epic": 0.105,
+				"mythic": 0.12,
+				"ancient": 0.135
 			}
 		},
 		{
@@ -38,12 +38,12 @@
 			"attribute": "attributeslib:crit_chance",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.10,
-				"uncommon": 0.25,
-				"rare": 0.35,
-				"epic": 0.40,
-				"mythic": 0.475,
-				"ancient": 0.65
+				"common": 0.03,
+				"uncommon": 0.075,
+				"rare": 0.105,
+				"epic": 0.12,
+				"mythic": 0.1425,
+				"ancient": 0.195
 			}
 		},
 		{
@@ -58,12 +58,12 @@
 			"attribute": "minecraft:generic.movement_speed",
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
-				"common": 0.05,
-				"uncommon": 0.15,
-				"rare": 0.25,
-				"epic": 0.35,
-				"mythic": 0.45,
-				"ancient": 0.65
+				"common": 0.015,
+				"uncommon": 0.045,
+				"rare": 0.075,
+				"epic": 0.105,
+				"mythic": 0.135,
+				"ancient": 0.195
 			}
 		},
 		{
@@ -77,12 +77,12 @@
 			"attribute": "attributeslib:arrow_velocity",
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
-				"common": 0.075,
-				"uncommon": 0.15,
-				"rare": 0.25,
-				"epic": 0.375,
-				"mythic": 0.425,
-				"ancient": 0.50
+				"common": 0.0225,
+				"uncommon": 0.045,
+				"rare": 0.075,
+				"epic": 0.1125,
+				"mythic": 0.1275,
+				"ancient": 0.15
 			}
 		},
 		{
@@ -96,12 +96,12 @@
 			"attribute": "attributeslib:dodge_chance",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.01,
-				"uncommon": 0.02,
-				"rare": 0.04,
-				"epic": 0.06,
-				"mythic": 0.08,
-				"ancient": 0.10
+				"common": 0.0025,
+				"uncommon": 0.005,
+				"rare": 0.0125,
+				"epic": 0.0175,
+				"mythic": 0.025,
+				"ancient": 0.03
 			}
 		}
 	]

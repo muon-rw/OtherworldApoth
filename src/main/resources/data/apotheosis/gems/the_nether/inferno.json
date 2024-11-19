@@ -1,8 +1,10 @@
 {
-	"conditions": [{
-		"type": "apotheosis:module",
-		"module": "enchantment"
-	}],
+	"conditions": [
+		{
+			"type": "apotheosis:module",
+			"module": "enchantment"
+		}
+	],
 	"weight": 5,
 	"quality": 1.5,
 	"dimensions": [
@@ -10,7 +12,8 @@
 	],
 	"unique": true,
 	"min_rarity": "rare",
-	"bonuses": [{
+	"bonuses": [
+		{
 			"type": "apotheosis:attribute",
 			"gem_class": {
 				"key": "heavy_weapon",
@@ -21,10 +24,10 @@
 			"attribute": "attributeslib:fire_damage",
 			"operation": "ADDITION",
 			"values": {
-				"rare": 6,
-				"epic": 8,
-				"mythic": 10,
-				"ancient": 12.5
+				"rare": 3,
+				"epic": 4,
+				"mythic": 5,
+				"ancient": 4.0
 			}
 		},
 		{
@@ -63,8 +66,8 @@
 			"values": {
 				"rare": 1,
 				"epic": 1,
-				"mythic": 2,
-				"ancient": 2
+				"mythic": 1,
+				"ancient": 1
 			}
 		},
 		{
@@ -79,9 +82,9 @@
 			"enchantment": "efficiency",
 			"values": {
 				"rare": 1,
-				"epic": 2,
-				"mythic": 3,
-				"ancient": 4
+				"epic": 1,
+				"mythic": 2,
+				"ancient": 2
 			}
 		},
 		{
@@ -95,10 +98,10 @@
 			"attribute": "attributeslib:fire_damage",
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
-				"rare": 0.50,
-				"epic": 0.625,
-				"mythic": 0.75,
-				"ancient": 0.90
+				"rare": 0.15,
+				"epic": 0.1875,
+				"mythic": 0.225,
+				"ancient": 0.27
 			}
 		}
 	]

@@ -1,19 +1,24 @@
 {
 	"weight": 5,
 	"quality": 1.5,
-	"dimensions": ["minecraft:the_end"],
+	"dimensions": [
+		"minecraft:the_end"
+	],
 	"unique": true,
 	"min_rarity": "epic",
-	"bonuses": [{
+	"bonuses": [
+		{
 			"type": "apotheosis:multi_attribute",
 			"desc": "bonus.apotheosis:multi_attr.desc.and",
 			"gem_class": {
 				"key": "light_weapon",
 				"types": [
-					"sword", "trident"
+					"sword",
+					"trident"
 				]
 			},
-			"modifiers": [{
+			"modifiers": [
+				{
 					"attribute": "attributeslib:prot_pierce",
 					"operation": "ADDITION",
 					"values": {
@@ -42,13 +47,14 @@
 					"heavy_weapon"
 				]
 			},
-			"modifiers": [{
+			"modifiers": [
+				{
 					"attribute": "attributeslib:prot_shred",
 					"operation": "ADDITION",
 					"values": {
 						"epic": 0.25,
 						"mythic": 0.375,
-						"ancient": 0.50
+						"ancient": 0.5
 					}
 				},
 				{
@@ -65,9 +71,9 @@
 		{
 			"type": "apotheosis:mageslayer",
 			"values": {
-				"epic": 0.15,
-				"mythic": 0.225,
-				"ancient": 0.35
+				"epic": 0.045,
+				"mythic": 0.0675,
+				"ancient": 0.105
 			}
 		},
 		{
