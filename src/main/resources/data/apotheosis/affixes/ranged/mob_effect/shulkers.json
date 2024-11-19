@@ -35,7 +35,7 @@
 				"steps": 5,
 				"step": 5.0
 			},
-			"amplifier": 3,
+			"amplifier": 1,
 			"cooldown": 140
 		}
 	},
