@@ -15,22 +15,22 @@
 		},
 		"rare": {
 			"min": 0.75,
-			"steps": 3,
+			"steps": 2,
 			"step": 0.25
 		},
 		"epic": {
 			"min": 0.75,
-			"steps": 5,
+			"steps": 2,
 			"step": 0.25
 		},
 		"mythic": {
 			"min": 0.75,
-			"steps": 5,
+			"steps": 2,
 			"step": 0.25
 		},
 		"ancient": {
 			"min": 1.0,
-			"steps": 8,
+			"steps": 2,
 			"step": 0.25
 		}
 	},

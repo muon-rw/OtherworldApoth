@@ -6,7 +6,7 @@
 		"rare": {
 			"duration": {
 				"min": 10.0,
-				"steps": 3,
+				"steps": 2,
 				"step": 5.0
 			},
 			"amplifier": 0
@@ -14,31 +14,31 @@
 		"epic": {
 			"duration": {
 				"min": 10.0,
-				"steps": 4,
+				"steps": 2,
 				"step": 5.0
 			},
 			"amplifier": {
 				"min": 0.0,
-				"steps": 4,
+				"steps": 2,
 				"step": 0.065
 			}
 		},
 		"mythic": {
 			"duration": {
 				"min": 10.0,
-				"steps": 5,
+				"steps": 2,
 				"step": 5.0
 			},
 			"amplifier": {
 				"min": 0.0,
-				"steps": 8,
+				"steps": 2,
 				"step": 0.065
 			}
 		},
 		"ancient": {
 			"duration": {
 				"min": 30.0,
-				"steps": 5,
+				"steps": 2,
 				"step": 10.0
 			},
 			"amplifier": 1

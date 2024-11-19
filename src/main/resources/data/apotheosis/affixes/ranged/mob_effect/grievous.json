@@ -6,7 +6,7 @@
 		"rare": {
 			"duration": {
 				"min": 50.0,
-				"steps": 3,
+				"steps": 2,
 				"step": 5.0
 			},
 			"amplifier": 0,
@@ -15,12 +15,12 @@
 		"epic": {
 			"duration": {
 				"min": 50.0,
-				"steps": 5,
+				"steps": 2,
 				"step": 5.0
 			},
 			"amplifier": {
 				"min": 0.0,
-				"steps": 4,
+				"steps": 2,
 				"step": 0.065
 			},
 			"cooldown": 500
@@ -28,12 +28,12 @@
 		"mythic": {
 			"duration": {
 				"min": 50.0,
-				"steps": 5,
+				"steps": 2,
 				"step": 5.0
 			},
 			"amplifier": {
 				"min": 0.0,
-				"steps": 4,
+				"steps": 2,
 				"step": 0.065
 			},
 			"cooldown": 400
@@ -41,7 +41,7 @@
 		"ancient": {
 			"duration": {
 				"min": 25.0,
-				"steps": 5,
+				"steps": 2,
 				"step": 5.0
 			},
 			"amplifier": 1,

@@ -12,7 +12,7 @@
 			"duration": 200,
 			"amplifier": {
 				"min": 0.0,
-				"steps": 4,
+				"steps": 2,
 				"step": 0.075
 			},
 			"cooldown": 600

@@ -33,7 +33,7 @@
 		"ancient": {
 			"duration": {
 				"min": 15.0,
-				"steps": 4,
+				"steps": 2,
 				"step": 5.0
 			},
 			"amplifier": 0,

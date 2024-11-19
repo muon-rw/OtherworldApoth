@@ -4,48 +4,48 @@
 		"rare": {
 			"chance": {
 				"min": 0.075,
-				"steps": 4,
-				"step": 0.0125
+				"steps": 2,
+				"step": 0.05
 			},
 			"targets": {
 				"min": 0.25,
-				"steps": 3,
+				"steps": 2,
 				"step": 0.25
 			}
 		},
 		"epic": {
 			"chance": {
 				"min": 0.075,
-				"steps": 4,
-				"step": 0.0125
+				"steps": 2,
+				"step": 0.05
 			},
 			"targets": {
 				"min": 0.5,
-				"steps": 3,
+				"steps": 2,
 				"step": 0.25
 			}
 		},
 		"mythic": {
 			"chance": {
 				"min": 0.1,
-				"steps": 4,
-				"step": 0.0125
+				"steps": 2,
+				"step": 0.05
 			},
 			"targets": {
 				"min": 0.75,
-				"steps": 3,
+				"steps": 2,
 				"step": 0.25
 			}
 		},
 		"ancient": {
 			"chance": {
 				"min": 0.125,
-				"steps": 4,
-				"step": 0.0125
+				"steps": 2,
+				"step": 0.05
 			},
 			"targets": {
 				"min": 0.75,
-				"steps": 5,
+				"steps": 2,
 				"step": 0.25
 			}
 		}

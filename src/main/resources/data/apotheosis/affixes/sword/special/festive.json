@@ -3,18 +3,18 @@
 	"values": {
 		"epic": {
 			"min": 0.005,
-			"steps": 5,
-			"step": 0.0
+			"steps": 2,
+			"step": 0.005
 		},
 		"mythic": {
 			"min": 0.0075,
-			"steps": 5,
-			"step": 0.0
+			"steps": 2,
+			"step": 0.005
 		},
 		"ancient": {
 			"min": 0.0125,
-			"steps": 8,
-			"step": 0.0
+			"steps": 2,
+			"step": 0.005
 		}
 	}
 }

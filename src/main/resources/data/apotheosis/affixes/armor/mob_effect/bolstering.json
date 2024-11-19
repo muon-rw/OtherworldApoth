@@ -15,12 +15,12 @@
 		"epic": {
 			"duration": {
 				"min": 20.0,
-				"steps": 3,
+				"steps": 2,
 				"step": 5.0
 			},
 			"amplifier": {
 				"min": 0.0,
-				"steps": 5,
+				"steps": 2,
 				"step": 0.05
 			},
 			"cooldown": 260
@@ -28,7 +28,7 @@
 		"mythic": {
 			"duration": {
 				"min": 20.0,
-				"steps": 3,
+				"steps": 2,
 				"step": 5.0
 			},
 			"amplifier": {
@@ -41,12 +41,12 @@
 		"ancient": {
 			"duration": {
 				"min": 25.0,
-				"steps": 10,
+				"steps": 2,
 				"step": 10.0
 			},
 			"amplifier": {
 				"min": 0.0,
-				"steps": 4,
+				"steps": 2,
 				"step": 0.125
 			},
 			"cooldown": 160

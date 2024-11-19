@@ -4,23 +4,23 @@
 	"values": {
 		"uncommon": {
 			"min": 3.0,
-			"steps": 4,
-			"step": -0.25
+			"steps": 2,
+			"step": -1.0
 		},
 		"rare": {
 			"min": 3.0,
-			"steps": 4,
-			"step": -0.25
+			"steps": 2,
+			"step": -1.0
 		},
 		"epic": {
 			"min": 2.5,
-			"steps": 4,
-			"step": -0.25
+			"steps": 2,
+			"step": -1.0
 		},
 		"mythic": {
 			"min": 2.5,
-			"steps": 4,
-			"step": -0.25
+			"steps": 2,
+			"step": -1.0
 		},
 		"ancient": {
 			"min": 0.25,
