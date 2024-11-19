@@ -1,0 +1,31 @@
+{
+  "type": "apotheosis:attribute",
+  "values": {
+    "rare": {
+      "min": 1,
+      "steps": 1,
+      "step": 1
+    },
+    "epic": {
+      "min": 1,
+      "steps": 2,
+      "step": 1
+    },
+    "mythic": {
+      "min": 2,
+      "steps": 1,
+      "step": 1
+    },
+    "ancient": {
+      "min": 2,
+      "steps": 2,
+      "step": 1
+    }
+  },
+  "types": [
+    "sword",
+    "heavy_weapon"
+  ],
+  "attribute": "otherworldapoth:eldritch_spell_level",
+  "operation": "ADDITION"
+}

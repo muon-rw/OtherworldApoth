@@ -144,7 +144,6 @@ dependencies {
     implementation fg.deobf("curse.maven:medieval-core-mod-1055023:5915524")
     runtimeOnly fg.deobf("curse.maven:ydms-mobhealthbar-mod-559894:4818965")
 
-
     // Dev Env
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
     runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_id}")

@@ -1,0 +1,84 @@
+{
+  "weight": 5,
+  "quality": 2,
+  "dimensions": [],
+  "bonuses": [
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "magic_weapons",
+        "types": [
+          "staff"
+        ]
+      },
+      "attribute": "irons_spellbooks:ender_spell_power",
+      "operation": "MULTIPLY_BASE",
+      "values": {
+        "common": 0.03,
+        "uncommon": 0.06,
+        "rare": 0.09,
+        "epic": 0.12,
+        "mythic": 0.15,
+        "ancient": 0.18
+      }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "melee_weapon",
+        "types": [
+          "sword",
+          "heavy_weapon"
+        ]
+      },
+      "attribute": "irons_spellbooks:ender_spell_power",
+      "operation": "MULTIPLY_BASE",
+      "values": {
+        "common": 0.15,
+        "uncommon": 0.3,
+        "rare": 0.45,
+        "epic": 0.6,
+        "mythic": 0.75,
+        "ancient": 0.9
+      }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "helmet",
+        "types": [
+          "helmet"
+        ]
+      },
+      "attribute": "irons_spellbooks:max_mana",
+      "operation": "MULTIPLY_BASE",
+      "values": {
+        "common": 0.03,
+        "uncommon": 0.045,
+        "rare": 0.06,
+        "epic": 0.09,
+        "mythic": 0.12,
+        "ancient": 0.15
+      }
+    },
+    {
+      "type": "apotheosis:damage_reduction",
+      "gem_class": {
+        "key": "core_armor",
+        "types": [
+          "chestplate",
+          "leggings"
+        ]
+      },
+      "damage_type": "magic",
+      "values": {
+        "common": 0.0125,
+        "uncommon": 0.02,
+        "rare": 0.04,
+        "epic": 0.006,
+        "mythic": 0.08,
+        "ancient": 0.1
+      }
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "weight": 5,
+  "quality": 2,
+  "dimensions": [],
+  "bonuses": [
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "magic_weapons",
+        "types": [
+          "staff"
+        ]
+      },
+      "attribute": "irons_spellbooks:holy_spell_power",
+      "operation": "MULTIPLY_BASE",
+      "values": {
+        "common": 0.03,
+        "uncommon": 0.06,
+        "rare": 0.09,
+        "epic": 0.12,
+        "mythic": 0.15,
+        "ancient": 0.18
+      }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "melee_weapon",
+        "types": [
+          "sword",
+          "heavy_weapon"
+        ]
+      },
+      "attribute": "irons_spellbooks:holy_spell_power",
+      "operation": "MULTIPLY_BASE",
+      "values": {
+        "common": 0.15,
+        "uncommon": 0.3,
+        "rare": 0.45,
+        "epic": 0.6,
+        "mythic": 0.75,
+        "ancient": 0.9
+      }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "helmet",
+        "types": [
+          "helmet"
+        ]
+      },
+      "attribute": "irons_spellbooks:cooldown_reduction",
+      "operation": "MULTIPLY_BASE",
+      "values": {
+        "common": 0.012,
+        "uncommon": 0.018,
+        "rare": 0.024,
+        "epic": 0.036,
+        "mythic": 0.048,
+        "ancient": 0.06
+      }
+    },
+    {
+      "type": "apotheosis:mob_effect",
+      "gem_class": {
+        "key": "core_armor",
+        "types": [
+          "chestplate",
+          "leggings"
+        ]
+      },
+      "mob_effect": "attributeslib:max_mana:vitality",
+      "target": "hurt_self",
+      "operation": "ADDITION",
+      "values": {
+        "common": {
+          "duration": 40,
+          "amplifier": 0,
+          "cooldown": 120
+        },
+        "uncommon": {
+          "duration": 80,
+          "amplifier": 0,
+          "cooldown": 120
+        },
+        "rare": {
+          "duration": 80,
+          "amplifier": 1,
+          "cooldown": 120
+        },
+        "epic": {
+          "duration": 100,
+          "amplifier": 1,
+          "cooldown": 120
+        },
+        "mythic": {
+          "duration": 100,
+          "amplifier": 2,
+          "cooldown": 120
+        },
+        "ancient": {
+          "duration": 140,
+          "amplifier": 2,
+          "cooldown": 120
+        }
+      }
+    }
+  ]
+}

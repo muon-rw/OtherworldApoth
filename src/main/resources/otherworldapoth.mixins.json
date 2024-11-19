@@ -12,11 +12,12 @@
     "AffixLootModifierMixin",
     "BossEventsMixin",
     "GemLootModifierMixin",
+    "LootControllerMixin",
     "MobMixin",
-    "RandomizableContainerBlockEntityMixin",
-    "client.LevelDisplayRendererMixin"
+    "RandomizableContainerBlockEntityMixin"
   ],
   "client": [
+    "client.LevelDisplayRendererMixin"
   ],
   "minVersion": "0.8"
 }
