@@ -10,6 +10,7 @@
   "mixins": [
     "AffixConvertLootModifierMixin",
     "AffixLootModifierMixin",
+    "AffixRegistryMixin",
     "BossEventsMixin",
     "GemLootModifierMixin",
     "LootControllerMixin",

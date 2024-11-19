@@ -3,14 +3,11 @@ package dev.muon.otherworldapoth.affix;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.shadowsoffire.apotheosis.adventure.affix.Affix;
-import dev.shadowsoffire.apotheosis.adventure.affix.AffixHelper;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixType;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootCategory;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootRarity;
 import dev.shadowsoffire.placebo.codec.PlaceboCodecs;
 import dev.shadowsoffire.placebo.util.StepFunction;
-import io.redspace.ironsspellbooks.api.events.SpellDamageEvent;
-import io.redspace.ironsspellbooks.api.events.SpellHealEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.effect.MobEffect;
@@ -18,8 +15,6 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Map;
@@ -41,6 +36,12 @@ public class SpellEffectAffix extends Affix {
     protected final int cooldown;
     protected final Set<LootCategory> types;
 
+    public void applyEffect(LivingEntity target, LootRarity rarity, float level) {
+        if (isOnCooldown(this.getId(), this.cooldown, target)) return;
+        target.addEffect(this.values.get(rarity).build(this.effect, level));
+        startCooldown(this.getId(), target);
+    }
+
     public SpellEffectAffix(MobEffect effect, SpellTarget target, Map<LootRarity, EffectData> values, int cooldown, Set<LootCategory> types) {
         super(AffixType.ABILITY);
         this.effect = effect;
@@ -48,7 +49,6 @@ public class SpellEffectAffix extends Affix {
         this.values = values;
         this.cooldown = cooldown;
         this.types = types;
-        MinecraftForge.EVENT_BUS.register(this);
     }
 
     public static enum SpellTarget {
@@ -56,50 +56,6 @@ public class SpellEffectAffix extends Affix {
         SPELL_CAST_TARGET;
 
         public static final Codec<SpellTarget> CODEC = PlaceboCodecs.enumCodec(SpellTarget.class);
-    }
-
-    private void applyEffect(LivingEntity target, LootRarity rarity, float level) {
-        if (isOnCooldown(this.getId(), this.cooldown, target)) return;
-
-        target.addEffect(this.values.get(rarity).build(this.effect, level));
-        startCooldown(this.getId(), target);
-    }
-
-    @SubscribeEvent
-    public void onSpellDamage(SpellDamageEvent event) {
-        if (event.getEntity().level().isClientSide()) return;
-
-        LivingEntity caster = event.getSpellDamageSource().getEntity() instanceof LivingEntity living ? living : null;
-        if (caster == null) return;
-
-        for (ItemStack stack : caster.getAllSlots()) {
-            AffixHelper.streamAffixes(stack).forEach(inst -> {
-                if (inst.affix().get() == this) {
-                    if (target == SpellTarget.SPELL_CAST_TARGET) {
-                        applyEffect(event.getEntity(), inst.rarity().get(), inst.level());
-                    } else if (target == SpellTarget.SPELL_CAST_SELF) {
-                        applyEffect(caster, inst.rarity().get(), inst.level());
-                    }
-                }
-            });
-        }
-    }
-
-    @SubscribeEvent
-    public void onSpellHeal(SpellHealEvent event) {
-        if (event.getEntity().level().isClientSide()) return;
-
-        for (ItemStack stack : event.getEntity().getAllSlots()) {
-            AffixHelper.streamAffixes(stack).forEach(inst -> {
-                if (inst.affix().get() == this) {
-                    if (target == SpellTarget.SPELL_CAST_TARGET) {
-                        applyEffect(event.getTargetEntity(), inst.rarity().get(), inst.level());
-                    } else if (target == SpellTarget.SPELL_CAST_SELF) {
-                        applyEffect(event.getEntity(), inst.rarity().get(), inst.level());
-                    }
-                }
-            });
-        }
     }
 
     private static Component toComponent(MobEffectInstance inst) {

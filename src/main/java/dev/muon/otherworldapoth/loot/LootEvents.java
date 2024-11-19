@@ -16,15 +16,13 @@ import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = OtherworldApoth.MODID)
 public class LootEvents {
 
     public static final String PLAYER_DROPPED = "otherworldapoth.player_dropped";
 
     @SubscribeEvent
-    public static void onItemDrop(ItemTossEvent event) {
+    public void onItemDrop(ItemTossEvent event) {
         ItemStack stack = event.getEntity().getItem();
         if (!LootCategory.forItem(stack).isNone()) {
             stack.getOrCreateTag().putBoolean(PLAYER_DROPPED, true);
@@ -32,7 +30,7 @@ public class LootEvents {
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)
-    public static void onLivingDrops(LivingDropsEvent event) {
+    public void onLivingDrops(LivingDropsEvent event) {
         if (!(event.getEntity() instanceof Monster monster)) {
             return;
         }

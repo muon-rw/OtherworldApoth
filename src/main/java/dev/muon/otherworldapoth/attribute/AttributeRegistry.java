@@ -3,9 +3,12 @@ package dev.muon.otherworldapoth.attribute;
 import dev.muon.otherworldapoth.OtherworldApoth;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.SchoolType;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
+import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
 import net.minecraftforge.registries.RegisterEvent;
@@ -18,8 +21,8 @@ public class AttributeRegistry {
 
     public static void init(IEventBus modEventBus) {
         modEventBus.addListener(AttributeRegistry::registerAttributes);
+        modEventBus.addListener(AttributeRegistry::setAttributes);
     }
-
 
     // From Additional Attributes mod, by Cadentem/SiverDX
     @SuppressWarnings("UnstableApiUsage")
@@ -45,5 +48,12 @@ public class AttributeRegistry {
 
     public static Attribute getSchoolLevelAttribute(SchoolType school) {
         return SCHOOL_LEVEL_ATTRIBUTES.get(school);
+    }
+
+    @SubscribeEvent
+    public static void setAttributes(EntityAttributeModificationEvent event) {
+        SCHOOL_LEVEL_ATTRIBUTES.values().forEach(attribute -> {
+            event.add(EntityType.PLAYER, attribute);
+        });
     }
 }

@@ -1,30 +1,13 @@
 {
-  "type": "apotheosis:attribute",
+  "type": "otherworldapoth:spell_level",
+  "school": "irons_spellbooks:ice",
   "values": {
-    "rare": {
-      "min": 1,
-      "steps": 1,
-      "step": 1
-    },
-    "epic": {
-      "min": 1,
-      "steps": 2,
-      "step": 1
-    },
-    "mythic": {
-      "min": 2,
-      "steps": 1,
-      "step": 1
-    },
-    "ancient": {
-      "min": 2,
-      "steps": 2,
-      "step": 1
-    }
+    "common": 1,
+    "uncommon": 1,
+    "rare": 1,
+    "epic": 2,
+    "mythic": 2,
+    "ancient": 3
   },
-  "types": [
-    "staff"
-  ],
-  "attribute": "otherworldapoth:ice_spell_level",
-  "operation": "ADDITION"
+  "types": ["staff", "sword", "heavy_weapon"]
 }
