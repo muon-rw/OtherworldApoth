@@ -1,7 +1,7 @@
 package dev.muon.otherworldapoth.mixin.client;
 
 import dev.muon.medieval.leveling.client.LevelDisplayRenderer;
-import dev.muon.otherworldapoth.config.LootConfig;
+import dev.muon.otherworldapoth.config.OWApothConfig;
 import dev.muon.otherworldapoth.loot.LootUtils;
 import dev.shadowsoffire.apotheosis.Apotheosis;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootRarity;
@@ -18,7 +18,7 @@ public class LevelDisplayRendererMixin {
 
     @Inject(method = "getLevelColor", at = @At("HEAD"), cancellable = true)
     private static void colorLevelsByRarity(Player player, int entityLevel, CallbackInfoReturnable<Integer> cir) {
-        String mapping = LootUtils.findMappingForLevel(LootConfig.levelRarityMappings, entityLevel);
+        String mapping = LootUtils.findMappingForLevel(OWApothConfig.levelRarityMappings, entityLevel);
 
         String[] rarities = mapping.split("-");
         String maxRarityId = rarities[1];

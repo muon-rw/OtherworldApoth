@@ -1,7 +1,7 @@
 package dev.muon.otherworldapoth.mixin;
 
 import dev.muon.medieval.leveling.LevelingUtils;
-import dev.muon.otherworldapoth.config.LootConfig;
+import dev.muon.otherworldapoth.config.OWApothConfig;
 import dev.muon.otherworldapoth.loot.LootUtils;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixHelper;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootCategory;
@@ -36,8 +36,8 @@ public abstract class RandomizableContainerBlockEntityMixin {
         if (level < 1) return;
 
         float conversionChance = (float) Math.min(
-                LootConfig.chestLootBaseChance + (level * LootConfig.chestLootLevelChanceIncrease),
-                LootConfig.chestLootMaxChance
+                OWApothConfig.chestLootBaseChance + (level * OWApothConfig.chestLootLevelChanceIncrease),
+                OWApothConfig.chestLootMaxChance
         );
 
         for (int i = 0; i < self.getContainerSize(); i++) {

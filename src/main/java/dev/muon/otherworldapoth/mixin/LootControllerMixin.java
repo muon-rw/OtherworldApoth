@@ -1,7 +1,7 @@
 package dev.muon.otherworldapoth.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import dev.muon.otherworldapoth.AffixSchoolMapper;
+import dev.muon.otherworldapoth.affix.AffixSchoolMapper;
 import dev.shadowsoffire.apotheosis.adventure.affix.Affix;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixType;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootController;

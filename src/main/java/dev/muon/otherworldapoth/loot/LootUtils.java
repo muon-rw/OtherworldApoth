@@ -1,7 +1,7 @@
 package dev.muon.otherworldapoth.loot;
 
 import dev.muon.otherworldapoth.OtherworldApoth;
-import dev.muon.otherworldapoth.config.LootConfig;
+import dev.muon.otherworldapoth.config.OWApothConfig;
 import dev.shadowsoffire.apotheosis.Apotheosis;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootRarity;
 import dev.shadowsoffire.apotheosis.adventure.loot.RarityRegistry;
@@ -55,7 +55,7 @@ public class LootUtils {
     }
 
     public static LootRarity getRarityForPlayerLevel(int playerLevel, RandomSource rand, float luck) {
-        String mapping = findMappingForLevel(LootConfig.playerLevelRarityMappings, playerLevel);
+        String mapping = findMappingForLevel(OWApothConfig.playerLevelRarityMappings, playerLevel);
         OtherworldApoth.LOGGER.debug("Finding rarity for player level {}, mapping: {}", playerLevel, mapping);
 
         String[] rarities = mapping.split("-");
@@ -93,7 +93,7 @@ public class LootUtils {
 
     public static LootRarity getRarityForMobLevel(int mobLevel, RandomSource rand, float luck, boolean isGem) {
         String mapping = findMappingForLevel(
-                isGem ? LootConfig.gemRarityMappings : LootConfig.levelRarityMappings,
+                isGem ? OWApothConfig.gemRarityMappings : OWApothConfig.levelRarityMappings,
                 mobLevel
         );
         OtherworldApoth.LOGGER.debug("Finding rarity for mob level {} ({}), mapping: {}",

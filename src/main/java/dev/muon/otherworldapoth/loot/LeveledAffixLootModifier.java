@@ -3,7 +3,7 @@ package dev.muon.otherworldapoth.loot;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.muon.medieval.leveling.LevelingUtils;
-import dev.muon.otherworldapoth.config.LootConfig;
+import dev.muon.otherworldapoth.config.OWApothConfig;
 import dev.shadowsoffire.apotheosis.Apotheosis;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixHelper;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootCategory;
@@ -56,8 +56,8 @@ public class LeveledAffixLootModifier extends LootModifier {
 
     private boolean shouldConvertItem(int level, RandomSource rand) {
         return rand.nextFloat() < Math.min(
-                LootConfig.affixBaseChance + (level * LootConfig.affixLevelChanceIncrease),
-                LootConfig.affixMaxChance
+                OWApothConfig.affixBaseChance + (level * OWApothConfig.affixLevelChanceIncrease),
+                OWApothConfig.affixMaxChance
         );
     }
 

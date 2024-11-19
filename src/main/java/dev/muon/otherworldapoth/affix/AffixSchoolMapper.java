@@ -1,4 +1,4 @@
-package dev.muon.otherworldapoth;
+package dev.muon.otherworldapoth.affix;
 
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.SchoolType;

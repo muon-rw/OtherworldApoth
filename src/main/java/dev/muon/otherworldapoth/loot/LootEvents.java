@@ -2,7 +2,7 @@ package dev.muon.otherworldapoth.loot;
 
 import dev.muon.medieval.leveling.LevelingUtils;
 import dev.muon.otherworldapoth.OtherworldApoth;
-import dev.muon.otherworldapoth.config.LootConfig;
+import dev.muon.otherworldapoth.config.OWApothConfig;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixHelper;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootCategory;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootController;
@@ -63,8 +63,8 @@ public class LootEvents {
                     }
                     if (tag.getBoolean(PLAYER_DROPPED)) {
                         float chance = (float) Math.min(
-                                LootConfig.affixBaseChance + (level * LootConfig.affixLevelChanceIncrease),
-                                LootConfig.affixMaxChance);
+                                OWApothConfig.affixBaseChance + (level * OWApothConfig.affixLevelChanceIncrease),
+                                OWApothConfig.affixMaxChance);
                         float roll = monster.getRandom().nextFloat();
 
                         if (roll < chance) {

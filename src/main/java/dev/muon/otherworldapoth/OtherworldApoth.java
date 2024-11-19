@@ -2,7 +2,7 @@ package dev.muon.otherworldapoth;
 
 import dev.muon.otherworldapoth.affix.AffixRegistry;
 import dev.muon.otherworldapoth.attribute.AttributeRegistry;
-import dev.muon.otherworldapoth.config.LootConfig;
+import dev.muon.otherworldapoth.config.OWApothConfig;
 import dev.muon.otherworldapoth.loot.LeveledAffixLootModifier;
 import dev.muon.otherworldapoth.loot.LeveledGemLootModifier;
 import dev.muon.otherworldapoth.replacer.OWApothSource;
@@ -29,7 +29,7 @@ public class OtherworldApoth {
 
     public OtherworldApoth(FMLJavaModLoadingContext context) {
 
-        LootConfig.init();
+        OWApothConfig.init();
         LootCategories.init();
         AffixRegistry.init();
 

@@ -3,7 +3,7 @@ package dev.muon.otherworldapoth.config;
 import dev.muon.otherworldapoth.OtherworldApoth;
 import dev.shadowsoffire.placebo.config.Configuration;
 
-public class LootConfig {
+public class OWApothConfig {
     private static Configuration config;
 
     public static double affixBaseChance;

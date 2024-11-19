@@ -1,7 +1,7 @@
 package dev.muon.otherworldapoth.mixin;
 
 import dev.muon.medieval.leveling.LevelingUtils;
-import dev.muon.otherworldapoth.config.LootConfig;
+import dev.muon.otherworldapoth.config.OWApothConfig;
 import dev.muon.otherworldapoth.loot.LootUtils;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixHelper;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootCategory;
@@ -23,7 +23,6 @@ import static dev.muon.otherworldapoth.loot.LootEvents.PLAYER_DROPPED;
 public abstract class MobMixin {
 
     // Forge's onLivingDrops is not called in dropCustomDeathLoot, instead they spawn the item directly into the world.
-
     @ModifyVariable(
             method = "dropCustomDeathLoot",
             at = @At(value = "INVOKE",
@@ -41,8 +40,8 @@ public abstract class MobMixin {
                 int level = LevelingUtils.getEntityLevel(monster);
                 if (level > 0) {
                     double chance = Math.min(
-                            LootConfig.affixBaseChance + (level * LootConfig.affixLevelChanceIncrease),
-                            LootConfig.affixMaxChance
+                            OWApothConfig.affixBaseChance + (level * OWApothConfig.affixLevelChanceIncrease),
+                            OWApothConfig.affixMaxChance
                     );
 
                     if (monster.getRandom().nextFloat() < chance) {

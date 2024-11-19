@@ -3,7 +3,7 @@ package dev.muon.otherworldapoth.loot;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.muon.medieval.leveling.LevelingUtils;
-import dev.muon.otherworldapoth.config.LootConfig;
+import dev.muon.otherworldapoth.config.OWApothConfig;
 import dev.shadowsoffire.apotheosis.Apotheosis;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootRarity;
 import dev.shadowsoffire.apotheosis.adventure.socket.gem.Gem;
@@ -62,8 +62,8 @@ public class LeveledGemLootModifier extends LootModifier {
 
     private boolean shouldDropGem(int level, RandomSource rand) {
         return rand.nextFloat() < Math.min(
-                LootConfig.gemBaseChance + (level * LootConfig.gemLevelChanceIncrease),
-                LootConfig.gemMaxChance
+                OWApothConfig.gemBaseChance + (level * OWApothConfig.gemLevelChanceIncrease),
+                OWApothConfig.gemMaxChance
         );
     }
 
