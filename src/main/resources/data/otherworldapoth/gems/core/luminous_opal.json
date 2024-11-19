@@ -51,15 +51,15 @@
           "helmet"
         ]
       },
-      "attribute": "irons_spellbooks:cooldown_reduction",
+      "attribute": "attributeslib:healing_received",
       "operation": "MULTIPLY_BASE",
       "values": {
-        "common": 0.012,
-        "uncommon": 0.018,
-        "rare": 0.024,
-        "epic": 0.036,
-        "mythic": 0.048,
-        "ancient": 0.06
+        "common": 0.01,
+        "uncommon": 0.02,
+        "rare": 0.04,
+        "epic": 0.06,
+        "mythic": 0.08,
+        "ancient": 0.10
       }
     },
     {

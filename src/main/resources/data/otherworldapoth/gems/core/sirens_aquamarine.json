@@ -2,6 +2,7 @@
   "weight": 5,
   "quality": 2,
   "dimensions": [],
+  "unique": true,
   "bonuses": [
     {
       "type": "apotheosis:attribute",
@@ -53,12 +54,12 @@
       "attribute": "forge:swim_speed",
       "operation": "MULTIPLY_BASE",
       "values": {
-        "common": 0.06,
-        "uncommon": 0.12,
-        "rare": 0.18,
-        "epic": 0.27,
-        "mythic": 0.36,
-        "ancient": 0.48
+        "common": 0.025,
+        "uncommon": 0.05,
+        "rare": 0.10,
+        "epic": 0.15,
+        "mythic": 0.2,
+        "ancient": 0.25
       }
     },
     {

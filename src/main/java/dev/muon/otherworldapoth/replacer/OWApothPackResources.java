@@ -95,6 +95,7 @@ public class OWApothPackResources implements PackResources {
 
     @Override
     public Set<String> getNamespaces(PackType type) {
+        //TODO: Maybe replace base Iron's data
         return Set.of("apotheosis");
     }
 

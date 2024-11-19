@@ -36,11 +36,11 @@
 			"operation": "ADDITION",
 			"values": {
 				"common": 1,
-				"uncommon": 2,
+				"uncommon": 1.5,
 				"rare": 2,
 				"epic": 3,
-				"mythic": 4.5,
-				"ancient": 6
+				"mythic": 4,
+				"ancient": 5
 			}
 		},
 		{
@@ -73,12 +73,11 @@
 			"attribute": "minecraft:generic.knockback_resistance",
 			"operation": "ADDITION",
 			"values": {
-				"common": 0.03,
-				"uncommon": 0.06,
-				"rare": 0.09,
-				"epic": 0.12,
-				"mythic": 0.15,
-				"ancient": 0.21
+				"uncommon": 0.03,
+				"rare": 0.06,
+				"epic": 0.09,
+				"mythic": 0.12,
+				"ancient": 0.15
 			}
 		}
 	]

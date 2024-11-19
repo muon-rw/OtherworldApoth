@@ -46,7 +46,7 @@
     {
       "type": "apotheosis:enchantment",
       "gem_class": {
-        "key": "core_armor",
+        "key": "armor",
         "types": [
           "helmet",
           "chestplate",
