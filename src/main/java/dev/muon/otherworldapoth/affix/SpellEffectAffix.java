@@ -52,8 +52,10 @@ public class SpellEffectAffix extends Affix {
     }
 
     public static enum SpellTarget {
-        SPELL_CAST_SELF,
-        SPELL_CAST_TARGET;
+        SPELL_DAMAGE_SELF,
+        SPELL_DAMAGE_TARGET,
+        SPELL_HEAL_SELF,
+        SPELL_HEAL_TARGET;
 
         public static final Codec<SpellTarget> CODEC = PlaceboCodecs.enumCodec(SpellTarget.class);
     }

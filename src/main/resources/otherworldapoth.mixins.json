@@ -10,9 +10,11 @@
   "mixins": [
     "AffixConvertLootModifierMixin",
     "AffixLootModifierMixin",
+    "AffixLootPoolEntryMixin",
     "AffixRegistryMixin",
     "BossEventsMixin",
     "GemLootModifierMixin",
+    "GemLootPoolEntryMixin",
     "LootControllerMixin",
     "MobMixin",
     "RandomizableContainerBlockEntityMixin"

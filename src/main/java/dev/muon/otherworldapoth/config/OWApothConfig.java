@@ -98,7 +98,7 @@ public class OWApothConfig {
                         "For example: '15=rare-epic' applies to levels 15-19 if the next threshold is 20.\n" +
                         "Valid rarities: common, uncommon, rare, epic, mythic, ancient");
 
-        OtherworldApoth.LOGGER.info("OtherworldApoth Config loaded:"); // Debug
+        OtherworldApoth.LOGGER.info("OtherworldApoth Config loaded:");
         OtherworldApoth.LOGGER.info("Base chance: " + affixBaseChance);
         OtherworldApoth.LOGGER.info("Level increase: " + affixLevelChanceIncrease);
         OtherworldApoth.LOGGER.info("Max chance: " + affixMaxChance);

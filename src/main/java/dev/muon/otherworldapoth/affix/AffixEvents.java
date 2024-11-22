@@ -22,7 +22,7 @@ public class AffixEvents {
     }
 
     @SubscribeEvent
-    public void onSpellDamage(SpellDamageEvent event) {
+    public void hookSpellDamageAffix(SpellDamageEvent event) {
         if (event.getEntity().level().isClientSide()) return;
 
         LivingEntity caster = event.getSpellDamageSource().getEntity() instanceof LivingEntity living ? living : null;
@@ -31,9 +31,9 @@ public class AffixEvents {
         for (ItemStack stack : caster.getAllSlots()) {
             AffixHelper.streamAffixes(stack).forEach(inst -> {
                 if (inst.affix().get() instanceof SpellEffectAffix affix) {
-                    if (affix.target == SpellEffectAffix.SpellTarget.SPELL_CAST_TARGET) {
+                    if (affix.target == SpellEffectAffix.SpellTarget.SPELL_DAMAGE_TARGET) {
                         affix.applyEffect(event.getEntity(), inst.rarity().get(), inst.level());
-                    } else if (affix.target == SpellEffectAffix.SpellTarget.SPELL_CAST_SELF) {
+                    } else if (affix.target == SpellEffectAffix.SpellTarget.SPELL_DAMAGE_SELF) {
                         affix.applyEffect(caster, inst.rarity().get(), inst.level());
                     }
                 }
@@ -42,15 +42,15 @@ public class AffixEvents {
     }
 
     @SubscribeEvent
-    public void onSpellHeal(SpellHealEvent event) {
+    public void hookSpellHealAffix(SpellHealEvent event) {
         if (event.getEntity().level().isClientSide()) return;
 
         for (ItemStack stack : event.getEntity().getAllSlots()) {
             AffixHelper.streamAffixes(stack).forEach(inst -> {
                 if (inst.affix().get() instanceof SpellEffectAffix affix) {
-                    if (affix.target == SpellEffectAffix.SpellTarget.SPELL_CAST_TARGET) {
+                    if (affix.target == SpellEffectAffix.SpellTarget.SPELL_HEAL_TARGET) {
                         affix.applyEffect(event.getTargetEntity(), inst.rarity().get(), inst.level());
-                    } else if (affix.target == SpellEffectAffix.SpellTarget.SPELL_CAST_SELF) {
+                    } else if (affix.target == SpellEffectAffix.SpellTarget.SPELL_HEAL_SELF) {
                         affix.applyEffect(event.getEntity(), inst.rarity().get(), inst.level());
                     }
                 }
@@ -60,7 +60,7 @@ public class AffixEvents {
 
 
     @SubscribeEvent
-    public void onSpellCast(SpellOnCastEvent event) {
+    public void hookSpellLevelAffix(SpellOnCastEvent event) {
         if (event.getEntity().level().isClientSide()) return;
 
         SchoolType school = event.getSchoolType();
