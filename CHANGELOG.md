@@ -1,3 +1,6 @@
+## 0.2.1
+- Fixed a broken affix
+
 ## 0.2.0
 - Added SPELL_HEAL_SELF and SPELL_HEAL_TARGET effect affix types
 - Added a few on-heal effect affixes
