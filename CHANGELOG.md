@@ -1,3 +1,6 @@
+## 0.2.2
+- Fix Numismatic Overhaul Wanderer Trades not loading
+
 ## 0.2.1
 - Fixed a broken affix
 

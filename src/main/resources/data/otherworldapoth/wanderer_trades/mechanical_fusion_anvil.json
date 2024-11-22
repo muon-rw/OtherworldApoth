@@ -9,7 +9,7 @@
   }],
   "type": "apotheosis:basic_trade",
   "input_1": {
-    "item": "numismatic_overhaul:gold_coin",
+    "item": "numismatic-overhaul:gold_coin",
     "count": 10
   },
   "input_2": {
