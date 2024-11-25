@@ -1,3 +1,6 @@
+## 0.2.3
+- Nerf Echoing Strikes, Aerial Collapse, and Annihilation
+
 ## 0.2.2
 - Fix Numismatic Overhaul Wanderer Trades not loading
 

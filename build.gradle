@@ -141,7 +141,7 @@ dependencies {
     implementation fg.deobf("dev.shadowsoffire:Apotheosis:${minecraft_version}-${apotheosis_version}")
 
     // Medieval
-    implementation fg.deobf("curse.maven:medieval-core-mod-1055023:5923992")
+    implementation fg.deobf("curse.maven:medieval-core-mod-1055023:5930203")
     runtimeOnly fg.deobf("curse.maven:ydms-mobhealthbar-mod-559894:4818965")
 
     // Dev Env
@@ -160,6 +160,9 @@ dependencies {
     implementation fg.deobf("io.redspace.ironsspellbooks:irons_spellbooks:${irons_version}")
     runtimeOnly fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
     runtimeOnly fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}")
+
+    // TravelOptics
+    implementation fg.deobf("curse.maven:to-tweaks-irons-spells-1046916:5921936")
 }
 
 tasks.withType(ProcessResources).configureEach {
@@ -227,7 +230,7 @@ tasks.register('sendToModpack', Copy) {
     dependsOn 'jarJar'
     from tasks.jarJar.archiveFile
     //wtf is a renpi
-    into 'C:/Users/renpi/curseforge/minecraft/Instances/Otherworld Early Beta/mods'
+    into 'C:/Users/renpi/curseforge/minecraft/Instances/Otherworld Beta/mods'
     rename { String fileName ->
         fileName.replace(project.version.toString(), "dev")
     }
@@ -252,5 +255,6 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     mainFile.addRequirement("justleveling-fork")
     mainFile.addRequirement("auto-leveling")
     mainFile.addRequirement("irons-spells-n-spellbooks")
+    mainFile.addRequirement("to-tweaks-irons-spells")
     mainFile.addRequirement("apotheosis")
 }
