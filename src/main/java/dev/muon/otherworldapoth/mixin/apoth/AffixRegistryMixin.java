@@ -1,4 +1,4 @@
-package dev.muon.otherworldapoth.mixin;
+package dev.muon.otherworldapoth.mixin.apoth;
 
 import dev.muon.otherworldapoth.OtherworldApoth;
 import dev.muon.otherworldapoth.affix.MagicTelepathicAffix;

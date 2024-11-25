@@ -1,4 +1,4 @@
-package dev.muon.otherworldapoth.mixin;
+package dev.muon.otherworldapoth.mixin.apoth;
 
 import dev.shadowsoffire.apotheosis.adventure.loot.AffixLootPoolEntry;
 import net.minecraft.world.item.ItemStack;

@@ -1,4 +1,4 @@
-package dev.muon.otherworldapoth.mixin;
+package dev.muon.otherworldapoth.mixin.apoth;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import dev.muon.otherworldapoth.affix.AffixSchoolMapper;
