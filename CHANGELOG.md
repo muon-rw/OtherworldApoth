@@ -1,5 +1,10 @@
+## 0.3.0
+- Fixed a broken wanderer trade
+- Add salvaging and gem dust recipes for Create crushing
+- Fixed Iron's gems not being applicable to staffs
+
 ## 0.2.3
-- Nerf Echoing Strikes, Aerial Collapse, and Annihilation
+- Nerfed Echoing Strikes, Aerial Collapse, and Annihilation
 - Minor internal refactors
 
 ## 0.2.2
