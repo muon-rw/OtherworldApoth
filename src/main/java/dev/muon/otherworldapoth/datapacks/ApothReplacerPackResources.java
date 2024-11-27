@@ -1,4 +1,4 @@
-package dev.muon.otherworldapoth.replacer;
+package dev.muon.otherworldapoth.datapacks;
 
 import dev.muon.otherworldapoth.OtherworldApoth;
 import net.minecraft.resources.ResourceLocation;
@@ -19,7 +19,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Set;
 
-public class OWApothPackResources implements PackResources {
+public class ApothReplacerPackResources implements PackResources {
     private static final String PACK_META = """
         {
             "pack": {
@@ -39,35 +39,42 @@ public class OWApothPackResources implements PackResources {
 
     @Override
     public void listResources(PackType type, String namespace, String path, ResourceOutput resourceOutput) {
-        try {
-            URL url = OtherworldApoth.class.getResource("/data/" + namespace);
-            if (url == null) return;
+        String specificPath = "/data/" + namespace + "/" + path;
+        URL url = OtherworldApoth.class.getResource(specificPath);
 
+        if (url == null && path.isEmpty()) {
+            url = OtherworldApoth.class.getResource("/data/" + namespace);
+        }
+
+        if (url == null) {
+            return;
+        }
+
+        try {
             Path rootPath = Paths.get(url.toURI());
-            try (var stream = Files.walk(rootPath)) {
-                stream.filter(Files::isRegularFile)
-                        .forEach(filePath -> {
-                            String relativePath = rootPath.relativize(filePath).toString()
-                                    .replace('\\', '/');
+            if (!Files.exists(rootPath)) return;
+
+            Files.walk(rootPath)
+                    .filter(Files::isRegularFile)
+                    .forEach(filePath -> {
+                        try {
+                            String relativePath = rootPath.relativize(filePath).toString().replace('\\', '/');
+                            String fullPath = path.isEmpty() ? relativePath : path + "/" + relativePath;
+
                             ResourceLocation location = new ResourceLocation(
                                     namespace,
-                                    relativePath.endsWith(".json")
-                                            ? relativePath.substring(0, relativePath.length() - 5)
-                                            : relativePath
+                                    fullPath.endsWith(".json")
+                                            ? fullPath.substring(0, fullPath.length() - 5)
+                                            : fullPath
                             );
 
-                            resourceOutput.accept(location, () -> {
-                                try {
-                                    return Files.newInputStream(filePath);
-                                } catch (IOException e) {
-                                    OtherworldApoth.LOGGER.error("Failed to read resource: " + location, e);
-                                    return null;
-                                }
-                            });
-                        });
-            }
+                            resourceOutput.accept(location, () -> Files.newInputStream(filePath));
+                        } catch (Exception e) {
+                            OtherworldApoth.LOGGER.error("Error processing file: " + filePath, e);
+                        }
+                    });
         } catch (Exception e) {
-            OtherworldApoth.LOGGER.error("Failed to list resources for namespace: " + namespace, e);
+            OtherworldApoth.LOGGER.error("Error listing resources for " + url, e);
         }
     }
 
@@ -95,7 +102,6 @@ public class OWApothPackResources implements PackResources {
 
     @Override
     public Set<String> getNamespaces(PackType type) {
-        //TODO: Maybe replace base Iron's data
         return Set.of("apotheosis");
     }
 

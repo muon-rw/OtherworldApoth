@@ -4,15 +4,18 @@ import dev.muon.otherworldapoth.affix.AffixEvents;
 import dev.muon.otherworldapoth.attribute.AttributeEvents;
 import dev.muon.otherworldapoth.attribute.AttributeRegistry;
 import dev.muon.otherworldapoth.config.OWApothConfig;
+import dev.muon.otherworldapoth.datapacks.AAscendedReplacerSource;
+import dev.muon.otherworldapoth.datapacks.ApothReplacerSource;
+import dev.muon.otherworldapoth.datapacks.IronsReplacerSource;
 import dev.muon.otherworldapoth.loot.LeveledAffixLootModifier;
 import dev.muon.otherworldapoth.loot.LeveledGemLootModifier;
 import dev.muon.otherworldapoth.loot.LootEvents;
-import dev.muon.otherworldapoth.replacer.OWApothSource;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -56,7 +59,13 @@ public class OtherworldApoth {
 
     private void addReplacerPack(AddPackFindersEvent event) {
         if (event.getPackType() == PackType.SERVER_DATA) {
-            event.addRepositorySource(new OWApothSource(PackType.SERVER_DATA));
+            event.addRepositorySource(new ApothReplacerSource(PackType.SERVER_DATA));
+            if (ModList.get().isLoaded("irons_spellbooks")) {
+                event.addRepositorySource(new IronsReplacerSource(PackType.SERVER_DATA));
+            }
+            if (ModList.get().isLoaded("apotheosis_ascended")) {
+                event.addRepositorySource(new AAscendedReplacerSource(PackType.SERVER_DATA));
+            }
         }
     }
 

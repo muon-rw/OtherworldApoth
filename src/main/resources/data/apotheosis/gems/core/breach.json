@@ -76,7 +76,7 @@
 			"operation": "ADDITION",
 			"values": {
 				"common": 0.15,
-				"uncommon": 1,
+				"uncommon": 0.5,
 				"rare": 1,
 				"epic": 2,
 				"mythic": 2,

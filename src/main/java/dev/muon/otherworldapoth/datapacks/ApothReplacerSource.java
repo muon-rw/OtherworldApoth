@@ -1,4 +1,4 @@
-package dev.muon.otherworldapoth.replacer;
+package dev.muon.otherworldapoth.datapacks;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackType;
@@ -8,10 +8,10 @@ import net.minecraft.server.packs.repository.RepositorySource;
 
 import java.util.function.Consumer;
 
-public class OWApothSource implements RepositorySource {
+public class ApothReplacerSource implements RepositorySource {
     private final PackType packType;
 
-    public OWApothSource(PackType packType) {
+    public ApothReplacerSource(PackType packType) {
         this.packType = packType;
     }
 
@@ -21,7 +21,7 @@ public class OWApothSource implements RepositorySource {
                 "apotheosis_replacer",
                 Component.literal("Apotheosis Replacer"),
                 true,
-                packId -> new OWApothPackResources(),
+                packId -> new ApothReplacerPackResources(),
                 this.packType,
                 Pack.Position.TOP,
                 PackSource.BUILT_IN
