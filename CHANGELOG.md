@@ -1,7 +1,8 @@
 ## 0.3.0
+- Balanced Iron's gems, made Iron's gems applicable to Staffs instead of Spellbooks
+- Balanced Apotheosis Ascended spell level/school level gems
 - Fixed a broken wanderer trade
 - Add salvaging and gem dust recipes for Create crushing
-- Fixed Iron's gems not being applicable to staffs
 
 ## 0.2.3
 - Nerfed Echoing Strikes, Aerial Collapse, and Annihilation
