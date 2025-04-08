@@ -1,6 +1,6 @@
 package dev.muon.otherworldapoth.loot;
 
-import dev.muon.medieval.leveling.LevelingUtils;
+import dev.muon.otherworld.leveling.LevelingUtils;
 import dev.muon.otherworldapoth.OtherworldApoth;
 import dev.muon.otherworldapoth.config.OWApothConfig;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixHelper;

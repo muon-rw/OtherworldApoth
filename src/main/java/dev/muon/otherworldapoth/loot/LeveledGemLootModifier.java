@@ -2,7 +2,7 @@ package dev.muon.otherworldapoth.loot;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import dev.muon.medieval.leveling.LevelingUtils;
+import dev.muon.otherworld.leveling.LevelingUtils;
 import dev.muon.otherworldapoth.config.OWApothConfig;
 import dev.shadowsoffire.apotheosis.Apotheosis;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootRarity;

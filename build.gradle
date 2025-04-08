@@ -140,8 +140,8 @@ dependencies {
     implementation fg.deobf("dev.shadowsoffire:ApothicAttributes:${minecraft_version}-${attributeslib_version}")
     implementation fg.deobf("dev.shadowsoffire:Apotheosis:${minecraft_version}-${apotheosis_version}")
 
-    // Medieval
-    implementation fg.deobf("curse.maven:medieval-core-mod-1055023:5930203")
+    // Core
+    implementation fg.deobf("dev.muon:otherworld-${minecraft_version}:${otherworld_core_version}")
     runtimeOnly fg.deobf("curse.maven:ydms-mobhealthbar-mod-559894:4818965")
 
     // Dev Env
@@ -162,7 +162,8 @@ dependencies {
     runtimeOnly fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}")
 
     // TravelOptics
-    implementation fg.deobf("curse.maven:to-tweaks-irons-spells-1046916:5921936")
+    compileOnly fg.deobf("curse.maven:to-tweaks-irons-spells-1046916:5921936")
+
 }
 
 tasks.withType(ProcessResources).configureEach {
@@ -186,7 +187,7 @@ tasks.named('jar', Jar).configure {
         attributes([
                 'Specification-Title'     : mod_id,
                 'Specification-Vendor'    : mod_authors,
-                'Specification-Version'   : '1', // We are version 1 of ourselves
+                'Specification-Version'   : '1',
                 'Implementation-Title'    : project.name,
                 'Implementation-Version'  : project.jar.archiveVersion,
                 'Implementation-Vendor'   : mod_authors,
@@ -250,7 +251,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     mainFile.addModLoader("Forge")
     mainFile.addGameVersion("1.20.1")
 
-    mainFile.addRequirement("medieval-core-mod")
+    mainFile.addRequirement("otherworld-core")
     mainFile.addRequirement("ydms-mobhealthbar-mod")
     mainFile.addRequirement("justleveling-fork")
     mainFile.addRequirement("auto-leveling")

@@ -1,3 +1,6 @@
+## 0.3.1
+- Migrate from Medieval to Otherworld Core (uninstall Medieval from your mods list!)
+
 ## 0.3.0
 - Balanced Iron's gems, made Iron's gems applicable to Staffs instead of Spellbooks
 - Balanced Apotheosis Ascended spell level/school level gems

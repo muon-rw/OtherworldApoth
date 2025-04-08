@@ -1,7 +1,7 @@
 package dev.muon.otherworldapoth.mixin.client;
 
-import dev.muon.medieval.leveling.LevelingUtils;
-import dev.muon.medieval.leveling.client.LevelDisplayRenderer;
+import dev.muon.otherworld.leveling.LevelingUtils;
+import dev.muon.otherworld.leveling.client.LevelDisplayRenderer;
 import dev.muon.otherworldapoth.config.OWApothConfig;
 import dev.muon.otherworldapoth.loot.LootUtils;
 import dev.shadowsoffire.apotheosis.Apotheosis;
