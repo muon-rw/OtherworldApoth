@@ -1,0 +1,114 @@
+{
+  "forge:conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "cataclysm_spellbooks"
+    }
+  ],
+  "type": "apotheosis:gem",
+  "min_purity": "common",
+  "unique": false,
+  "weights": {
+    "weight": 5,
+    "quality": 2
+  },
+  "bonuses": [
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "magic_weapons",
+        "types": [
+          "staff"
+        ]
+      },
+      "attribute": "cataclysm_spellbooks:abyssal_spell_power",
+      "operation": "MULTIPLY_BASE",
+      "values": {
+        "common": 0.04,
+        "uncommon": 0.08,
+        "rare": 0.12,
+        "epic": 0.16,
+        "mythic": 0.20,
+        "ancient": 0.25
+      }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "melee_weapon",
+        "types": [
+          "sword",
+          "heavy_weapon"
+        ]
+      },
+      "attribute": "cataclysm_spellbooks:abyssal_magic_resist",
+      "operation": "MULTIPLY_BASE",
+      "values": {
+        "common": 0.025,
+        "uncommon": 0.05,
+        "rare": 0.10,
+        "epic": 0.125,
+        "mythic": 0.15,
+        "ancient": 0.20
+      }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "leggings",
+        "types": [
+          "leggings"
+        ]
+      },
+      "attribute": "attributeslib:cold_damage",
+      "operation": "ADDITION",
+      "values": {
+        "common": 0.25,
+        "uncommon": 0.5,
+        "rare": 0.75,
+        "epic": 1.0,
+        "mythic": 1.25,
+        "ancient": 1.5
+      }
+    },
+    {
+      "type": "apotheosis:mob_effect",
+      "gem_class": {
+        "key": "chestplate",
+        "types": [
+          "chestplate"
+        ]
+      },
+      "mob_effect": "irons_spellbooks:chilled",
+      "target": "hurt_attacker",
+      "operation": "ADDITION",
+      "values": {
+        "uncommon": {
+          "duration": 60,
+          "amplifier": 0,
+          "cooldown": 100
+        },
+        "rare": {
+          "duration": 80,
+          "amplifier": 0,
+          "cooldown": 100
+        },
+        "epic": {
+          "duration": 100,
+          "amplifier": 1,
+          "cooldown": 100
+        },
+        "mythic": {
+          "duration": 120,
+          "amplifier": 1,
+          "cooldown": 100
+        },
+        "ancient": {
+          "duration": 140,
+          "amplifier": 1,
+          "cooldown": 100
+        }
+      }
+    }
+  ]
+}

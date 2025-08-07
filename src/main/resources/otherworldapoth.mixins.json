@@ -13,11 +13,9 @@
     "apoth.AffixConvertLootModifierMixin",
     "apoth.AffixLootModifierMixin",
     "apoth.AffixLootPoolEntryMixin",
-    "apoth.AffixRegistryMixin",
     "apoth.BossEventsMixin",
     "apoth.GemLootModifierMixin",
     "apoth.GemLootPoolEntryMixin",
-    "apoth.LootControllerMixin",
     "spell_nerfs.AerialCollapseMixin",
     "spell_nerfs.AnnihilationMixin",
     "spell_nerfs.EchoingStrikesEffectMixin"

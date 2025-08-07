@@ -1,0 +1,99 @@
+{
+  "forge:conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "traveloptics"
+    }
+  ],
+  "type": "apotheosis:gem",
+  "min_purity": "common",
+  "unique": false,
+  "weights": {
+    "weight": 5,
+    "quality": 2
+  },
+  "bonuses": [
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "magic_weapons",
+        "types": [
+          "staff"
+        ]
+      },
+      "attribute": "traveloptics:aqua_spell_power",
+      "operation": "MULTIPLY_BASE",
+      "values": {
+        "common": 0.04,
+        "uncommon": 0.08,
+        "rare": 0.12,
+        "epic": 0.16,
+        "mythic": 0.20,
+        "ancient": 0.25
+      }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "melee_weapon",
+        "types": [
+          "sword", "heavy_weapon"
+        ]
+      },
+      "attribute": "traveloptics:aqua_magic_resist",
+      "operation": "MULTIPLY_BASE",
+      "values": {
+        "common": 0.025,
+        "uncommon": 0.05,
+        "rare": 0.10,
+        "epic": 0.125,
+        "mythic": 0.15,
+        "ancient": 0.20
+      }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "boots",
+        "types": [
+          "boots"
+        ]
+      },
+      "attribute": "neoforge:swim_speed",
+      "operation": "MULTIPLY_BASE",
+      "values": {
+        "common": 0.025,
+        "uncommon": 0.05,
+        "rare": 0.1,
+        "epic": 0.15,
+        "mythic": 0.2,
+        "ancient": 0.25
+      }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "chestplate",
+        "types": [
+          "chestplate"
+        ]
+      },
+      "attribute": "irons_spellbooks:mana_regen",
+      "operation": "MULTIPLY_BASE",
+      "values": {
+        "uncommon": 0.09,
+        "rare": 0.12,
+        "epic": 0.18,
+        "mythic": 0.24,
+        "ancient": 0.3
+      }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": { "key": "helmet", "types": ["helmet"] },
+      "attribute": "irons_spellbooks:max_mana",
+      "operation": "MULTIPLY_BASE",
+      "values": { "common": 0.03, "uncommon": 0.045, "rare": 0.06, "epic": 0.09, "mythic": 0.12, "ancient": 0.15 }
+    }
+  ]
+} 

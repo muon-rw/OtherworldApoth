@@ -2,7 +2,7 @@
   "weight": 5,
   "quality": 2,
   "dimensions": [],
-  "unique": true,
+  "unique": false,
   "bonuses": [
     {
       "type": "apotheosis:attribute",
@@ -56,7 +56,6 @@
       },
       "enchantment": "apotheosis:life_mending",
       "values": {
-        "epic": 1,
         "mythic": 1,
         "ancient": 2
       }

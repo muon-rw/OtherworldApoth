@@ -1,0 +1,54 @@
+{
+  "forge:conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "traveloptics"
+    }
+  ],
+  "type": "otherworldapoth:mana_cost",
+  "definition": {
+    "affix_type": "basic_effect",
+    "weights": {
+      "weight": 50,
+      "quality": 0.15
+    },
+    "exclusive_set": []
+  },
+  "school": "traveloptics:aqua",
+  "values": {
+    "common": {
+      "min": 0.05,
+      "steps": 3,
+      "step": 0.01
+    },
+    "uncommon": {
+      "min": 0.08,
+      "steps": 4,
+      "step": 0.01
+    },
+    "rare": {
+      "min": 0.12,
+      "steps": 4,
+      "step": 0.02
+    },
+    "epic": {
+      "min": 0.16,
+      "steps": 5,
+      "step": 0.02
+    },
+    "mythic": {
+      "min": 0.20,
+      "steps": 5,
+      "step": 0.03
+    },
+    "ancient": {
+      "min": 0.24,
+      "steps": 5,
+      "step": 0.04
+    }
+  },
+  "types": [
+    "sword", "heavy_weapon",
+    "staff"
+  ]
+} 

@@ -1,5 +1,6 @@
 {
-  "type": "apotheosis:attribute",
+  "type": "otherworldapoth:attribute",
+
   "attribute": "irons_spellbooks:holy_spell_power",
   "operation": "MULTIPLY_BASE",
   "values": {
@@ -32,11 +33,16 @@
       "min": 0.15,
       "steps": 4,
       "step": 0.0125
+    },
+    "ancient": {
+      "min": 0.15,
+      "steps": 4,
+      "step": 0.0125
     }
   },
   "types": [
-    "staff",
-        "sword",
-    "heavy_weapon"
-  ]
+    "sword", "heavy_weapon",
+    "staff" 
+],
+  "school": "irons_spellbooks:holy"
 }

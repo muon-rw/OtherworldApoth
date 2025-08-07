@@ -15,7 +15,7 @@
     "nbt": "{Damage:0}"
   },
   "input_2": {
-    "item": "numismatic-overhaul:gold_coin",
+    "item": "numismaticoverhaul:gold_coin",
     "count": 5
   },
   "output": {

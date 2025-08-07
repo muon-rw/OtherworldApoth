@@ -1,5 +1,6 @@
 {
-  "type": "apotheosis:attribute",
+  "type": "otherworldapoth:attribute",
+
   "attribute": "irons_spellbooks:evocation_spell_power",
   "operation": "MULTIPLY_BASE",
   "values": {
@@ -35,8 +36,8 @@
     }
   },
   "types": [
-    "staff",
-        "sword",
-    "heavy_weapon"
-  ]
+    "sword", "heavy_weapon",
+    "staff" 
+],
+  "school": "irons_spellbooks:evocation"
 }

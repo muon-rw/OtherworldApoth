@@ -2,7 +2,7 @@
   "weight": 5,
   "quality": 2,
   "dimensions": [],
-  "unique": true,
+  "unique": false,
   "bonuses": [
     {
       "type": "apotheosis:attribute",

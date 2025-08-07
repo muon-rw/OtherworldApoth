@@ -71,6 +71,8 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    mavenCentral()
+    mavenLocal()
     maven {
         name = "JitPack"
         url = 'https://jitpack.io'
@@ -117,8 +119,6 @@ repositories {
     }
     maven { url = "https://nexus.resourcefulbees.com/repository/maven-public/" }
 
-    mavenCentral()
-    mavenLocal()
 }
 
 dependencies {

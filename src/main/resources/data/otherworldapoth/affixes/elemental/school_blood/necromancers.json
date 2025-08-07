@@ -1,13 +1,39 @@
 {
   "type": "otherworldapoth:spell_level",
-  "school": "irons_spellbooks:blood",
-  "values": {
-    "common": 1,
-    "uncommon": 1,
-    "rare": 1,
-    "epic": 2,
-    "mythic": 2,
-    "ancient": 3
+  "definition": {
+    "affix_type": "basic_effect",
+    "weights": {
+      "weight": 25,
+      "quality": 0.1
+    },
+    "exclusive_set": []
   },
-  "types": ["staff", "sword", "heavy_weapon"]
+  "school": "irons_spellbooks:blood",
+"values": {
+    "rare": {
+      "level": {
+        "min": 1,
+        "steps": 1,
+        "step": 0
+      }
+    },
+    "epic": {
+      "level": {
+        "min": 1,
+        "steps": 1,
+        "step": 0
+      }
+    },
+    "mythic": {
+      "level": {
+        "min": 1,
+        "steps": 1,
+        "step": 1
+      }
+    }
+  },
+  "types": [
+    "sword", "heavy_weapon",
+    "staff" 
+]
 }
