@@ -1,6 +1,5 @@
 package dev.muon.otherworldapoth.affix;
 
-import dev.muon.otherworldapoth.OtherworldApoth;
 import dev.shadowsoffire.apotheosis.adventure.affix.Affix;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixHelper;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixInstance;
@@ -84,6 +83,7 @@ public class AffixEvents {
 
     @SubscribeEvent
     public void hookSpellLevelAffix(ModifySpellLevelEvent event) {
+        if (event.getEntity() == null) return;
         if (event.getEntity().level().isClientSide()) return;
         SchoolType school = event.getSpell().getSchoolType();
         int totalBonus = StreamSupport.stream(event.getEntity().getAllSlots().spliterator(), false)

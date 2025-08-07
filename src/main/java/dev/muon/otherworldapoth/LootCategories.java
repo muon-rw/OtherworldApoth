@@ -2,7 +2,6 @@ package dev.muon.otherworldapoth;
 
 import dev.shadowsoffire.apotheosis.adventure.loot.LootCategory;
 import io.redspace.ironsspellbooks.item.CastingItem;
-import io.redspace.ironsspellbooks.item.SpellBook;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 

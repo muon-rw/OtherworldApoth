@@ -94,7 +94,7 @@ public class SpellCastUtil {
         Messages.sendToPlayersTrackingEntity(new ClientboundOnCastStarted(serverPlayer.getUUID(), spell.getSpellId(), spellLevel), serverPlayer, true);
 
         if (magicData.getAdditionalCastData() instanceof TargetEntityCastData targetingData) {
-            OtherworldApoth.LOGGER.debug("Casting Spell {} with target {}", magicData.getCastingSpellId(), targetingData.getTarget((ServerLevel) serverPlayer.level()).getName().getString());
+            // OtherworldApoth.LOGGER.debug("Casting Spell {} with target {}", magicData.getCastingSpellId(), targetingData.getTarget((ServerLevel) serverPlayer.level()).getName().getString());
         } else {
             OtherworldApoth.LOGGER.warn("Tried to merge Targeting Data but was overridden. Current cast data for spell {}: {}", magicData.getCastingSpellId(), magicData.getAdditionalCastData().getClass().getName());
         }
