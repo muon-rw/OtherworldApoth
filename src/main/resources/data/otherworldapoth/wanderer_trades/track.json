@@ -9,7 +9,7 @@
   }],
   "type": "apotheosis:basic_trade",
   "input_1": {
-    "item": "numismaticoverhaul:silver_coin",
+    "item": "numismatic-overhaul:silver_coin",
     "count": 2
   },
   "input_2": {
