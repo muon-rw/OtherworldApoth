@@ -1,6 +1,5 @@
 {
   "type": "apotheosis:attribute",
-
   "attribute": "attributeslib:crit_damage",
   "operation": "MULTIPLY_BASE",
   "values": {

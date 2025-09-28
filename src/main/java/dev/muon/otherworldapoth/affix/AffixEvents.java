@@ -3,6 +3,7 @@ package dev.muon.otherworldapoth.affix;
 import dev.shadowsoffire.apotheosis.adventure.affix.Affix;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixHelper;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixInstance;
+import dev.shadowsoffire.apotheosis.adventure.event.GetItemSocketsEvent;
 import dev.shadowsoffire.placebo.reload.DynamicHolder;
 import io.redspace.ironsspellbooks.api.events.*;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
@@ -24,6 +25,23 @@ public class AffixEvents {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void dropsLowest(LivingDropsEvent e) {
         MagicTelepathicAffix.drops(e);
+    }
+
+    @SubscribeEvent
+    public void hookAddSocketsAffix(GetItemSocketsEvent event) {
+        ItemStack stack = event.getStack();
+
+        int affixBonus = StreamSupport.stream(AffixHelper.streamAffixes(stack).spliterator(), false)
+                .filter(inst -> inst.affix().get() instanceof SocketBonusAffix)
+                .mapToInt(inst -> {
+                    SocketBonusAffix affix = (SocketBonusAffix) inst.affix().get();
+                    return affix.getBonusSockets(inst.rarity().get(), inst.level());
+                })
+                .sum();
+
+        if (affixBonus > 0) {
+            event.setSockets(event.getSockets() + affixBonus);
+        }
     }
 
     @SubscribeEvent

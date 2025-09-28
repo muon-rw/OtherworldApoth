@@ -1,13 +1,5 @@
 {
   "type": "otherworldapoth:spell_trigger",
-  "definition": {
-    "affix_type": "ability",
-    "weights": {
-      "weight": 15,
-      "quality": 0.35
-    },
-    "exclusive_set": []
-  },
   "spell": "irons_spellbooks:poison_arrow",
   "trigger": "ARROW_HIT",
   "target": "TARGET",

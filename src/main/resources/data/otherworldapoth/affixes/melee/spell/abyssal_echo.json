@@ -6,14 +6,6 @@
     }
   ],
   "type": "otherworldapoth:spell_trigger",
-  "definition": {
-    "affix_type": "ability",
-    "weights": {
-      "weight": 15,
-      "quality": 0.45
-    },
-    "exclusive_set": []
-  },
   "spell": "cataclysm_spellbooks:abyssal_slash",
   "trigger": "MELEE_HIT",
   "target": "TARGET",

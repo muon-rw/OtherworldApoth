@@ -134,6 +134,11 @@
 
   "affix.otherworldapoth.spell_level.desc": "%s spells cast will be %s levels higher.",
   "affix.otherworldapoth.mana_cost.desc": "%s spells cast with this weapon will cost %s%% less mana.",
+  "affix.otherworldapoth.socket_bonus.desc": "This item has %s additional socket.",
+  "affix.otherworldapoth.socket_bonus.desc_multiple": "This item has %s additional sockets.",
+
+  "affix.otherworldapoth:socket_bonus": "Hoarding",
+  "affix.otherworldapoth:socket_bonus.suffix": "of the Jeweler",
 
   "affix.otherworldapoth:magic_weapons/attribute/restorative": "Restorative",
   "affix.otherworldapoth:magic_weapons/attribute/restorative.suffix": "of Arcane Flow",

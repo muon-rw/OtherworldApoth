@@ -6,14 +6,6 @@
     }
   ],
   "type": "otherworldapoth:mana_cost",
-  "definition": {
-    "affix_type": "basic_effect",
-    "weights": {
-      "weight": 50,
-      "quality": 0.15
-    },
-    "exclusive_set": []
-  },
   "school": "traveloptics:aqua",
   "values": {
     "common": {

@@ -6,14 +6,6 @@
     }
   ],
   "type": "otherworldapoth:spell_level",
-  "definition": {
-    "affix_type": "basic_effect",
-    "weights": {
-      "weight": 25,
-      "quality": 0.1
-    },
-    "exclusive_set": []
-  },
   "school": "traveloptics:aqua",
   "values": {
     "rare": {
