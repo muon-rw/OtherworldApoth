@@ -8,10 +8,8 @@
   "type": "apotheosis:gem",
   "min_purity": "common",
   "unique": false,
-  "weights": {
-    "weight": 5,
-    "quality": 2
-  },
+  "weight": 5,
+  "quality": 2,
   "bonuses": [
     {
       "type": "apotheosis:attribute",
