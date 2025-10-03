@@ -102,7 +102,6 @@ public class AffixEvents {
     @SubscribeEvent
     public void hookSpellLevelAffix(ModifySpellLevelEvent event) {
         if (event.getEntity() == null) return;
-        if (event.getEntity().level().isClientSide()) return;
         SchoolType school = event.getSpell().getSchoolType();
         int totalBonus = StreamSupport.stream(event.getEntity().getAllSlots().spliterator(), false)
                 .flatMap(stack -> StreamSupport.stream(AffixHelper.streamAffixes(stack).spliterator(), false))
