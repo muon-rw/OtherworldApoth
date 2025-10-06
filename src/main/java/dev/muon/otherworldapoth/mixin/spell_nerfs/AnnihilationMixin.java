@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class AnnihilationMixin {
     @ModifyReturnValue(method = "getDamage", at = @At("RETURN"))
     private float modifyDamage(float original) {
+        //TODO: Use now-shippable Iron's config instead
         return Math.min(original * 0.33f, 1000.0f);
     }
 }

@@ -1,8 +1,6 @@
 package dev.muon.otherworldapoth;
 
 import dev.muon.otherworldapoth.affix.*;
-import dev.muon.otherworldapoth.attribute.AttributeEvents;
-import dev.muon.otherworldapoth.attribute.AttributeRegistry;
 import dev.muon.otherworldapoth.config.OWApothConfig;
 import dev.muon.otherworldapoth.datapacks.ApothReplacerSource;
 import dev.muon.otherworldapoth.datapacks.IronsReplacerSource;
@@ -44,12 +42,10 @@ public class OtherworldApoth {
 
         OWApothConfig.init();
         LootCategories.init();
-        AttributeRegistry.init(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            MinecraftForge.EVENT_BUS.register(new AttributeEvents());
             MinecraftForge.EVENT_BUS.register(new AffixEvents());
             MinecraftForge.EVENT_BUS.register(new LootEvents());
             AffixRegistry.INSTANCE.registerCodec(loc("attribute"), SchoolAttributeAffix.CODEC);

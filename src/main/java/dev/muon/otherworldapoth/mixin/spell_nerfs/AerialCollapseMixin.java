@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class AerialCollapseMixin {
     @ModifyReturnValue(method = "getDamage", at = @At("RETURN"))
     private float lowerAndCapDamage(float original) {
+        //TODO: Use now-shippable Iron's config instead
         return Math.min(original * 0.2f, 35.0f);
     }
 }

@@ -1,5 +1,7 @@
 ## 0.4.0
-- Add many ting
+- Add Socket Bonus Affix
+- Add Spell Level, Spell Trigger Affixes (Iron's)
+- 
 
 ## 0.3.1
 - Migrate from Medieval to Otherworld Core (uninstall Medieval from your mods list!)

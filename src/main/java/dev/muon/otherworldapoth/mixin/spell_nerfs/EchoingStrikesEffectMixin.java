@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class EchoingStrikesEffectMixin {
     @Inject(method = "getDamageModifier", at = @At("HEAD"), cancellable = true)
     private static void lowerDamageModifier(int effectAmplifier, LivingEntity caster, CallbackInfoReturnable<Float> cir) {
+        //TODO: Use now-shippable Iron's config instead
         var power = caster == null ? 1 : SpellRegistry.ECHOING_STRIKES_SPELL.get().getEntityPowerMultiplier(caster);
         float newDamage = (((effectAmplifier - 4) * power * 0.02f) + 0.25f) * 0.1f;
         cir.setReturnValue(newDamage);
