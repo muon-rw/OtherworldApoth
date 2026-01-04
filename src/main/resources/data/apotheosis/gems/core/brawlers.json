@@ -16,12 +16,12 @@
 			"attribute": "minecraft:generic.attack_speed",
 			"operation": "MULTIPLY_BASE",
 			"values": {
-				"common": 0.03,
-				"uncommon": 0.045,
+				"common": 0.02,
+				"uncommon": 0.04,
 				"rare": 0.06,
-				"epic": 0.075,
-				"mythic": 0.105,
-				"ancient": 0.15
+				"epic": 0.08,
+				"mythic": 0.1,
+				"ancient": 0.12
 			}
 		},
 		{
@@ -74,12 +74,12 @@
 			"attribute": "minecraft:generic.max_health",
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
-				"common": 0.015,
-				"uncommon": 0.03,
-				"rare": 0.045,
+				"common": 0.01,
+				"uncommon": 0.02,
+				"rare": 0.04,
 				"epic": 0.06,
-				"mythic": 0.075,
-				"ancient": 0.09
+				"mythic": 0.08,
+				"ancient": 0.1
 			}
 		}
 	]

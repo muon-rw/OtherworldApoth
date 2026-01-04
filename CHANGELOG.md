@@ -1,3 +1,7 @@
+## 0.5.1
+- Fix ancient rarity weight
+- Fix garble snarble warble barble farble i hate writing changelogs dude
+
 ## 0.5.0
 - Update to Iron's 3.15.0
 - Refactor rarity rules and most affix types to match changes from 1.21.1/Apotheosis x Iron's Spellbooks compat
