@@ -10,11 +10,11 @@ import io.redspace.ironsspellbooks.api.spells.CastSource;
 import io.redspace.ironsspellbooks.api.spells.CastType;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.TargetEntityCastData;
-import io.redspace.ironsspellbooks.network.ClientboundUpdateCastingState;
-import io.redspace.ironsspellbooks.network.spell.ClientboundOnCastStarted;
-import io.redspace.ironsspellbooks.network.spell.ClientboundOnClientCast;
-import io.redspace.ironsspellbooks.network.spell.ClientboundSyncTargetingData;
-import io.redspace.ironsspellbooks.setup.Messages;
+import io.redspace.ironsspellbooks.network.casting.OnCastStartedPacket;
+import io.redspace.ironsspellbooks.network.casting.OnClientCastPacket;
+import io.redspace.ironsspellbooks.network.casting.SyncTargetingDataPacket;
+import io.redspace.ironsspellbooks.network.casting.UpdateCastingStatePacket;
+import io.redspace.ironsspellbooks.setup.PacketDistributor;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
@@ -90,8 +90,8 @@ public class SpellCastUtil {
 
         spell.onServerPreCast(serverPlayer.level(), spellLevel, serverPlayer, magicData);
 
-        Messages.sendToPlayer(new ClientboundUpdateCastingState(spell.getSpellId(), spellLevel, effectiveCastTime, CastSource.COMMAND, "command"), serverPlayer);
-        Messages.sendToPlayersTrackingEntity(new ClientboundOnCastStarted(serverPlayer.getUUID(), spell.getSpellId(), spellLevel), serverPlayer, true);
+        PacketDistributor.sendToPlayer(serverPlayer, new UpdateCastingStatePacket(spell.getSpellId(), spellLevel, effectiveCastTime, CastSource.COMMAND, "command"));
+        PacketDistributor.sendToPlayersTrackingEntity(serverPlayer, new OnCastStartedPacket(serverPlayer.getUUID(), spell.getSpellId(), spellLevel));
 
         if (magicData.getAdditionalCastData() instanceof TargetEntityCastData targetingData) {
             // OtherworldApoth.LOGGER.debug("Casting Spell {} with target {}", magicData.getCastingSpellId(), targetingData.getTarget((ServerLevel) serverPlayer.level()).getName().getString());
@@ -103,7 +103,7 @@ public class SpellCastUtil {
         // For spells with cast time > 0, the normal tick handler will execute them
         if (effectiveCastTime == 0) {
             spell.onCast(serverPlayer.level(), spellLevel, serverPlayer, CastSource.COMMAND, magicData);
-            Messages.sendToPlayer(new ClientboundOnClientCast(spell.getSpellId(), spellLevel, CastSource.COMMAND, magicData.getAdditionalCastData()), serverPlayer);
+            PacketDistributor.sendToPlayer(serverPlayer, new OnClientCastPacket(spell.getSpellId(), spellLevel, CastSource.COMMAND, magicData.getAdditionalCastData()));
         }
     }
 
@@ -120,7 +120,7 @@ public class SpellCastUtil {
             playerMagicData.setAdditionalCastData(new TargetEntityCastData(livingTarget));
             if (caster instanceof ServerPlayer serverPlayer) {
                 if (spell.getCastType() != CastType.INSTANT) {
-                    Messages.sendToPlayer(new ClientboundSyncTargetingData(livingTarget, spell), serverPlayer);
+                    PacketDistributor.sendToPlayer(serverPlayer, new SyncTargetingDataPacket(livingTarget, spell));
                 }
                 serverPlayer.connection.send(new ClientboundSetActionBarTextPacket(Component.translatable("ui.irons_spellbooks.spell_target_success", livingTarget.getDisplayName().getString(), spell.getDisplayName(serverPlayer)).withStyle(ChatFormatting.GREEN)));
             }

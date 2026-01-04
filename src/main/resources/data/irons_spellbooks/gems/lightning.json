@@ -15,7 +15,7 @@
                     "boots", "staff"]
             },
             "attribute": "irons_spellbooks:lightning_spell_power",
-            "operation": "MULTIPLY_TOTAL",
+            "operation": "MULTIPLY_BASE",
             "values":
             {
                 "common":

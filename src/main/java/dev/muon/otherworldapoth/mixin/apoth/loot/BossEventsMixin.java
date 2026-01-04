@@ -1,4 +1,4 @@
-package dev.muon.otherworldapoth.mixin.apoth;
+package dev.muon.otherworldapoth.mixin.apoth.loot;
 
 import dev.shadowsoffire.apotheosis.adventure.boss.BossEvents;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;

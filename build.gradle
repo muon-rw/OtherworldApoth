@@ -2,9 +2,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
-    id 'org.spongepowered.mixin' version '0.7.+'
-    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'net.neoforged.moddev.legacyforge' version '2.0.126'
     id "net.darkhax.curseforgegradle" version "1.0.7"
 }
 
@@ -24,49 +22,46 @@ mixin {
     config "${mod_id}.mixins.json"
 }
 
-minecraft {
-    mappings channel: mapping_channel, version: mapping_version
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+legacyForge {
+    // Develop against MinecraftForge version 47.3.0 for 1.20.1 (the versions can be found at https://files.minecraftforge.net/)
+    version = "${minecraft_version}-${forge_version}"
+    parchment {
+        minecraftVersion = "${minecraft_version}"
+        mappingsVersion = "2023.09.03"
+    }
+    // Validate AT files and raise errors when they have invalid targets
+    // This option is false by default, but turning it on is recommended
+    validateAccessTransformers = true
 
     runs {
         client {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', mod_id
-            mods {
-                "${mod_id}" {
-                    source sourceSets.main
-                }
-            }
-            args '--username Dev#'
+            client()
+            setGameDirectory(project.file('run/client'))
+        }
+
+        clientExtra {
+            client()
+            setGameDirectory(project.file('run/client2'))
+            programArguments.addAll('--username', 'Dev2')
         }
 
         server {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', mod_id
-            mods {
-                "${mod_id}" {
-                    source sourceSets.main
-                }
-            }
+            server()
+            setGameDirectory(project.file('run/server'))
+            programArgument '--nogui'
         }
-
         data {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-            mods {
-                "${mod_id}" {
-                    source sourceSets.main
-                }
-            }
+            data()
+        }
+    }
+
+    mods {
+        testproject {
+            sourceSet sourceSets.main
         }
     }
 }
+
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
@@ -121,47 +116,90 @@ repositories {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     // Mixin
     compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:${mixin_extras_version}"))
     implementation(jarJar("io.github.llamalad7:mixinextras-forge:${mixin_extras_version}")) {
-        jarJar.ranged(it, "[${mixin_extras_version},)")
+        version {
+            strictly '[0.5.0, 1.0)'
+            prefer '0.5.0'
+        }
     }
-    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    annotationProcessor ("org.spongepowered:mixin:${mixin_version}:processor")
 
     // Leveling
-    implementation fg.deobf("curse.maven:justleveling-fork-1073400:5824051")
-    implementation fg.deobf("curse.maven:auto-leveling-616126:4899526")
+    modImplementation("curse.maven:justleveling-fork-1073400:5824051")
+    modImplementation("curse.maven:auto-leveling-616126:4899526")
 
     // Apoth
-    implementation fg.deobf("dev.shadowsoffire:Placebo:${minecraft_version}-${placebo_version}")
-    implementation fg.deobf("dev.shadowsoffire:ApothicAttributes:${minecraft_version}-${attributeslib_version}")
-    implementation fg.deobf("dev.shadowsoffire:Apotheosis:${minecraft_version}-${apotheosis_version}")
+    modImplementation("dev.shadowsoffire:Placebo:${minecraft_version}-${placebo_version}")
+    modImplementation("dev.shadowsoffire:ApothicAttributes:${minecraft_version}-${attributeslib_version}")
+    modImplementation("dev.shadowsoffire:Apotheosis:${minecraft_version}-${apotheosis_version}")
 
     // Core
-    implementation fg.deobf("dev.muon:otherworld-${minecraft_version}:${otherworld_core_version}")
-    runtimeOnly fg.deobf("curse.maven:ydms-mobhealthbar-mod-559894:4818965")
+    modImplementation("dev.muon:otherworld-${minecraft_version}:${otherworld_core_version}")
+    modRuntimeOnly("curse.maven:ydms-mobhealthbar-mod-559894:4818965")
 
     // Dev Env
-    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
-    runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_id}")
-    runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${project.cloth_config_version}")
+    modRuntimeOnly("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+    modRuntimeOnly("curse.maven:jade-324717:${jade_id}")
+    modRuntimeOnly("me.shedaniel.cloth:cloth-config-forge:${project.cloth_config_version}")
 
     // Misc Dep-deps
-    implementation fg.deobf("dev.isxander:yet-another-config-lib:${project.yacl_version}")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
-    runtimeOnly fg.deobf("curse.maven:caelus-308989:5281700")
+    modImplementation("dev.isxander:yet-another-config-lib:${project.yacl_version}")
+    modCompileOnly("top.theillusivec4.curios:curios-forge:${curios_version}:api")
+    modRuntimeOnly("top.theillusivec4.curios:curios-forge:${curios_version}")
+    modRuntimeOnly("curse.maven:caelus-308989:5281700")
 
     // Iron's Spells n Spellbooks
-    implementation fg.deobf("io.redspace.ironsspellbooks:irons_spellbooks:${irons_version}:api")
-    implementation fg.deobf("io.redspace.ironsspellbooks:irons_spellbooks:${irons_version}")
-    runtimeOnly fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
-    runtimeOnly fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}")
+    modImplementation("io.redspace:irons_spellbooks:${irons_version}")
+    modRuntimeOnly("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
+    modRuntimeOnly("dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}")
 
     // TravelOptics
-    compileOnly fg.deobf("curse.maven:to-tweaks-irons-spells-1046916:5921936")
+    modCompileOnly("curse.maven:to-tweaks-irons-spells-1046916:5921936")
+
+    // OW CORE ONLY, CAN REMOVE AFTER JL FORK:
+    // Chipped
+    // modRuntimeOnly("curse.maven:chipped-456956:5813138")
+    // modRuntimeOnly("curse.maven:resourceful-lib-570073:5659871")
+    // modRuntimeOnly("curse.maven:stitch-841890:5176879")
+
+    // Aether + Addons
+    modImplementation("curse.maven:aether-255308:6134920")
+    modImplementation("curse.maven:aether-villages-1073197:5707985")
+
+    modCompileOnly("curse.maven:aether-lost-content-318602:4927038")
+    modRuntimeOnly("curse.maven:aeroblender-879879:4789008")
+    modRuntimeOnly("curse.maven:structure-gel-api-378802:5278429")
+    modRuntimeOnly("curse.maven:terrablender-563928:6290448")
+
+    modImplementation("curse.maven:ancient-aether-886751:6400544")
+
+    // BOMD
+    modRuntimeOnly("curse.maven:bosses-of-mass-destruction-forge-941573:5067728")
+    modRuntimeOnly("curse.maven:cerbons-api-955605:5050080")
+
+    // IAF
+    modRuntimeOnly("curse.maven:ice-and-fire-dragons-264231:5633453")
+    modRuntimeOnly("curse.maven:citadel-331936:6702068")
+
+    // Doppel
+    modRuntimeOnly("curse.maven:dark-doppelganger-1110803:6619700")
+
+    // Autolvl
+    modRuntimeOnly("curse.maven:auto-leveling-616126:4899526")
+
+    // Traveloptics
+    modRuntimeOnly("curse.maven:to-tweaks-irons-spells-1046916:7413341")
+    modRuntimeOnly("curse.maven:alexs-caves-924854:5848216")
+    modRuntimeOnly("curse.maven:lendercataclysm-551586:6906993")
+    modRuntimeOnly("curse.maven:lionfish-api-1001614:5922047")
+
+    // Dummy
+    modRuntimeOnly("curse.maven:mmmmmmmmmmmm-225738:6860192")
+    modRuntimeOnly("curse.maven:selene-499980:7191950")
+    // END OW CORE DEPS
 
 }
 
@@ -181,16 +219,16 @@ tasks.withType(ProcessResources).configureEach {
 }
 
 tasks.named('jar', Jar).configure {
-    exclude '**/*.py'
-    manifest {
-        attributes([
+    jar {
+        manifest.attributes([
                 'Specification-Title'     : mod_id,
                 'Specification-Vendor'    : mod_authors,
                 'Specification-Version'   : '1',
                 'Implementation-Title'    : project.name,
                 'Implementation-Version'  : project.jar.archiveVersion,
                 'Implementation-Vendor'   : mod_authors,
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "MixinConfigs": "${mod_id}.mixins.json"
         ])
     }
     finalizedBy 'reobfJar'
@@ -213,36 +251,24 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
-tasks.jarJar.configure {
-    exclude '**/*.py'
-    archiveClassifier = ""
-    dependsOn('reobfJar')
-}
-
-reobf {
-    jarJar {}
-}
-
-jar.finalizedBy('reobfJarJar')
-
 tasks.register('sendToModpack', Copy) {
     group = 'publishing'
-    dependsOn 'jarJar'
-    from tasks.jarJar.archiveFile
+    dependsOn 'reobfJar'
+    from tasks.reobfJar.archiveFile
     //wtf is a renpi
     into 'C:/Users/renpi/curseforge/minecraft/Instances/Otherworld/mods'
     rename { String fileName ->
         fileName.replace(project.version.toString(), "dev")
     }
     doLast {
-        println "Mod JAR sent to modpack folder: ${tasks.jarJar.archiveFileName.get()}"
+        println "Mod JAR sent to modpack folder: ${tasks.reobfJar.archiveFileName.get()}"
     }
 }
 
 task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
     group = 'publishing'
     apiToken = System.getenv("CF_TOKEN")
-    def mainFile = upload(1144178, jar)
+    def mainFile = upload(1144178, reobfJar)
     mainFile.displayName = "v${rootProject.version}-beta"
     mainFile.releaseType = "beta"
     mainFile.changelog = new File("$project.rootDir/CHANGELOG.md").getText('UTF-8')

@@ -18,23 +18,19 @@
 		},
 		{
 			"type": "stat",
-			"chance": 1.0,
-			"backup": {
-				"type": "ability",
-				"chance": 0.4
-			}
+			"chance": 1.0
 		},
 		{
-			"type": "ability",
+			"type": "potion",
+			"chance": 1.0
+		},
+		{
+			"type": "potion",
 			"chance": 1.0
 		},
 		{
 			"type": "ability",
 			"chance": 1.0
-		},
-		{
-			"type": "ability",
-			"chance": 0.3
 		},
 		{
 			"type": "socket",
@@ -49,8 +45,12 @@
 			"chance": 0.65
 		},
 		{
+			"type": "socket",
+			"chance": 0.05
+		},
+		{
 			"type": "durability",
-			"chance": 0.2
+			"chance": 0.45
 		}
 	]
 }

@@ -20,8 +20,8 @@
 				"uncommon": 0.045,
 				"rare": 0.075,
 				"epic": 0.105,
-				"mythic": 0.1275,
-				"ancient": 0.165
+				"mythic": 0.13,
+				"ancient": 0.17
 			}
 		},
 		{
@@ -38,9 +38,9 @@
 			"values": {
 				"common": 0.015,
 				"uncommon": 0.045,
-				"rare": 0.075,
-				"epic": 0.105,
-				"mythic": 0.1275,
+				"rare": 0.08,
+				"epic": 0.11,
+				"mythic": 0.13,
 				"ancient": 0.15
 			}
 		},
@@ -57,10 +57,10 @@
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
 				"common": 0.03,
-				"uncommon": 0.0675,
-				"rare": 0.1125,
+				"uncommon": 0.07,
+				"rare": 0.11,
 				"epic": 0.12,
-				"mythic": 0.165,
+				"mythic": 0.17,
 				"ancient": 0.21
 			}
 		}

@@ -32,7 +32,7 @@ public class ManaCostAffix extends Affix {
     protected final Set<LootCategory> types;
 
     public ManaCostAffix(ResourceLocation schoolId, Map<LootRarity, StepFunction> values, Set<LootCategory> types) {
-        super(AffixType.ABILITY);
+        super(AffixType.POTION);
         this.school = SchoolRegistry.getSchool(schoolId);
         if (this.school == null) {
             throw new IllegalArgumentException("Invalid school ID provided for ManaCostAffix: " + schoolId);

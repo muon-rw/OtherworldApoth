@@ -15,7 +15,7 @@
                     "boots", "staff"]
             },
             "attribute": "irons_spellbooks:summon_damage",
-            "operation": "MULTIPLY_TOTAL",
+            "operation": "MULTIPLY_BASE",
             "values":
             {
                 "common":

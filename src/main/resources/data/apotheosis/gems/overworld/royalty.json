@@ -19,7 +19,7 @@
 			"values": {
 				"rare": 0.01,
 				"epic": 0.02,
-				"mythic": 0.035,
+				"mythic": 0.04,
 				"ancient": 0.05
 			},
 			"attributes": [
@@ -82,9 +82,9 @@
 				"item": "minecraft:raw_gold"
 			},
 			"values": {
-				"rare": 0.045,
+				"rare": 0.05,
 				"epic": 0.06,
-				"mythic": 0.075,
+				"mythic": 0.08,
 				"ancient": 0.12
 			},
 			"desc": "gem.apotheosis:overworld/royalty.bonus.pickaxe"
@@ -146,9 +146,9 @@
 					"attribute": "minecraft:generic.armor_toughness",
 					"operation": "MULTIPLY_TOTAL",
 					"values": {
-						"rare": 0.075,
-						"epic": 0.125,
-						"mythic": 0.225,
+						"rare": 0.08,
+						"epic": 0.13,
+						"mythic": 0.23,
 						"ancient": 0.3
 					}
 				},

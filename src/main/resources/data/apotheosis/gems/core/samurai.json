@@ -39,11 +39,11 @@
 			"operation": "ADDITION",
 			"values": {
 				"common": 0.03,
-				"uncommon": 0.075,
-				"rare": 0.105,
+				"uncommon": 0.08,
+				"rare": 0.11,
 				"epic": 0.12,
-				"mythic": 0.1425,
-				"ancient": 0.195
+				"mythic": 0.14,
+				"ancient": 0.20
 			}
 		},
 		{
@@ -62,8 +62,8 @@
 				"uncommon": 0.045,
 				"rare": 0.075,
 				"epic": 0.105,
-				"mythic": 0.135,
-				"ancient": 0.195
+				"mythic": 0.14,
+				"ancient": 0.20
 			}
 		},
 		{
@@ -77,11 +77,11 @@
 			"attribute": "attributeslib:arrow_velocity",
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
-				"common": 0.0225,
-				"uncommon": 0.045,
-				"rare": 0.075,
-				"epic": 0.1125,
-				"mythic": 0.1275,
+				"common": 0.02,
+				"uncommon": 0.05,
+				"rare": 0.08,
+				"epic": 0.11,
+				"mythic": 0.13,
 				"ancient": 0.15
 			}
 		},

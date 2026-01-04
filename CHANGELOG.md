@@ -1,7 +1,11 @@
+## 0.5.0
+- Update to Iron's 3.15.0
+- Refactor rarity rules and most affix types to match changes from 1.21.1/Apotheosis x Iron's Spellbooks compat
+- Tweak values for most affix nerf overrides
+
 ## 0.4.0
 - Add Socket Bonus Affix
 - Add Spell Level, Spell Trigger Affixes (Iron's)
-- 
 
 ## 0.3.1
 - Migrate from Medieval to Otherworld Core (uninstall Medieval from your mods list!)

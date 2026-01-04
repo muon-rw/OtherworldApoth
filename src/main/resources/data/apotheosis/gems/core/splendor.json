@@ -41,11 +41,11 @@
 			"attribute": "attributeslib:experience_gained",
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
-				"common": 0.0225,
-				"uncommon": 0.045,
-				"rare": 0.0675,
+				"common": 0.02,
+				"uncommon": 0.05,
+				"rare": 0.07,
 				"epic": 0.09,
-				"mythic": 0.105,
+				"mythic": 0.11,
 				"ancient": 0.12
 			}
 		},

@@ -13,16 +13,12 @@
 			"chance": 1.0
 		},
 		{
-			"type": "stat",
+			"type": "potion",
 			"chance": 1.0
 		},
 		{
-			"type": "ability",
-			"chance": 1.0
-		},
-		{
-			"type": "ability",
-			"chance": 0.33
+			"type": "potion",
+			"chance": 0.35
 		},
 		{
 			"type": "socket",

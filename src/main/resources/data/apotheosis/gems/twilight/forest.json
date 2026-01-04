@@ -31,7 +31,7 @@
 					"cooldown": 4800
 				},
 				"epic": {
-					"chance": 0.0075,
+					"chance": 0.01,
 					"cooldown": 4800
 				},
 				"mythic": {

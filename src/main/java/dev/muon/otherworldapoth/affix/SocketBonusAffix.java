@@ -29,7 +29,7 @@ public class SocketBonusAffix extends Affix {
     protected final Set<LootCategory> types;
 
     public SocketBonusAffix(Map<LootRarity, SocketData> values, Set<LootCategory> types) {
-        super(AffixType.ABILITY);
+        super(AffixType.POTION);
         this.values = values;
         this.types = types;
     }

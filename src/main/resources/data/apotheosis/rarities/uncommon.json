@@ -13,12 +13,8 @@
 			"chance": 1.0
 		},
 		{
-			"type": "stat",
-			"chance": 0.45
-		},
-		{
 			"type": "socket",
-			"chance": 0.65
+			"chance": 0.5
 		}
 	]
 }

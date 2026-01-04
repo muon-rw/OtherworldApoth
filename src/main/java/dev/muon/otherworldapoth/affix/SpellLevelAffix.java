@@ -32,7 +32,7 @@ public class SpellLevelAffix extends Affix {
     protected final Set<LootCategory> types;
 
     public SpellLevelAffix(ResourceLocation schoolId, Map<LootRarity, LevelData> values, Set<LootCategory> types) {
-        super(AffixType.ABILITY);
+        super(AffixType.POTION);
         this.school = SchoolRegistry.getSchool(schoolId);
         if (this.school == null) {
             throw new IllegalArgumentException("Invalid school ID provided for SpellLevelAffix: " + schoolId);

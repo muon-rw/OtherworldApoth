@@ -37,10 +37,10 @@
 			"values": {
 				"common": 0.015,
 				"uncommon": 0.03,
-				"rare": 0.0375,
-				"epic": 0.045,
-				"mythic": 0.0525,
-				"ancient": 0.075
+				"rare": 0.04,
+				"epic": 0.05,
+				"mythic": 0.05,
+				"ancient": 0.08
 			}
 		},
 		{

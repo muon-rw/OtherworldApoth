@@ -1,9 +1,10 @@
 package dev.muon.otherworldapoth.util;
 
+import io.redspace.ironsspellbooks.api.item.UpgradeData;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.SchoolType;
-import io.redspace.ironsspellbooks.capabilities.magic.UpgradeData;
-import io.redspace.ironsspellbooks.item.armor.UpgradeType;
+import io.redspace.ironsspellbooks.item.armor.UpgradeOrbType;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -25,9 +26,14 @@ public class SchoolUtil {
         EquipmentSlot slot = LivingEntity.getEquipmentSlotForItem(stack);
         Map<Attribute, Collection<AttributeModifier>> attributes = stack.getItem().getAttributeModifiers(slot, stack).asMap();
 
-        for (UpgradeType upgrade : UpgradeData.getUpgradeData(stack).getUpgrades().keySet()) {
-            Attribute upgradeAttr = upgrade.getAttribute();
-            ResourceLocation attrId = ForgeRegistries.ATTRIBUTES.getKey(upgradeAttr);
+
+        UpgradeData upgradeData = UpgradeData.getUpgradeData(stack);
+        for (Holder<UpgradeOrbType> upgradeHolder : upgradeData.upgrades().keySet()) {
+            UpgradeOrbType upgradeOrb = upgradeHolder.value();
+            Holder<Attribute> attributeHolder = upgradeOrb.attribute();
+            if (!attributeHolder.isBound()) continue;
+            Attribute attr = attributeHolder.value();
+            ResourceLocation attrId = ForgeRegistries.ATTRIBUTES.getKey(attr);
             if (attrId != null && attrId.getPath().endsWith("_spell_power")) {
                 String schoolName = attrId.getPath().replace("_spell_power", "");
                 SchoolType school = SchoolRegistry.getSchool(new ResourceLocation(attrId.getNamespace(),  schoolName));

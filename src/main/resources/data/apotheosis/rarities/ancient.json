@@ -4,8 +4,13 @@
     "material": "apotheosis:ancient_material",
 	"weight": 0,
 	"quality": 0,
-	"rules": [{
-			"type": "ancient",
+	"rules": [
+		{
+			"type": "stat",
+			"chance": 1.0
+		},
+		{
+			"type": "stat",
 			"chance": 1.0
 		},
 		{
@@ -14,38 +19,14 @@
 		},
 		{
 			"type": "stat",
-			"chance": 1.0,
-			"backup": {
-				"type": "ability",
-				"chance": 0.7
-			}
+			"chance": 1.0
 		},
 		{
-			"type": "stat",
-			"chance": 1.0,
-			"backup": {
-				"type": "ability",
-				"chance": 0.6
-			}
+			"type": "potion",
+			"chance": 1.0
 		},
 		{
-			"type": "stat",
-			"chance": 1.0,
-			"backup": {
-				"type": "ability",
-				"chance": 0.5
-			}
-		},
-		{
-			"type": "stat",
-			"chance": 1.0,
-			"backup": {
-				"type": "ability",
-				"chance": 0.4
-			}
-		},
-		{
-			"type": "ability",
+			"type": "potion",
 			"chance": 1.0
 		},
 		{
@@ -54,11 +35,7 @@
 		},
 		{
 			"type": "ability",
-			"chance": 0.75
-		},
-		{
-			"type": "ability",
-			"chance": 0.45
+			"chance": 0.05
 		},
 		{
 			"type": "socket",
@@ -74,15 +51,11 @@
 		},
 		{
 			"type": "socket",
-			"chance": 0.45
-		},
-		{
-			"type": "socket",
-			"chance": 0.25
+			"chance": 0.05
 		},
 		{
 			"type": "durability",
-			"chance": 0.35
+			"chance": 0.45
 		}
 	]
 }

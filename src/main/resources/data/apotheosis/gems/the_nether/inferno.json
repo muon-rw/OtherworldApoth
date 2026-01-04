@@ -99,8 +99,8 @@
 			"operation": "MULTIPLY_TOTAL",
 			"values": {
 				"rare": 0.15,
-				"epic": 0.1875,
-				"mythic": 0.225,
+				"epic": 0.19,
+				"mythic": 0.23,
 				"ancient": 0.27
 			}
 		}

@@ -76,9 +76,9 @@
 				"common": 0.015,
 				"uncommon": 0.03,
 				"rare": 0.045,
-				"epic": 0.0675,
+				"epic": 0.07,
 				"mythic": 0.09,
-				"ancient": 0.1275
+				"ancient": 0.13
 			}
 		},
 		{

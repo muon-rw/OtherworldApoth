@@ -4,7 +4,7 @@
 	"operation": "ADDITION",
 	"values": {
 		"rare": {
-			"min": 0.0375,
+			"min": 0.04,
 			"steps": 2,
 			"step": 0.01
 		},
@@ -14,7 +14,7 @@
 			"step": 0.01
 		},
 		"mythic": {
-			"min": 0.075,
+			"min": 0.08,
 			"steps": 2,
 			"step": 0.01
 		},

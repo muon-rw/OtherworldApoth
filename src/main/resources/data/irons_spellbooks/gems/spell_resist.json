@@ -15,7 +15,7 @@
                     "boots"]
             },
             "attribute": "irons_spellbooks:spell_resist",
-            "operation": "MULTIPLY_TOTAL",
+            "operation": "MULTIPLY_BASE",
             "values":
             {
                 "common":

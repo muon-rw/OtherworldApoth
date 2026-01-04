@@ -43,7 +43,7 @@ public class SpellEffectAffix extends Affix {
     }
 
     public SpellEffectAffix(MobEffect effect, SpellTarget target, Map<LootRarity, EffectData> values, int cooldown, Set<LootCategory> types) {
-        super(AffixType.ABILITY);
+        super(AffixType.POTION);
         this.effect = effect;
         this.target = target;
         this.values = values;

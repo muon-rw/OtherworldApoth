@@ -27,7 +27,7 @@ public class MagicTelepathicAffix extends Affix {
     protected LootRarity minRarity;
 
     public MagicTelepathicAffix(LootRarity minRarity) {
-        super(AffixType.ABILITY);
+        super(AffixType.POTION);
         this.minRarity = minRarity;
     }
 
