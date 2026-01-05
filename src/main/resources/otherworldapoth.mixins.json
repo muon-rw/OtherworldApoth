@@ -22,10 +22,7 @@
     "apoth.type.OmneticAffixMixin",
     "apoth.type.PotionAffixMixin",
     "apoth.type.RadialAffixMixin",
-    "apoth.type.TelepathicAffixMixin",
-    "spell_nerfs.AerialCollapseMixin",
-    "spell_nerfs.AnnihilationMixin",
-    "spell_nerfs.EchoingStrikesEffectMixin"
+    "apoth.type.TelepathicAffixMixin"
   ],
   "client": [
     "client.LevelDisplayRendererMixin"

@@ -1,3 +1,7 @@
+## 0.5.2
+- Remove spell nerfs
+- Remove datapack replacers
+
 ## 0.5.1
 - Fix ancient rarity weight
 - Fix garble snarble warble barble farble i hate writing changelogs dude

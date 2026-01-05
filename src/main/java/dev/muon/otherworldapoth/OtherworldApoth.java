@@ -2,8 +2,6 @@ package dev.muon.otherworldapoth;
 
 import dev.muon.otherworldapoth.affix.*;
 import dev.muon.otherworldapoth.config.OWApothConfig;
-import dev.muon.otherworldapoth.datapacks.ApothReplacerSource;
-import dev.muon.otherworldapoth.datapacks.IronsReplacerSource;
 import dev.muon.otherworldapoth.loot.LeveledAffixLootModifier;
 import dev.muon.otherworldapoth.loot.LeveledGemLootModifier;
 import dev.muon.otherworldapoth.loot.LootEvents;
@@ -38,7 +36,6 @@ public class OtherworldApoth {
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::registerLootModifiers);
-        modEventBus.addListener(this::addReplacerPack);
 
         OWApothConfig.init();
         LootCategories.init();
@@ -56,16 +53,6 @@ public class OtherworldApoth {
             AffixRegistry.INSTANCE.registerCodec(loc("mana_cost"), ManaCostAffix.CODEC);
             AffixRegistry.INSTANCE.registerCodec(loc("socket_bonus"), SocketBonusAffix.CODEC);
         });
-    }
-
-
-    private void addReplacerPack(AddPackFindersEvent event) {
-        if (event.getPackType() == PackType.SERVER_DATA) {
-            event.addRepositorySource(new ApothReplacerSource(PackType.SERVER_DATA));
-            if (ModList.get().isLoaded("irons_spellbooks")) {
-                event.addRepositorySource(new IronsReplacerSource(PackType.SERVER_DATA));
-            }
-        }
     }
 
     private void registerLootModifiers(RegisterEvent event) {
