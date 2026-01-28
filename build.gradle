@@ -159,6 +159,9 @@ dependencies {
     // TravelOptics
     modCompileOnly("curse.maven:to-tweaks-irons-spells-1046916:5921936")
 
+    // Champions
+    modCompileOnly("curse.maven:champions-unofficial-1074990:6923340")
+
     // OW CORE ONLY, CAN REMOVE AFTER JL FORK:
     // Chipped
     // modRuntimeOnly("curse.maven:chipped-456956:5813138")
@@ -200,6 +203,7 @@ dependencies {
     modRuntimeOnly("curse.maven:mmmmmmmmmmmm-225738:6860192")
     modRuntimeOnly("curse.maven:selene-499980:7191950")
     // END OW CORE DEPS
+
 
 }
 

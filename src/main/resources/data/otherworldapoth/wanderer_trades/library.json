@@ -6,7 +6,7 @@
   "type": "apotheosis:basic_trade",
   "input_1": {
     "item": "numismatic-overhaul:gold_coin",
-    "count": 32
+    "count": 64
   },
   "input_2": {
     "item": "minecraft:air",
