@@ -1,4 +1,4 @@
-package dev.muon.otherworldapoth.mixin.apoth;
+package dev.muon.otherworldapoth.mixin.apotheosis;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -7,7 +7,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(value = LootController.class, remap = false)
 public class LootControllerMixin {

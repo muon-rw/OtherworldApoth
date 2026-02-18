@@ -1,4 +1,4 @@
-package dev.muon.otherworldapoth.mixin.apoth;
+package dev.muon.otherworldapoth.mixin.apotheosis;
 
 import dev.muon.otherworldapoth.LootCategories;
 import dev.muon.otherworldapoth.OtherworldApoth;

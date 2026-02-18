@@ -160,7 +160,7 @@ dependencies {
     modCompileOnly("curse.maven:to-tweaks-irons-spells-1046916:5921936")
 
     // Champions
-    modCompileOnly("curse.maven:champions-unofficial-1074990:6923340")
+    modImplementation("curse.maven:champions-unofficial-1074990:6923340")
 
     // OW CORE ONLY, CAN REMOVE AFTER JL FORK:
     // Chipped
@@ -204,6 +204,8 @@ dependencies {
     modRuntimeOnly("curse.maven:selene-499980:7191950")
     // END OW CORE DEPS
 
+    // Origins
+    modCompileOnly("dev.muon.otherworldorigins:otherworldorigins:${otherworld_origins_version}")
 
 }
 

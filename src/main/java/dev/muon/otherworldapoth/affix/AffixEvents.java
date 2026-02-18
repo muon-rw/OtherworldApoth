@@ -4,6 +4,7 @@ import dev.shadowsoffire.apotheosis.adventure.affix.Affix;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixHelper;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixInstance;
 import dev.shadowsoffire.apotheosis.adventure.event.GetItemSocketsEvent;
+import dev.shadowsoffire.apotheosis.util.DamageSourceExtension;
 import dev.shadowsoffire.placebo.reload.DynamicHolder;
 import io.redspace.ironsspellbooks.api.events.*;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
@@ -11,9 +12,13 @@ import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import io.redspace.ironsspellbooks.api.spells.SchoolType;
 import io.redspace.ironsspellbooks.api.spells.SpellData;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -157,6 +162,48 @@ public class AffixEvents {
             float reducedCost = manaCost * (1 - Math.min(totalReduction, 0.9f)); // Cap at 90% reduction
             float newManaValue = event.getOldMana() - reducedCost;
             event.setNewMana(newManaValue);
+        }
+    }
+
+    @SubscribeEvent(priority = EventPriority.HIGH)
+    public void hookTransmutationAffix(LivingHurtEvent event) {
+        if (event.getEntity().level().isClientSide()) return;
+
+        DamageSource source = event.getSource();
+        LivingEntity target = event.getEntity();
+
+        // Check for Transmutation affix on ranged attacks (projectiles)
+        if (source.getDirectEntity() instanceof AbstractArrow arrow) {
+            AffixHelper.streamAffixes(arrow)
+                    .filter(inst -> inst.affix().get() instanceof TransmutationAffix)
+                    .findFirst()
+                    .ifPresent(inst -> {
+                        TransmutationAffix affix = (TransmutationAffix) inst.affix().get();
+                        if (source instanceof DamageSourceExtension ext) {
+                            ext.addTag(affix.getDamageTypeTag());
+                        }
+                    });
+            return;
+        }
+
+        // Check for Transmutation affix on melee attacks
+        if (source.getEntity() instanceof LivingEntity attacker) {
+            // Check main hand weapon first
+            ItemStack mainHand = attacker.getMainHandItem();
+            if (!mainHand.isEmpty()) {
+                boolean found = AffixHelper.streamAffixes(mainHand)
+                        .filter(inst -> inst.affix().get() instanceof TransmutationAffix)
+                        .findFirst()
+                        .map(inst -> {
+                            TransmutationAffix affix = (TransmutationAffix) inst.affix().get();
+                            if (source instanceof DamageSourceExtension ext) {
+                                ext.addTag(affix.getDamageTypeTag());
+                            }
+                            return true;
+                        })
+                        .orElse(false);
+                if (found) return;
+            }
         }
     }
 

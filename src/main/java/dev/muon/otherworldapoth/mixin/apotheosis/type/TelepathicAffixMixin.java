@@ -1,13 +1,13 @@
-package dev.muon.otherworldapoth.mixin.apoth.type;
+package dev.muon.otherworldapoth.mixin.apotheosis.type;
 
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixType;
-import dev.shadowsoffire.apotheosis.adventure.affix.effect.FestiveAffix;
+import dev.shadowsoffire.apotheosis.adventure.affix.effect.TelepathicAffix;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-@Mixin(value = FestiveAffix.class, remap = false)
-public class FestiveAffixMixin {
+@Mixin(value = TelepathicAffix.class, remap = false)
+public class TelepathicAffixMixin {
 
     @ModifyArg(
         method = "<init>",

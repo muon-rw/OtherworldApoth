@@ -1,0 +1,12 @@
+{
+  "type": "otherworldapoth:champion_affix",
+  "conditions": [
+    {
+      "condition": "champions:entity_is_champion",
+      "entity": "this"
+    },
+    {
+      "condition": "minecraft:killed_by_player"
+    }
+  ]
+}

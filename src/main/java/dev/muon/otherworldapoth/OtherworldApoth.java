@@ -1,7 +1,9 @@
 package dev.muon.otherworldapoth;
 
+import dev.muon.otherworldapoth.affix.AttunementAffix;
 import dev.muon.otherworldapoth.affix.*;
 import dev.muon.otherworldapoth.config.OWApothConfig;
+import dev.muon.otherworldapoth.loot.ChampionAffixLootModifier;
 import dev.muon.otherworldapoth.loot.LeveledAffixLootModifier;
 import dev.muon.otherworldapoth.loot.LeveledGemLootModifier;
 import dev.muon.otherworldapoth.loot.LootEvents;
@@ -52,6 +54,8 @@ public class OtherworldApoth {
             AffixRegistry.INSTANCE.registerCodec(loc("spell_trigger"), SpellTriggerAffix.CODEC);
             AffixRegistry.INSTANCE.registerCodec(loc("mana_cost"), ManaCostAffix.CODEC);
             AffixRegistry.INSTANCE.registerCodec(loc("socket_bonus"), SocketBonusAffix.CODEC);
+            AffixRegistry.INSTANCE.registerCodec(loc("attunement"), AttunementAffix.CODEC);
+            AffixRegistry.INSTANCE.registerCodec(loc("transmutation"), TransmutationAffix.CODEC);
         });
     }
 
@@ -63,6 +67,9 @@ public class OtherworldApoth {
             event.register(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS,
                     loc("leveled_gems"),
                     () -> LeveledGemLootModifier.CODEC);
+            event.register(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS,
+                    loc("champion_affix"),
+                    () -> ChampionAffixLootModifier.CODEC);
         }
     }
 

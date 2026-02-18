@@ -1,13 +1,13 @@
-package dev.muon.otherworldapoth.mixin.apoth.type;
+package dev.muon.otherworldapoth.mixin.apotheosis.type;
 
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixType;
-import dev.shadowsoffire.apotheosis.adventure.affix.effect.PotionAffix;
+import dev.shadowsoffire.apotheosis.adventure.affix.effect.RadialAffix;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-@Mixin(value = PotionAffix.class, remap = false)
-public class PotionAffixMixin {
+@Mixin(value = RadialAffix.class, remap = false)
+public class RadialAffixMixin {
 
     @ModifyArg(
         method = "<init>",
