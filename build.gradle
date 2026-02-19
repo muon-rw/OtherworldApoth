@@ -37,17 +37,24 @@ legacyForge {
         client {
             client()
             setGameDirectory(project.file('run/client'))
+            // Use Forge's Log4j2 system properties - logLevel (slf4j) is unresolved in LegacyForge buildscript
+            systemProperty 'forge.logging.console.level', 'debug'
+            systemProperty 'forge.logging.file.level', 'debug'
         }
 
         clientExtra {
             client()
             setGameDirectory(project.file('run/client2'))
+            systemProperty 'forge.logging.console.level', 'debug'
+            systemProperty 'forge.logging.file.level', 'debug'
             programArguments.addAll('--username', 'Dev2')
         }
 
         server {
             server()
             setGameDirectory(project.file('run/server'))
+            systemProperty 'forge.logging.console.level', 'debug'
+            systemProperty 'forge.logging.file.level', 'debug'
             programArgument '--nogui'
         }
         data {

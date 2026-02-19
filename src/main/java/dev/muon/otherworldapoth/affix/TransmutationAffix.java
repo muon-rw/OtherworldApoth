@@ -30,7 +30,7 @@ public class TransmutationAffix extends Affix {
     protected final TagKey<DamageType> damageTypeTag;
 
     public TransmutationAffix(ResourceLocation schoolId, Set<LootCategory> types) {
-        super(AffixType.POTION);
+        super(AffixType.ABILITY);
         this.school = SchoolRegistry.getSchool(schoolId);
         if (this.school == null) {
             throw new IllegalArgumentException("Invalid school ID provided for TransmutationAffix: " + schoolId);

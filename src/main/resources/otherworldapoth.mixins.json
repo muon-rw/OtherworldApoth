@@ -1,33 +1,34 @@
 {
-  "required": true,
-  "package": "dev.muon.otherworldapoth.mixin",
-  "compatibilityLevel": "JAVA_17",
-  "refmap": "otherworldapoth.refmap.json",
-  "plugin": "dev.muon.otherworldapoth.OWApothMixinPlugin",
-  "injectors": {
-    "defaultRequire": 1
-  },
-  "mixins": [
-    "MobMixin",
-    "RandomizableContainerBlockEntityMixin",
-    "apotheosis.AffixHelperMixin",
-    "apotheosis.LootControllerMixin",
-    "apotheosis.loot.AffixConvertLootModifierMixin",
-    "apotheosis.loot.AffixLootModifierMixin",
-    "apotheosis.loot.AffixLootPoolEntryMixin",
-    "apotheosis.loot.BossEventsMixin",
-    "apotheosis.loot.GemLootModifierMixin",
-    "apotheosis.loot.GemLootPoolEntryMixin",
-    "apotheosis.type.DamageReductionAffixMixin",
-    "apotheosis.type.FestiveAffixMixin",
-    "apotheosis.type.OmneticAffixMixin",
-    "apotheosis.type.PotionAffixMixin",
-    "apotheosis.type.RadialAffixMixin",
-    "apotheosis.type.TelepathicAffixMixin",
-    "compat.otherworldorigins.EnchantmentRestrictionsMixin"
-  ],
-  "client": [
-    "client.LevelDisplayRendererMixin"
-  ],
-  "minVersion": "0.8"
+    "required": true,
+    "package": "dev.muon.otherworldapoth.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "refmap": "otherworldapoth.refmap.json",
+    "plugin": "dev.muon.otherworldapoth.OWApothMixinPlugin",
+    "injectors": {
+        "defaultRequire": 1
+    },
+    "mixins": [
+        "MobMixin",
+        "RandomizableContainerBlockEntityMixin",
+        "apotheosis.AffixHelperMixin",
+        "apotheosis.DamageSourceTagInheritanceMixin",
+        "apotheosis.LootControllerMixin",
+        "apotheosis.loot.AffixConvertLootModifierMixin",
+        "apotheosis.loot.AffixLootModifierMixin",
+        "apotheosis.loot.AffixLootPoolEntryMixin",
+        "apotheosis.loot.BossEventsMixin",
+        "apotheosis.loot.GemLootModifierMixin",
+        "apotheosis.loot.GemLootPoolEntryMixin",
+        "apotheosis.type.DamageReductionAffixMixin",
+        "apotheosis.type.FestiveAffixMixin",
+        "apotheosis.type.OmneticAffixMixin",
+        "apotheosis.type.PotionAffixMixin",
+        "apotheosis.type.RadialAffixMixin",
+        "apotheosis.type.TelepathicAffixMixin",
+        "compat.otherworldorigins.EnchantmentRestrictionsMixin"
+    ],
+    "client": [
+        "client.LevelDisplayRendererMixin"
+    ],
+    "minVersion": "0.8"
 }

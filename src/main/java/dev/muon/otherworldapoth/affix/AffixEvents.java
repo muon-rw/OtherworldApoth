@@ -16,16 +16,23 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import dev.shadowsoffire.apotheosis.adventure.loot.LootCategory;
+import dev.muon.otherworldapoth.OtherworldApoth;
 import net.minecraft.world.entity.EquipmentSlot;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -191,14 +198,24 @@ public class AffixEvents {
         }
     }
 
+    /**
+     * Transmutation affix: convert weapon damage to magic damage of the affix's school.
+     * Only applies to direct weapon damage (melee player/mob attack, arrows) - not spell-triggered damage.
+     * Uses LivingAttackEvent so we modify the DamageSource before it flows through the damage pipeline.
+     */
     @SubscribeEvent(priority = EventPriority.HIGH)
-    public void hookTransmutationAffix(LivingHurtEvent event) {
+    public void hookTransmutationAffix(LivingAttackEvent event) {
         if (event.getEntity().level().isClientSide()) return;
 
         DamageSource source = event.getSource();
         LivingEntity target = event.getEntity();
 
-        // Check for Transmutation affix on ranged attacks (projectiles)
+        // Only apply to weapon damage: player attack, mob attack, or arrow (excludes spells: INDIRECT_MAGIC, etc.)
+        boolean isWeaponDamage = source.is(DamageTypes.PLAYER_ATTACK) || source.is(DamageTypes.MOB_ATTACK)
+                || source.is(DamageTypes.MOB_ATTACK_NO_AGGRO) || source.is(DamageTypes.ARROW);
+        if (!isWeaponDamage) return;
+
+        // Ranged: arrow with transmutation affix (affix is on the arrow from the bow)
         if (source.getDirectEntity() instanceof AbstractArrow arrow) {
             AffixHelper.streamAffixes(arrow)
                     .filter(inst -> inst.affix().get() instanceof TransmutationAffix)
@@ -208,30 +225,52 @@ public class AffixEvents {
                         if (source instanceof DamageSourceExtension ext) {
                             ext.addTag(affix.getDamageTypeTag());
                         }
+                        OtherworldApoth.LOGGER.debug("[Transmutation] Ranged: attacker={}, target={}, school={}, damageTypeTag={}, amount={}, tags={}",
+                                source.getEntity() != null ? source.getEntity().getName().getString() : "null",
+                                target.getName().getString(),
+                                affix.getSchool().getId(),
+                                affix.getDamageTypeTag().location(),
+                                event.getAmount(),
+                                getDamageSourceTags(source, target));
                     });
             return;
         }
 
-        // Check for Transmutation affix on melee attacks
+        // Melee: attacker's main hand has transmutation affix
         if (source.getEntity() instanceof LivingEntity attacker) {
-            // Check main hand weapon first
             ItemStack mainHand = attacker.getMainHandItem();
             if (!mainHand.isEmpty()) {
-                boolean found = AffixHelper.streamAffixes(mainHand)
+                AffixHelper.streamAffixes(mainHand)
                         .filter(inst -> inst.affix().get() instanceof TransmutationAffix)
                         .findFirst()
-                        .map(inst -> {
+                        .ifPresent(inst -> {
                             TransmutationAffix affix = (TransmutationAffix) inst.affix().get();
                             if (source instanceof DamageSourceExtension ext) {
                                 ext.addTag(affix.getDamageTypeTag());
                             }
-                            return true;
-                        })
-                        .orElse(false);
-                if (found) return;
+                            OtherworldApoth.LOGGER.debug("[Transmutation] Melee: attacker={}, target={}, school={}, damageTypeTag={}, amount={}, tags={}",
+                                    attacker.getName().getString(),
+                                    target.getName().getString(),
+                                    affix.getSchool().getId(),
+                                    affix.getDamageTypeTag().location(),
+                                    event.getAmount(),
+                                    getDamageSourceTags(source, target));
+                        });
             }
         }
     }
 
-
+    // Collects all damage type tags that apply to this source (intrinsic + DamageSourceExtension extras).
+    // For Debugging
+    private static List<String> getDamageSourceTags(DamageSource source, LivingEntity target) {
+        List<String> tags = new ArrayList<>();
+        target.level().registryAccess().registry(Registries.DAMAGE_TYPE).ifPresent(registry ->
+                registry.getTags().forEach(entry -> {
+                    TagKey<DamageType> tagKey = entry.getFirst();
+                    if (source.is(tagKey)) {
+                        tags.add("#" + tagKey.location());
+                    }
+                }));
+        return tags;
+    }
 }
