@@ -1,3 +1,12 @@
+## 0.6.0
+- Fix ability affixes applying in the offhand for mainhand-loot-cat items
+- Patch Apoth bug with sockets
+- Fix spell level bonuses being max 4 (lowered to 2)
+- Transmutation affix
+- Champions compat
+- Fix spell vamp affix
+- Add a new spell trigger afx for boots
+
 ## 0.5.2
 - Remove spell nerfs
 - Remove datapack replacers
