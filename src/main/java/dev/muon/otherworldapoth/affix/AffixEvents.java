@@ -22,7 +22,12 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
+import dev.shadowsoffire.apotheosis.adventure.loot.LootCategory;
+import net.minecraft.world.entity.EquipmentSlot;
+
+import java.util.Arrays;
 import java.util.Map;
+import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 public class AffixEvents {
@@ -56,7 +61,13 @@ public class AffixEvents {
         LivingEntity caster = event.getSpellDamageSource().getEntity() instanceof LivingEntity living ? living : null;
         if (caster == null) return;
 
-        for (ItemStack stack : caster.getAllSlots()) {
+        for (EquipmentSlot slot : EquipmentSlot.values()) {
+            ItemStack stack = caster.getItemBySlot(slot);
+            if (stack.isEmpty()) continue;
+            LootCategory cat = LootCategory.forItem(stack);
+            if (cat.isNone()) continue;
+            if (!Arrays.stream(cat.getSlots()).anyMatch(s -> s == slot)) continue;
+
             AffixHelper.streamAffixes(stack).forEach(inst -> {
                 if (inst.affix().get() instanceof SpellEffectAffix affix) {
                     if (affix.target == SpellEffectAffix.SpellTarget.SPELL_DAMAGE_TARGET) {
@@ -83,7 +94,13 @@ public class AffixEvents {
 
         LivingEntity caster = event.getEntity();
 
-        for (ItemStack stack : caster.getAllSlots()) {
+        for (EquipmentSlot slot : EquipmentSlot.values()) {
+            ItemStack stack = caster.getItemBySlot(slot);
+            if (stack.isEmpty()) continue;
+            LootCategory cat = LootCategory.forItem(stack);
+            if (cat.isNone()) continue;
+            if (!Arrays.stream(cat.getSlots()).anyMatch(s -> s == slot)) continue;
+
             AffixHelper.streamAffixes(stack).forEach(inst -> {
                 if (inst.affix().get() instanceof SpellEffectAffix affix) {
                     if (affix.target == SpellEffectAffix.SpellTarget.SPELL_HEAL_TARGET) {
@@ -108,8 +125,17 @@ public class AffixEvents {
     public void hookSpellLevelAffix(ModifySpellLevelEvent event) {
         if (event.getEntity() == null) return;
         SchoolType school = event.getSpell().getSchoolType();
-        int totalBonus = StreamSupport.stream(event.getEntity().getAllSlots().spliterator(), false)
-                .flatMap(stack -> StreamSupport.stream(AffixHelper.streamAffixes(stack).spliterator(), false))
+        LivingEntity entity = event.getEntity();
+        int totalBonus = Arrays.stream(EquipmentSlot.values())
+                .flatMap(slot -> {
+                    ItemStack stack = entity.getItemBySlot(slot);
+                    if (stack.isEmpty()) return Stream.empty();
+                    LootCategory cat = LootCategory.forItem(stack);
+                    if (cat.isNone()) return Stream.empty();
+                    boolean slotMatches = Arrays.stream(cat.getSlots()).anyMatch(s -> s == slot);
+                    if (!slotMatches) return Stream.empty();
+                    return StreamSupport.stream(AffixHelper.streamAffixes(stack).spliterator(), false);
+                })
                 .filter(inst -> inst.affix().get() instanceof SpellLevelAffix affix
                         && affix.getSchool() == school)
                 .mapToInt(inst -> ((SpellLevelAffix) inst.affix().get())
