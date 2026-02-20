@@ -1,6 +1,6 @@
 {
   "type": "otherworldapoth:spell_trigger",
-  "spell": "traveloptiocs:halberd_horizon",
+  "spell": "traveloptics:halberd_horizon",
   "trigger": "HURT",
   "target": "SELF",
   "values": {
