@@ -98,12 +98,14 @@ public class SpellLevelAffix extends Affix {
         if (cat == null || cat.isNone()) {
             return false;
         }
+        if (!this.values.containsKey(rarity)) {
+            return false;
+        }
         if (!this.types.isEmpty() && !this.types.contains(cat)) {
             return false;
         }
 
         Set<SchoolType> gearSchools = SchoolUtil.getSpellSchoolsFromGear(stack);
-
         return gearSchools.contains(this.school);
     }
 

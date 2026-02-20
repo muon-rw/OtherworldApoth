@@ -64,8 +64,10 @@ public class SocketBonusAffix extends Affix {
         int minBonus = data.level().getInt(0);
         int maxBonus = data.level().getInt(1);
 
-        MutableComponent comp = Component.translatable("affix.otherworldapoth.socket_bonus.desc",
-                currentBonus);
+        String descKey = currentBonus == 1
+                ? "affix.otherworldapoth.socket_bonus.desc"
+                : "affix.otherworldapoth.socket_bonus.desc_multiple";
+        MutableComponent comp = Component.translatable(descKey, currentBonus);
 
         // Add min/max bounds if they differ
         if (minBonus != maxBonus) {
@@ -87,7 +89,7 @@ public class SocketBonusAffix extends Affix {
         if (cat == null || cat.isNone()) {
             return false;
         }
-        return this.types.isEmpty() || this.types.contains(cat);
+        return (this.types.isEmpty() || this.types.contains(cat)) && this.values.containsKey(rarity);
     }
 
     public record SocketData(StepFunction level) {
