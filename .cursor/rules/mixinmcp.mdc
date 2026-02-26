@@ -18,10 +18,6 @@ MixinMCP tools are on the **user-jetbrains** MCP server. Use CallMcpTool:
 
     CallMcpTool(server="user-jetbrains", toolName="<tool>", arguments={...})
 
-**Every call MUST include `"projectPath"`** — use the absolute path of this
-project's root directory (your current workspace path). Without it, calls are
-slow, ambiguous, or may silently target the wrong project.
-
 **Arguments must be valid JSON.** No trailing commas, no single quotes, no
 unescaped special characters. An empty or malformed `arguments` object will
 produce a parse error.
@@ -35,11 +31,7 @@ Look up a class:
     CallMcpTool(
       server="user-jetbrains",
       toolName="mixin_find_class",
-      arguments={
-        "className": "net.minecraft.world.level.Level",
-        "includeMembers": true,
-        "projectPath": "<this project's root>"
-      }
+      arguments={"className": "net.minecraft.world.level.Level", "includeMembers": true}
     )
 
 Search dependency sources, then read the result:
@@ -47,11 +39,7 @@ Search dependency sources, then read the result:
     CallMcpTool(
       server="user-jetbrains",
       toolName="mixin_search_in_deps",
-      arguments={
-        "regexPattern": "destroyBlock",
-        "fileMask": "*Level*",
-        "projectPath": "<this project's root>"
-      }
+      arguments={"regexPattern": "destroyBlock", "fileMask": "*Level*"}
     )
     // Results include `url:` lines — pass that url to mixin_get_dep_source:
     CallMcpTool(
@@ -59,10 +47,7 @@ Search dependency sources, then read the result:
       toolName="mixin_get_dep_source",
       arguments={
         "url": "<url from mixin_search_in_deps result>",
-        "lineNumber": 42,
-        "linesBefore": 10,
-        "linesAfter": 20,
-        "projectPath": "<this project's root>"
+        "lineNumber": 42, "linesBefore": 10, "linesAfter": 20
       }
     )
 
@@ -73,10 +58,7 @@ Read source by known path (without searching first):
       toolName="mixin_get_dep_source",
       arguments={
         "path": "io/redspace/ironsspellbooks/player/ServerPlayerEvents.java",
-        "lineNumber": 360,
-        "linesBefore": 20,
-        "linesAfter": 20,
-        "projectPath": "<this project's root>"
+        "lineNumber": 360, "linesBefore": 20, "linesAfter": 20
       }
     )
 
@@ -132,6 +114,11 @@ Read source by known path (without searching first):
 4. After writing any mixin: use the built-in get_file_problems to validate.
 5. After changing build.gradle deps: run `./gradlew mixinDecompile` to decompile
    new dependencies, then call mixin_sync_project to refresh IntelliJ's project model.
+
+**Note:** All tools accept an optional `projectPath` parameter. You don't need
+it when only one project is open in IntelliJ (the common case). If you have
+multiple projects open and tools target the wrong one, pass the workspace root
+path as `projectPath` to disambiguate.
 
 ## Troubleshooting
 **If `mixin_*` tools are not found or the server is unavailable:**
