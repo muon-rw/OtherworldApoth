@@ -11,7 +11,6 @@
   "item.apotheosis.gem.otherworldapoth:core/bloody_pearl": "Bloody Pearl",
   "item.apotheosis.gem.otherworldapoth:core/effervescent_brimstone": "Effervescent Brimstone",
   "item.apotheosis.gem.otherworldapoth:core/golems_onyx": "Golem's Onyx",
-  "item.apotheosis.gem.otherworldapoth:core/sirens_aquamarine": "Siren's Aquamarine",
   "item.apotheosis.gem.otherworldapoth:core/sky_meteoritill": "Sky Meteoritill",
 
   "affix.apotheosis.target.spell_damage_self": "On spell damage, gain %s",
@@ -99,6 +98,17 @@
   "affix.otherworldapoth:elemental/school_nature/attribute.suffix": "of the Continents",
   "affix.otherworldapoth:elemental/school_nature/terraformer": "Terraformer's",
   "affix.otherworldapoth:elemental/school_nature/terraformer.suffix": "of High Mountains",
+
+    "item.apotheosis.gem.otherworldapoth:external/earthshattered_core": "Earthshattered Core",
+
+    "affix.otherworldapoth:elemental/school_geo/attribute": "Elemental",
+    "affix.otherworldapoth:elemental/school_geo/attribute.suffix": "of Convergence",
+
+    "affix.otherworldapoth:elemental/school_geo/geomancers": "Geomancer's",
+    "affix.otherworldapoth:elemental/school_geo/geomancers.suffix": "of Earthcalling",
+
+    "affix.otherworldapoth:elemental/school_geo/mana_cost": "Fossilized",
+    "affix.otherworldapoth:elemental/school_geo/mana_cost.suffix": "of Effortless Landscaping",
 
   "loot_category.otherworldapoth.staff": "Staff",
   "loot_category.otherworldapoth.staff.plural": "Staves",

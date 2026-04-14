@@ -1,3 +1,6 @@
+## 0.6.1
+- Add geo, fix sound, fix duplicate siren (thanks cHin4916)
+
 ## 0.6.0
 - Fix ability affixes applying in the offhand for mainhand-loot-cat items
 - Patch Apoth bug with sockets

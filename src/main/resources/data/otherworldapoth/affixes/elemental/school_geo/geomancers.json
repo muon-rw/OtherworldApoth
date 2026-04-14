@@ -2,11 +2,11 @@
   "forge:conditions": [
     {
       "type": "forge:mod_loaded",
-      "modid": "alshanex_familiars"
+      "modid": "gtbcs_geomancy_plus"
     }
   ],
   "type": "otherworldapoth:spell_level",
-  "school": "familiarslib:sound",
+  "school": "gtbcs_geomancy_plus:geo",
   "values": {
     "mythic": {
       "level": {

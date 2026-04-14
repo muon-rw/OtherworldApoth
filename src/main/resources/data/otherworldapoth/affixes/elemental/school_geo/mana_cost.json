@@ -2,11 +2,11 @@
   "forge:conditions": [
     {
       "type": "forge:mod_loaded",
-      "modid": "alshanex_familiars"
+      "modid": "gtbcs_geomancy_plus"
     }
   ],
   "type": "otherworldapoth:mana_cost",
-  "school": "familiarslib:sound",
+  "school": "gtbcs_geomancy_plus:geo",
     "values": {
     "common": {
       "min": 0.03,

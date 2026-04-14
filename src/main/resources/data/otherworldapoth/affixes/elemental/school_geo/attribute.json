@@ -2,12 +2,12 @@
   "forge:conditions": [
     {
       "type": "forge:mod_loaded",
-      "modid": "alshanex_familiars"
+      "modid": "gtbcs_geomancy_plus"
     }
   ],
   "type": "otherworldapoth:attribute",
 
-  "attribute": "familiarslib:sound_spell_power",
+  "attribute": "gtbcs_geomancy_plus:geo_spell_power",
   "operation": "MULTIPLY_BASE",
     "values": {
     "common": {
@@ -45,5 +45,5 @@
     "sword", "heavy_weapon",
     "staff" 
 ],
-  "school": "familiarslib:sound"
+  "school": "gtbcs_geomancy_plus:geo"
 }
