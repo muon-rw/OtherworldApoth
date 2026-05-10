@@ -2,7 +2,7 @@
   "type": "otherworldapoth:champion_affix",
   "conditions": [
     {
-      "condition": "champions:entity_is_champion",
+      "condition": "champions:entity_champion",
       "entity": "this"
     },
     {

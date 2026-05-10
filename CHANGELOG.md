@@ -1,3 +1,6 @@
+## 0.6.2
+- Update Champions loot modifier
+
 ## 0.6.1
 - Add geo, fix sound, fix duplicate siren (thanks cHin4916)
 

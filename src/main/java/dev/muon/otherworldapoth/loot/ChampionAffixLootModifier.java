@@ -23,7 +23,7 @@ import net.minecraftforge.common.loot.LootModifier;
 
 /**
  * Global loot modifier for champion entity deaths.
- * Uses Champions' entity_is_champion condition - when conditions pass (champion + killed by player):
+ * Uses Champions' entity_champion condition - when conditions pass (champion + killed by player):
  * 1. Guarantees that all dropped affixable items are converted to level-appropriate rarity.
  * 2. Always injects one gem with quality based on the champion's level.
  */
