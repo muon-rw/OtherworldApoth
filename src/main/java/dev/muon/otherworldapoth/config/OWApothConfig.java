@@ -101,14 +101,14 @@ public class OWApothConfig {
 
         championRankRarityMappings = config.getStringList("championRankMappings", category,
                 new String[]{
-                        "5=mythic-ancient",
+                        "6=mythic-ancient",
+                        "5=mythic-mythic",
                         "4=epic-mythic",
                         "3=rare-epic",
                         "2=uncommon-rare",
                         "1=common-uncommon"
                 },
-                "Champion rank (tier 1-5) to rarity mapping for the bonus affix item dropped by champions.\n" +
-                        "Tier 5 is the built-in 'Ultimate' champion rank.\n" +
+                "Champion rank (tier) to rarity mapping for the bonus affix item dropped by champions.\n" +
                         "Format: 'tier=minRarity-maxRarity'. Within the range, the actual rarity is\n" +
                         "still rolled by rarity weight and Luck.\n" +
                         "Valid rarities: common, uncommon, rare, epic, mythic, ancient");

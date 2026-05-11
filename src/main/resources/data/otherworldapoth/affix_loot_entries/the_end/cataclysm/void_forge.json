@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "cataclysm"}],
     "weight": 45,
-    "quality": 10.0,
-    "min_rarity": "apotheosis:rare",
+    "quality": 10,
+    "min_rarity": "apotheosis:mythic",
     "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:the_end"],
-    "stack": {"item": "cataclysm:void_forge", "count": 1, "nbt": {"Damage": 0}}
+    "stack": {"item": "cataclysm:void_forge", "count": 1, "nbt": {"Damage":0}}
 }

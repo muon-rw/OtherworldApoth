@@ -2,8 +2,8 @@
     "conditions": [{"type": "forge:mod_loaded", "modid": "irons_spellbooks"}],
     "weight": 50,
     "quality": 10,
-    "min_rarity": "apotheosis:rare",
+    "min_rarity": "apotheosis:mythic",
     "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:the_end"],
-    "stack": {"item": "irons_spellbooks:staff_of_the_nines", "count": 1, "nbt": {"Damage": 0}}
+    "stack": {"item": "irons_spellbooks:staff_of_the_nines", "count": 1, "nbt": {"Damage":0}}
 }

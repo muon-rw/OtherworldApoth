@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "iceandfire"}],
     "weight": 40,
-    "quality": 9.0,
-    "min_rarity": "apotheosis:rare",
+    "quality": 9,
+    "min_rarity": "apotheosis:mythic",
     "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:overworld", "minecraft:the_nether"],
-    "stack": {"item": "iceandfire:dragonsteel_fire_leggings", "count": 1, "nbt": {"Damage": 0}}
+    "stack": {"item": "iceandfire:dragonsteel_fire_leggings", "count": 1, "nbt": {"Damage":0}}
 }

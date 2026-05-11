@@ -1,3 +1,7 @@
+## 0.7.1
+- Fix Champions ALE inject not respecting ALE min rarity
+- Better balnace affix loot entries
+
 ## 0.7.0
 - Add a ton of affix loot entries
 - New champions loot affix inject based on champion rank

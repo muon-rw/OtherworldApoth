@@ -7,6 +7,7 @@ import dev.shadowsoffire.apotheosis.adventure.loot.AffixLootEntry;
 import dev.shadowsoffire.apotheosis.adventure.loot.AffixLootRegistry;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootController;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootRarity;
+import dev.shadowsoffire.apotheosis.adventure.loot.RarityClamp;
 import dev.shadowsoffire.apotheosis.adventure.socket.gem.Gem;
 import dev.shadowsoffire.apotheosis.adventure.socket.gem.GemRegistry;
 import dev.shadowsoffire.placebo.reload.WeightedDynamicRegistry.IDimensional;
@@ -56,14 +57,15 @@ public class ChampionAffixLootModifier extends LootModifier {
         }
 
         float luck = context.getLuck();
+        LootRarity itemRarity = LootUtils.getRarityForChampionRank(rankTier, context.getRandom(), luck);
 
         AffixLootEntry entry = AffixLootRegistry.INSTANCE.getRandomItem(
                 context.getRandom(),
                 luck,
-                IDimensional.matches(context.getLevel())
+                IDimensional.matches(context.getLevel()),
+                clampAccepts(itemRarity)
         );
         if (entry != null) {
-            LootRarity itemRarity = LootUtils.getRarityForChampionRank(rankTier, context.getRandom(), luck);
             ItemStack affixItem = LootController.createLootItem(
                     entry.getStack(),
                     entry.getType(),
@@ -95,6 +97,11 @@ public class ChampionAffixLootModifier extends LootModifier {
                 .flatMap(IChampion.Server::getRank)
                 .map(Rank::getTier)
                 .orElse(0);
+    }
+
+    private static <T extends RarityClamp> java.util.function.Predicate<T> clampAccepts(LootRarity rarity) {
+        int o = rarity.ordinal();
+        return c -> c.getMinRarity().ordinal() <= o && o <= c.getMaxRarity().ordinal();
     }
 
     @Override

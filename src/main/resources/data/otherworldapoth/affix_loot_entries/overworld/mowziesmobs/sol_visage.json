@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "mowziesmobs"}],
     "weight": 40,
-    "quality": 8.0,
-    "min_rarity": "apotheosis:rare",
+    "quality": 8,
+    "min_rarity": "apotheosis:mythic",
     "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "mowziesmobs:sol_visage", "count": 1, "nbt": {"Damage": 0}}
+    "stack": {"item": "mowziesmobs:sol_visage", "count": 1, "nbt": {"Damage":0}}
 }

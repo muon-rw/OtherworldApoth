@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "cataclysm"}],
     "weight": 40,
-    "quality": 8.0,
-    "min_rarity": "apotheosis:rare",
+    "quality": 8,
+    "min_rarity": "apotheosis:epic",
     "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "cataclysm:the_annihilator", "count": 1, "nbt": {"Damage": 0}}
+    "stack": {"item": "cataclysm:the_annihilator", "count": 1, "nbt": {"Damage":0}}
 }
