@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "iceandfire"}],
-    "weight": 40,
-    "quality": 8,
+    "weight": 18,
+    "quality": 9.5,
     "min_rarity": "apotheosis:mythic",
     "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "iceandfire:dread_queen_sword", "count": 1, "nbt": {"Damage":0}}
+    "stack": {"item": "iceandfire:dread_queen_sword", "count": 1, "nbt": {"Damage": 0}}
 }

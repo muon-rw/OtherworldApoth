@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "cataclysm"}],
-    "weight": 50,
-    "quality": 7.5,
-    "min_rarity": "apotheosis:uncommon",
-    "max_rarity": "apotheosis:epic",
-    "dimensions": ["minecraft:the_nether"],
-    "stack": {"item": "cataclysm:wither_assult_shoulder_weapon", "count": 1, "nbt": {"Damage": 0}}
-}

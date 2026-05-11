@@ -1,9 +1,9 @@
 {
-  "weight": 90,
-  "quality": 2.0,
-  "stack": { "item": "aquamirae:fin_cutter", "count": 1, "nbt": { "Damage": 0 } },
-  "dimensions": ["minecraft:overworld"],
-  "min_rarity": "apotheosis:common",
-  "max_rarity": "apotheosis:rare",
-  "conditions": [{ "type": "forge:mod_loaded", "modid": "aquamirae" }]
+    "conditions": [{"type": "forge:mod_loaded", "modid": "aquamirae"}],
+    "weight": 100,
+    "quality": 1.0,
+    "min_rarity": "apotheosis:common",
+    "max_rarity": "apotheosis:rare",
+    "dimensions": ["minecraft:overworld"],
+    "stack": {"item": "aquamirae:fin_cutter", "count": 1, "nbt": {"Damage": 0}}
 }

@@ -1,9 +1,22 @@
 {
-    "conditions": [{"type": "forge:mod_loaded", "modid": "soulsweapons"}],
-    "weight": 45,
-    "quality": 7.0,
-    "min_rarity": "apotheosis:common",
-    "max_rarity": "apotheosis:rare",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "soulsweapons:whirligig_sawblade", "count": 1, "nbt": {"Damage": 0}}
+  "conditions": [
+    {
+      "modid": "soulsweapons",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "weight": 35,
+  "quality": 7,
+  "min_rarity": "apotheosis:rare",
+  "max_rarity": "apotheosis:epic",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "stack": {
+    "item": "soulsweapons:whirligig_sawblade",
+    "count": 1,
+    "nbt": {
+      "Damage": 0
+    }
+  }
 }

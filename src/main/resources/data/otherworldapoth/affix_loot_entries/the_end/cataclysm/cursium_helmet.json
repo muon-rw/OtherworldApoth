@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "cataclysm"}],
-    "weight": 45,
-    "quality": 8.5,
+    "weight": 20,
+    "quality": 9.5,
     "min_rarity": "apotheosis:mythic",
     "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:the_end"],
-    "stack": {"item": "cataclysm:cursium_helmet", "count": 1, "nbt": {"Damage":0}}
+    "stack": {"item": "cataclysm:cursium_helmet", "count": 1, "nbt": {"Damage": 0}}
 }

@@ -1,8 +1,8 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "legendary_monsters"}],
-    "weight": 55,
-    "quality": 7.0,
-    "min_rarity": "apotheosis:uncommon",
+    "weight": 35,
+    "quality": 7,
+    "min_rarity": "apotheosis:epic",
     "max_rarity": "apotheosis:epic",
     "dimensions": ["minecraft:the_nether"],
     "stack": {"item": "legendary_monsters:fiery_boots", "count": 1, "nbt": {"Damage": 0}}

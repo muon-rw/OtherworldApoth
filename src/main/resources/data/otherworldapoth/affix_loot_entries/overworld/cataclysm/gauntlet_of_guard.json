@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "cataclysm"}],
-    "weight": 50,
-    "quality": 6.0,
-    "min_rarity": "apotheosis:common",
-    "max_rarity": "apotheosis:rare",
+    "weight": 40,
+    "quality": 7.5,
+    "min_rarity": "apotheosis:epic",
+    "max_rarity": "apotheosis:epic",
     "dimensions": ["minecraft:overworld"],
     "stack": {"item": "cataclysm:gauntlet_of_guard", "count": 1, "nbt": {"Damage": 0}}
 }

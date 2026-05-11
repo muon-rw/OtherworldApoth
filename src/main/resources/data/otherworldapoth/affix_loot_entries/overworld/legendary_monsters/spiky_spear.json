@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "legendary_monsters"}],
-    "weight": 65,
-    "quality": 5.0,
-    "min_rarity": "apotheosis:common",
-    "max_rarity": "apotheosis:rare",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "legendary_monsters:spiky_spear", "count": 1, "nbt": {"Damage": 0}}
-}

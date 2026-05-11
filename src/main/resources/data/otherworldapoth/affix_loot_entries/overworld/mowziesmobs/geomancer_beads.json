@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "mowziesmobs"}],
-    "weight": 50,
-    "quality": 6.5,
-    "min_rarity": "apotheosis:common",
-    "max_rarity": "apotheosis:rare",
+    "weight": 15,
+    "quality": 9,
+    "min_rarity": "apotheosis:mythic",
+    "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:overworld"],
     "stack": {"item": "mowziesmobs:geomancer_beads", "count": 1, "nbt": {"Damage": 0}}
 }

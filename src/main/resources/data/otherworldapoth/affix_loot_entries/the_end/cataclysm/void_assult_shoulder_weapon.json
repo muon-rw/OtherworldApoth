@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "cataclysm"}],
-    "weight": 45,
-    "quality": 9,
-    "min_rarity": "apotheosis:mythic",
-    "max_rarity": "apotheosis:mythic",
-    "dimensions": ["minecraft:the_end"],
-    "stack": {"item": "cataclysm:void_assult_shoulder_weapon", "count": 1, "nbt": {"Damage":0}}
-}

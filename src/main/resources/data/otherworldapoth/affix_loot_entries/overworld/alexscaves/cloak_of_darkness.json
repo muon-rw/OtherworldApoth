@@ -1,9 +1,9 @@
 {
-  "weight": 45,
-  "quality": 8.0,
-  "stack": { "item": "alexscaves:cloak_of_darkness", "count": 1, "nbt": { "Damage": 0 } },
-  "dimensions": ["minecraft:overworld"],
-  "min_rarity": "apotheosis:common",
-  "max_rarity": "apotheosis:rare",
-  "conditions": [{ "type": "forge:mod_loaded", "modid": "alexscaves" }]
+    "conditions": [{"type": "forge:mod_loaded", "modid": "alexscaves"}],
+    "weight": 32,
+    "quality": 8.0,
+    "min_rarity": "apotheosis:epic",
+    "max_rarity": "apotheosis:mythic",
+    "dimensions": ["minecraft:overworld"],
+    "stack": {"item": "alexscaves:cloak_of_darkness", "count": 1, "nbt": {"Damage": 0}}
 }

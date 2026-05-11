@@ -1,9 +1,9 @@
 {
-    "conditions": [{"type": "forge:mod_loaded", "modid": "irons_spellbooks"}],
-    "weight": 50,
+    "conditions": [{"modid": "irons_spellbooks", "type": "forge:mod_loaded"}],
+    "weight": 40,
     "quality": 7,
-    "min_rarity": "apotheosis:uncommon",
-    "max_rarity": "apotheosis:epic",
+    "min_rarity": "apotheosis:epic",
+    "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "irons_spellbooks:keeper_flamberge", "count": 1, "nbt": {"Damage": 0}}
+    "stack": {"item": "irons_spellbooks:keeper_flamberge", "count": 1, "nbt": {"Damage":0}}
 }

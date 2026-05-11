@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "legendary_monsters"}],
-    "weight": 45,
-    "quality": 9,
-    "min_rarity": "apotheosis:epic",
+    "weight": 15,
+    "quality": 10,
+    "min_rarity": "apotheosis:mythic",
     "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:the_end"],
-    "stack": {"item": "legendary_monsters:chorus_cannon", "count": 1, "nbt": {"Damage":0}}
+    "stack": {"item": "legendary_monsters:chorus_cannon", "count": 1, "nbt": {"Damage": 0}}
 }

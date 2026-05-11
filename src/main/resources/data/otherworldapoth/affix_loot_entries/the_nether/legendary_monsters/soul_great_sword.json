@@ -1,8 +1,8 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "legendary_monsters"}],
-    "weight": 50,
-    "quality": 8.0,
-    "min_rarity": "apotheosis:uncommon",
+    "weight": 30,
+    "quality": 8,
+    "min_rarity": "apotheosis:epic",
     "max_rarity": "apotheosis:epic",
     "dimensions": ["minecraft:the_nether"],
     "stack": {"item": "legendary_monsters:soul_great_sword", "count": 1, "nbt": {"Damage": 0}}

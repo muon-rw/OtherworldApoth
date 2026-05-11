@@ -1,9 +1,9 @@
 {
-  "weight": 70,
-  "quality": 4.5,
-  "stack": { "item": "aether:zanite_chestplate", "count": 1, "nbt": { "Damage": 0 } },
-  "dimensions": ["aether:the_aether"],
-  "min_rarity": "apotheosis:uncommon",
-  "max_rarity": "apotheosis:epic",
-  "conditions": [{ "type": "forge:mod_loaded", "modid": "aether" }]
+    "conditions": [{"type": "forge:mod_loaded", "modid": "aether"}],
+    "weight": 70,
+    "quality": 4.0,
+    "min_rarity": "apotheosis:uncommon",
+    "max_rarity": "apotheosis:epic",
+    "dimensions": ["aether:the_aether"],
+    "stack": {"item": "aether:zanite_chestplate", "count": 1, "nbt": {"Damage": 0}}
 }

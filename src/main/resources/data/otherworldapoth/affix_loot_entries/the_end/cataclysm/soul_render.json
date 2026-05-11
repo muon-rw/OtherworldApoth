@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "cataclysm"}],
-    "weight": 50,
-    "quality": 9,
+    "weight": 18,
+    "quality": 9.5,
     "min_rarity": "apotheosis:mythic",
     "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:the_end"],
-    "stack": {"item": "cataclysm:soul_render", "count": 1, "nbt": {"Damage":0}}
+    "stack": {"item": "cataclysm:soul_render", "count": 1, "nbt": {"Damage": 0}}
 }

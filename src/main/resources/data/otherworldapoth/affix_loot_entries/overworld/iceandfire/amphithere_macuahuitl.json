@@ -1,8 +1,8 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "iceandfire"}],
-    "weight": 55,
-    "quality": 5.5,
-    "min_rarity": "apotheosis:common",
+    "weight": 50,
+    "quality": 6,
+    "min_rarity": "apotheosis:rare",
     "max_rarity": "apotheosis:rare",
     "dimensions": ["minecraft:overworld"],
     "stack": {"item": "iceandfire:amphithere_macuahuitl", "count": 1, "nbt": {"Damage": 0}}

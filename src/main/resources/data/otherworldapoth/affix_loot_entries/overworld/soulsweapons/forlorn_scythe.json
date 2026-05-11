@@ -1,9 +1,22 @@
 {
-    "conditions": [{"type": "forge:mod_loaded", "modid": "soulsweapons"}],
-    "weight": 75,
-    "quality": 4.0,
-    "min_rarity": "apotheosis:common",
-    "max_rarity": "apotheosis:rare",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "soulsweapons:forlorn_scythe", "count": 1, "nbt": {"Damage": 0}}
+  "conditions": [
+    {
+      "modid": "soulsweapons",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "weight": 70,
+  "quality": 3,
+  "min_rarity": "apotheosis:common",
+  "max_rarity": "apotheosis:uncommon",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "stack": {
+    "item": "soulsweapons:forlorn_scythe",
+    "count": 1,
+    "nbt": {
+      "Damage": 0
+    }
+  }
 }

@@ -1,8 +1,8 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "cataclysm"}],
-    "weight": 65,
-    "quality": 4.5,
-    "min_rarity": "apotheosis:common",
+    "weight": 55,
+    "quality": 5.5,
+    "min_rarity": "apotheosis:rare",
     "max_rarity": "apotheosis:rare",
     "dimensions": ["minecraft:overworld"],
     "stack": {"item": "cataclysm:black_steel_targe", "count": 1, "nbt": {"Damage": 0}}

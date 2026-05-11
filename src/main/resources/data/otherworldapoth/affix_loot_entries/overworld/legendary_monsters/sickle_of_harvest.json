@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "legendary_monsters"}],
-    "weight": 55,
-    "quality": 6.5,
-    "min_rarity": "apotheosis:common",
-    "max_rarity": "apotheosis:rare",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "legendary_monsters:sickle_of_harvest", "count": 1, "nbt": {"Damage": 0}}
-}

@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "cataclysm"}],
-    "weight": 55,
-    "quality": 7.0,
-    "min_rarity": "apotheosis:uncommon",
-    "max_rarity": "apotheosis:epic",
+    "weight": 22,
+    "quality": 9,
+    "min_rarity": "apotheosis:mythic",
+    "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:the_nether"],
-    "stack": {"item": "cataclysm:bulwark_of_the_flame", "count": 1, "nbt": {"Damage": 0}}
+    "stack": {"item": "cataclysm:bulwark_of_the_flame", "count": 1, "nbt": {"Damage":0}}
 }

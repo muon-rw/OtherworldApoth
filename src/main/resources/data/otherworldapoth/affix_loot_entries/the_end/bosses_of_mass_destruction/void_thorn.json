@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "bosses_of_mass_destruction"}],
-    "weight": 45,
-    "quality": 9,
-    "min_rarity": "apotheosis:mythic",
-    "max_rarity": "apotheosis:mythic",
-    "dimensions": ["minecraft:the_end"],
-    "stack": {"item": "bosses_of_mass_destruction:void_thorn", "count": 1, "nbt": {"Damage":0}}
-}

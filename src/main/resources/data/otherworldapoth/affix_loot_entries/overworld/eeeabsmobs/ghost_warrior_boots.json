@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "eeeabsmobs"}],
-    "weight": 45,
-    "quality": 8,
+    "weight": 35,
+    "quality": 7,
     "min_rarity": "apotheosis:epic",
-    "max_rarity": "apotheosis:mythic",
+    "max_rarity": "apotheosis:epic",
     "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "eeeabsmobs:ghost_warrior_boots", "count": 1, "nbt": {"Damage":0}}
+    "stack": {"item": "eeeabsmobs:ghost_warrior_boots", "count": 1, "nbt": {"Damage": 0}}
 }

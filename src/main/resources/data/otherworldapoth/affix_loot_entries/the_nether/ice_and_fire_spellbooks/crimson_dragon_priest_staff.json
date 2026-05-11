@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "ice_and_fire_spellbooks"}],
-    "weight": 50,
-    "quality": 7,
-    "min_rarity": "apotheosis:uncommon",
-    "max_rarity": "apotheosis:epic",
+    "weight": 25,
+    "quality": 9,
+    "min_rarity": "apotheosis:mythic",
+    "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:the_nether"],
-    "stack": {"item": "ice_and_fire_spellbooks:crimson_dragon_priest_staff", "count": 1, "nbt": {"Damage": 0}}
+    "stack": {"item": "ice_and_fire_spellbooks:crimson_dragon_priest_staff", "count": 1, "nbt": {"Damage":0}}
 }

@@ -1,9 +1,9 @@
 {
-  "weight": 45,
-  "quality": 8.0,
-  "stack": { "item": "ancient_aether:valkyrum_leggings", "count": 1, "nbt": { "Damage": 0 } },
-  "dimensions": ["aether:the_aether"],
-  "min_rarity": "apotheosis:uncommon",
-  "max_rarity": "apotheosis:epic",
-  "conditions": [{ "type": "forge:mod_loaded", "modid": "ancient_aether" }]
+    "conditions": [{"type": "forge:mod_loaded", "modid": "ancient_aether"}],
+    "weight": 28,
+    "quality": 8.0,
+    "min_rarity": "apotheosis:epic",
+    "max_rarity": "apotheosis:mythic",
+    "dimensions": ["aether:the_aether"],
+    "stack": {"item": "ancient_aether:valkyrum_leggings", "count": 1, "nbt": {"Damage": 0}}
 }

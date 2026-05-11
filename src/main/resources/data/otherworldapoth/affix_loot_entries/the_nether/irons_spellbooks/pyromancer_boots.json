@@ -1,9 +1,9 @@
 {
-    "conditions": [{"type": "forge:mod_loaded", "modid": "irons_spellbooks"}],
-    "weight": 60,
-    "quality": 7,
-    "min_rarity": "apotheosis:uncommon",
-    "max_rarity": "apotheosis:epic",
+    "conditions": [{"modid": "irons_spellbooks", "type": "forge:mod_loaded"}],
+    "weight": 25,
+    "quality": 10,
+    "min_rarity": "apotheosis:mythic",
+    "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:the_nether"],
-    "stack": {"item": "irons_spellbooks:pyromancer_boots", "count": 1, "nbt": {"Damage": 0}}
+    "stack": {"item": "irons_spellbooks:pyromancer_boots", "count": 1, "nbt": {"Damage":0}}
 }

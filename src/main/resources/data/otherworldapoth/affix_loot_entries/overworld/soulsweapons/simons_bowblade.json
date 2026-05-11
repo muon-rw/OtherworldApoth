@@ -1,9 +1,22 @@
 {
-    "conditions": [{"type": "forge:mod_loaded", "modid": "soulsweapons"}],
-    "weight": 50,
-    "quality": 2.5,
-    "min_rarity": "apotheosis:common",
-    "max_rarity": "apotheosis:rare",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "soulsweapons:simons_bowblade", "count": 1, "nbt": {"Damage": 0}}
+  "conditions": [
+    {
+      "modid": "soulsweapons",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "weight": 50,
+  "quality": 2.5,
+  "min_rarity": "apotheosis:rare",
+  "max_rarity": "apotheosis:epic",
+  "dimensions": [
+    "minecraft:overworld"
+  ],
+  "stack": {
+    "item": "soulsweapons:simons_bowblade",
+    "count": 1,
+    "nbt": {
+      "Damage": 0
+    }
+  }
 }

@@ -27,14 +27,18 @@ import top.theillusivec4.champions.common.rank.Rank;
 /**
  * Global loot modifier for champion entity deaths.
  * When the champions:entity_champion + killed_by_player conditions pass:
- * 1. Injects a fresh affix loot item drawn from the AffixLootRegistry, with rarity scaled to the champion's rank.
- * 2. Injects a gem with quality scaled to the champion's rank.
- * Rank tier (1-5, 5 = Ultimate) is read from the Champions capability.
+ * Injects EITHER a fresh affix loot item OR a gem (50/50 roll), with rarity scaled to the champion's rank.
+ * Rank tier is read from the Champions capability and mapped to a rarity range via
+ * {@link dev.muon.otherworldapoth.config.OWApothConfig#championRankRarityMappings}.
  */
 public class ChampionAffixLootModifier extends LootModifier {
 
     public static final Codec<ChampionAffixLootModifier> CODEC =
             RecordCodecBuilder.create(inst -> codecStart(inst).apply(inst, ChampionAffixLootModifier::new));
+
+    // Prevents re-entry when the Champions champion_loot GLM calls lootTable.getRandomItems on
+    // a separate table, which re-runs all GLMs including this one. See ChampionLootModifier#doApply.
+    private static final ThreadLocal<Boolean> IS_PROCESSING = ThreadLocal.withInitial(() -> false);
 
     public ChampionAffixLootModifier(LootItemCondition[] conditions) {
         super(conditions);
@@ -42,7 +46,7 @@ public class ChampionAffixLootModifier extends LootModifier {
 
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        if (!Apotheosis.enableAdventure) {
+        if (!Apotheosis.enableAdventure || IS_PROCESSING.get()) {
             return generatedLoot;
         }
 
@@ -56,35 +60,41 @@ public class ChampionAffixLootModifier extends LootModifier {
             return generatedLoot;
         }
 
-        float luck = context.getLuck();
-        LootRarity itemRarity = LootUtils.getRarityForChampionRank(rankTier, context.getRandom(), luck);
+        IS_PROCESSING.set(true);
+        try {
+            float luck = context.getLuck();
+            LootRarity rarity = LootUtils.getRarityForChampionRank(rankTier, context.getRandom(), luck);
 
-        AffixLootEntry entry = AffixLootRegistry.INSTANCE.getRandomItem(
-                context.getRandom(),
-                luck,
-                IDimensional.matches(context.getLevel()),
-                clampAccepts(itemRarity)
-        );
-        if (entry != null) {
-            ItemStack affixItem = LootController.createLootItem(
-                    entry.getStack(),
-                    entry.getType(),
-                    itemRarity,
-                    context.getRandom()
-            );
-            if (!affixItem.isEmpty()) {
-                generatedLoot.add(affixItem);
+            if (context.getRandom().nextBoolean()) {
+                AffixLootEntry entry = AffixLootRegistry.INSTANCE.getRandomItem(
+                        context.getRandom(),
+                        luck,
+                        IDimensional.matches(context.getLevel()),
+                        clampAccepts(rarity)
+                );
+                if (entry != null) {
+                    ItemStack affixItem = LootController.createLootItem(
+                            entry.getStack(),
+                            entry.getType(),
+                            rarity,
+                            context.getRandom()
+                    );
+                    if (!affixItem.isEmpty()) {
+                        generatedLoot.add(affixItem);
+                    }
+                }
+            } else {
+                Gem gem = GemRegistry.INSTANCE.getRandomItem(
+                        context.getRandom(),
+                        luck,
+                        IDimensional.matches(context.getLevel())
+                );
+                if (gem != null) {
+                    generatedLoot.add(GemRegistry.createGemStack(gem, rarity));
+                }
             }
-        }
-
-        Gem gem = GemRegistry.INSTANCE.getRandomItem(
-                context.getRandom(),
-                luck,
-                IDimensional.matches(context.getLevel())
-        );
-        if (gem != null) {
-            LootRarity gemRarity = LootUtils.getRarityForChampionRank(rankTier, context.getRandom(), luck);
-            generatedLoot.add(GemRegistry.createGemStack(gem, gemRarity));
+        } finally {
+            IS_PROCESSING.set(false);
         }
 
         return generatedLoot;

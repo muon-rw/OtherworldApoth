@@ -1,9 +1,9 @@
 {
-  "weight": 90,
-  "quality": 1.5,
-  "stack": { "item": "farmersdelight:flint_knife", "count": 1, "nbt": { "Damage": 0 } },
-  "dimensions": ["minecraft:overworld"],
-  "min_rarity": "apotheosis:common",
-  "max_rarity": "apotheosis:rare",
-  "conditions": [{ "type": "forge:mod_loaded", "modid": "farmersdelight" }]
+    "conditions": [{"type": "forge:mod_loaded", "modid": "farmersdelight"}],
+    "weight": 100,
+    "quality": 1.0,
+    "min_rarity": "apotheosis:common",
+    "max_rarity": "apotheosis:rare",
+    "dimensions": ["minecraft:overworld"],
+    "stack": {"item": "farmersdelight:flint_knife", "count": 1, "nbt": {"Damage": 0}}
 }

@@ -1,8 +1,8 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "legendary_monsters"}],
-    "weight": 60,
-    "quality": 5.0,
-    "min_rarity": "apotheosis:common",
+    "weight": 55,
+    "quality": 5,
+    "min_rarity": "apotheosis:rare",
     "max_rarity": "apotheosis:rare",
     "dimensions": ["minecraft:overworld"],
     "stack": {"item": "legendary_monsters:spiky_shield", "count": 1, "nbt": {"Damage": 0}}

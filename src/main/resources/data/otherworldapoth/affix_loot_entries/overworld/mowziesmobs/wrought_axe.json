@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "mowziesmobs"}],
-    "weight": 45,
-    "quality": 8,
+    "weight": 15,
+    "quality": 10,
     "min_rarity": "apotheosis:mythic",
     "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "mowziesmobs:wrought_axe", "count": 1, "nbt": {"Damage":0}}
+    "stack": {"item": "mowziesmobs:wrought_axe", "count": 1, "nbt": {"Damage": 0}}
 }

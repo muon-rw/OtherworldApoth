@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "traveloptics"}],
-    "weight": 45,
-    "quality": 7.5,
-    "min_rarity": "apotheosis:common",
-    "max_rarity": "apotheosis:rare",
+    "weight": 20,
+    "quality": 9,
+    "min_rarity": "apotheosis:mythic",
+    "max_rarity": "apotheosis:mythic",
     "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "traveloptics:riptide_sovereign_leggings", "count": 1, "nbt": {"Damage": 0}}
+    "stack": {"item": "traveloptics:riptide_sovereign_leggings", "count": 1, "nbt": {"Damage":0}}
 }

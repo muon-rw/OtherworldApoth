@@ -1,9 +1,9 @@
 {
-    "conditions": [{"type": "forge:mod_loaded", "modid": "irons_spellbooks"}],
-    "weight": 65,
-    "quality": 5,
-    "min_rarity": "apotheosis:common",
+    "conditions": [{"modid": "irons_spellbooks", "type": "forge:mod_loaded"}],
+    "weight": 70,
+    "quality": 4,
+    "min_rarity": "apotheosis:uncommon",
     "max_rarity": "apotheosis:rare",
     "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "irons_spellbooks:plagued_leggings", "count": 1, "nbt": {"Damage": 0}}
+    "stack": {"item": "irons_spellbooks:plagued_leggings", "count": 1, "nbt": {"Damage":0}}
 }

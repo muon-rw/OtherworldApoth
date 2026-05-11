@@ -24,13 +24,16 @@ public class LeveledGemLootModifier extends LootModifier {
     public static final Codec<LeveledGemLootModifier> CODEC = RecordCodecBuilder.create(inst -> codecStart(inst)
             .apply(inst, LeveledGemLootModifier::new));
 
+    // Prevents re-entry when an inner loot table call (e.g. champions:champion_loot) re-runs all GLMs.
+    private static final ThreadLocal<Boolean> IS_PROCESSING = ThreadLocal.withInitial(() -> false);
+
     protected LeveledGemLootModifier(LootItemCondition[] conditions) {
         super(conditions);
     }
 
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        if (!Apotheosis.enableAdventure) {
+        if (!Apotheosis.enableAdventure || IS_PROCESSING.get()) {
             return generatedLoot;
         }
         Entity entity = context.getParamOrNull(LootContextParams.THIS_ENTITY);
@@ -42,19 +45,24 @@ public class LeveledGemLootModifier extends LootModifier {
             return generatedLoot;
         }
 
-        if (shouldDropGem(level, context.getRandom())) {
-            LootRarity rarity = LootUtils.getRarityForMobLevel(level, context.getRandom(), context.getLuck(), true);
+        IS_PROCESSING.set(true);
+        try {
+            if (shouldDropGem(level, context.getRandom())) {
+                LootRarity rarity = LootUtils.getRarityForMobLevel(level, context.getRandom(), context.getLuck(), true);
 
-            Gem gem = GemRegistry.INSTANCE.getRandomItem(
-                    context.getRandom(),
-                    context.getLuck(),
-                    IDimensional.matches(context.getLevel())
-            );
+                Gem gem = GemRegistry.INSTANCE.getRandomItem(
+                        context.getRandom(),
+                        context.getLuck(),
+                        IDimensional.matches(context.getLevel())
+                );
 
-            if (gem != null) {
-                ItemStack gemStack = GemRegistry.createGemStack(gem, rarity);
-                generatedLoot.add(gemStack);
+                if (gem != null) {
+                    ItemStack gemStack = GemRegistry.createGemStack(gem, rarity);
+                    generatedLoot.add(gemStack);
+                }
             }
+        } finally {
+            IS_PROCESSING.set(false);
         }
 
         return generatedLoot;

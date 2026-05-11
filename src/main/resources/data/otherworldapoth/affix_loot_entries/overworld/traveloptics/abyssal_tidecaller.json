@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "traveloptics"}],
-    "weight": 50,
-    "quality": 7.5,
-    "min_rarity": "apotheosis:uncommon",
-    "max_rarity": "apotheosis:epic",
+    "weight": 10,
+    "quality": 10,
+    "min_rarity": "apotheosis:ancient",
+    "max_rarity": "apotheosis:ancient",
     "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "traveloptics:abyssal_tidecaller", "count": 1, "nbt": {"Damage": 0}}
+    "stack": {"item": "traveloptics:abyssal_tidecaller", "count": 1, "nbt": {"Damage":0}}
 }

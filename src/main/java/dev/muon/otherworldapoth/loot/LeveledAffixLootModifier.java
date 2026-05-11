@@ -24,13 +24,15 @@ public class LeveledAffixLootModifier extends LootModifier {
     public static final Codec<LeveledAffixLootModifier> CODEC = RecordCodecBuilder.create(inst -> codecStart(inst)
             .apply(inst, LeveledAffixLootModifier::new));
 
+    private static final ThreadLocal<Boolean> IS_PROCESSING = ThreadLocal.withInitial(() -> false);
+
     protected LeveledAffixLootModifier(LootItemCondition[] conditions) {
         super(conditions);
     }
 
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        if (!Apotheosis.enableAdventure) {
+        if (!Apotheosis.enableAdventure || IS_PROCESSING.get()) {
             return generatedLoot;
         }
         Entity entity = context.getParamOrNull(LootContextParams.THIS_ENTITY);
@@ -42,13 +44,18 @@ public class LeveledAffixLootModifier extends LootModifier {
             return generatedLoot;
         }
 
-        for (ItemStack stack : generatedLoot) {
-            if (!LootCategory.forItem(stack).isNone() &&
-                    AffixHelper.getAffixes(stack).isEmpty() &&
-                    shouldConvertItem(level, context.getRandom())) {
-                LootRarity rarity = LootUtils.getRarityForMobLevel(level, context.getRandom(), context.getLuck(), false);
-                LootController.createLootItem(stack, rarity, context.getRandom());
+        IS_PROCESSING.set(true);
+        try {
+            for (ItemStack stack : generatedLoot) {
+                if (!LootCategory.forItem(stack).isNone() &&
+                        AffixHelper.getAffixes(stack).isEmpty() &&
+                        shouldConvertItem(level, context.getRandom())) {
+                    LootRarity rarity = LootUtils.getRarityForMobLevel(level, context.getRandom(), context.getLuck(), false);
+                    LootController.createLootItem(stack, rarity, context.getRandom());
+                }
             }
+        } finally {
+            IS_PROCESSING.set(false);
         }
 
         return generatedLoot;

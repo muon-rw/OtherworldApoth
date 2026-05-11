@@ -1,9 +1,9 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "mowziesmobs"}],
-    "weight": 60,
-    "quality": 5.0,
-    "min_rarity": "apotheosis:common",
-    "max_rarity": "apotheosis:rare",
+    "weight": 25,
+    "quality": 8,
+    "min_rarity": "apotheosis:epic",
+    "max_rarity": "apotheosis:epic",
     "dimensions": ["minecraft:overworld"],
     "stack": {"item": "mowziesmobs:umvuthana_mask_faith", "count": 1, "nbt": {"Damage": 0}}
 }

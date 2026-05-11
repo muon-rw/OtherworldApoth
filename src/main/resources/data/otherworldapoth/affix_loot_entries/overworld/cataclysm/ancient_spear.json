@@ -1,8 +1,8 @@
 {
     "conditions": [{"type": "forge:mod_loaded", "modid": "cataclysm"}],
     "weight": 50,
-    "quality": 6.0,
-    "min_rarity": "apotheosis:common",
+    "quality": 6,
+    "min_rarity": "apotheosis:rare",
     "max_rarity": "apotheosis:rare",
     "dimensions": ["minecraft:overworld"],
     "stack": {"item": "cataclysm:ancient_spear", "count": 1, "nbt": {"Damage": 0}}

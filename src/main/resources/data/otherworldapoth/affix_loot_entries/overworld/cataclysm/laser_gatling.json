@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "cataclysm"}],
-    "weight": 40,
-    "quality": 8,
-    "min_rarity": "apotheosis:epic",
-    "max_rarity": "apotheosis:mythic",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "cataclysm:laser_gatling", "count": 1, "nbt": {"Damage":0}}
-}

@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "mowziesmobs"}],
-    "weight": 45,
-    "quality": 7.5,
-    "min_rarity": "apotheosis:epic",
-    "max_rarity": "apotheosis:mythic",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "mowziesmobs:ice_crystal", "count": 1, "nbt": {"Damage":0}}
-}

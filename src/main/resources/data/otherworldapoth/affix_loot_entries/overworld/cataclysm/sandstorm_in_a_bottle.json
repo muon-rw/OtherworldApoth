@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "cataclysm"}],
-    "weight": 50,
-    "quality": 6.5,
-    "min_rarity": "apotheosis:common",
-    "max_rarity": "apotheosis:rare",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "cataclysm:sandstorm_in_a_bottle", "count": 1, "nbt": {"Damage": 0}}
-}
