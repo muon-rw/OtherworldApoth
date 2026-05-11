@@ -10,6 +10,7 @@ import dev.shadowsoffire.apotheosis.adventure.socket.gem.Gem;
 import dev.shadowsoffire.apotheosis.adventure.socket.gem.GemRegistry;
 import dev.shadowsoffire.placebo.reload.WeightedDynamicRegistry.IDimensional;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -34,6 +35,10 @@ public class LeveledGemLootModifier extends LootModifier {
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
         if (!Apotheosis.enableAdventure || IS_PROCESSING.get()) {
+            return generatedLoot;
+        }
+        ResourceLocation queriedId = context.getQueriedLootTableId();
+        if (queriedId != null && "champions".equals(queriedId.getNamespace())) {
             return generatedLoot;
         }
         Entity entity = context.getParamOrNull(LootContextParams.THIS_ENTITY);

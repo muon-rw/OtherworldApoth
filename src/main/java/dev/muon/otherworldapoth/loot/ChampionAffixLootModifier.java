@@ -12,6 +12,7 @@ import dev.shadowsoffire.apotheosis.adventure.socket.gem.Gem;
 import dev.shadowsoffire.apotheosis.adventure.socket.gem.GemRegistry;
 import dev.shadowsoffire.placebo.reload.WeightedDynamicRegistry.IDimensional;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -47,6 +48,13 @@ public class ChampionAffixLootModifier extends LootModifier {
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
         if (!Apotheosis.enableAdventure || IS_PROCESSING.get()) {
+            return generatedLoot;
+        }
+        // Champions' own GLM calls lootTable.getRandomItems on champions:champion_loot, which
+        // triggers a fresh GLM pass with the inner table id. Skip those re-entrant invocations
+        // so the modifier fires exactly once per actual mob-death loot table run.
+        ResourceLocation queriedId = context.getQueriedLootTableId();
+        if (queriedId != null && "champions".equals(queriedId.getNamespace())) {
             return generatedLoot;
         }
 
