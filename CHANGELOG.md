@@ -1,3 +1,7 @@
+## 0.7.0
+- Add a ton of affix loot entries
+- New champions loot affix inject based on champion rank
+
 ## 0.6.2
 - Update Champions loot modifier
 

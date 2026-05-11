@@ -1,0 +1,9 @@
+{
+    "conditions": [{"type": "forge:mod_loaded", "modid": "cataclysm"}],
+    "weight": 40,
+    "quality": 8.0,
+    "min_rarity": "apotheosis:rare",
+    "max_rarity": "apotheosis:mythic",
+    "dimensions": ["minecraft:overworld"],
+    "stack": {"item": "cataclysm:meat_shredder", "count": 1, "nbt": {"Damage": 0}}
+}

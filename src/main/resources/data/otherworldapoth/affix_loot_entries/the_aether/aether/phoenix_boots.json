@@ -1,0 +1,9 @@
+{
+  "weight": 45,
+  "quality": 8.0,
+  "stack": { "item": "aether:phoenix_boots", "count": 1, "nbt": { "Damage": 0 } },
+  "dimensions": ["aether:the_aether"],
+  "min_rarity": "apotheosis:uncommon",
+  "max_rarity": "apotheosis:epic",
+  "conditions": [{ "type": "forge:mod_loaded", "modid": "aether" }]
+}

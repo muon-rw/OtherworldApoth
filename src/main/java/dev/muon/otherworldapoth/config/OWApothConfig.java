@@ -19,6 +19,7 @@ public class OWApothConfig {
     public static String[] levelRarityMappings;
     public static String[] gemRarityMappings;
     public static String[] playerLevelRarityMappings;
+    public static String[] championRankRarityMappings;
 
     public static void init() {
         config = new Configuration("otherworldapoth");
@@ -96,6 +97,20 @@ public class OWApothConfig {
                 "Level threshold to rarity mapping for container loot based on player level.\n" +
                         "Each entry applies to levels from its value up to (but not including) the next threshold.\n" +
                         "For example: '15=rare-epic' applies to levels 15-19 if the next threshold is 20.\n" +
+                        "Valid rarities: common, uncommon, rare, epic, mythic, ancient");
+
+        championRankRarityMappings = config.getStringList("championRankMappings", category,
+                new String[]{
+                        "5=mythic-ancient",
+                        "4=epic-mythic",
+                        "3=rare-epic",
+                        "2=uncommon-rare",
+                        "1=common-uncommon"
+                },
+                "Champion rank (tier 1-5) to rarity mapping for the bonus affix item dropped by champions.\n" +
+                        "Tier 5 is the built-in 'Ultimate' champion rank.\n" +
+                        "Format: 'tier=minRarity-maxRarity'. Within the range, the actual rarity is\n" +
+                        "still rolled by rarity weight and Luck.\n" +
                         "Valid rarities: common, uncommon, rare, epic, mythic, ancient");
 
         OtherworldApoth.LOGGER.info("OtherworldApoth Config loaded:");

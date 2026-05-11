@@ -98,7 +98,16 @@ public class LootUtils {
         );
         OtherworldApoth.LOGGER.debug("Finding rarity for mob level {} ({}), mapping: {}",
                 mobLevel, isGem ? "gem" : "item", mapping);
+        return rollRarityForMapping(mapping, rand, luck);
+    }
 
+    public static LootRarity getRarityForChampionRank(int rankTier, RandomSource rand, float luck) {
+        String mapping = findMappingForLevel(OWApothConfig.championRankRarityMappings, rankTier);
+        OtherworldApoth.LOGGER.debug("Finding rarity for champion rank {}, mapping: {}", rankTier, mapping);
+        return rollRarityForMapping(mapping, rand, luck);
+    }
+
+    private static LootRarity rollRarityForMapping(String mapping, RandomSource rand, float luck) {
         String[] rarities = mapping.split("-");
         DynamicHolder<LootRarity> minRarity = RarityRegistry.INSTANCE.holder(Apotheosis.loc(rarities[0]));
         DynamicHolder<LootRarity> maxRarity = RarityRegistry.INSTANCE.holder(Apotheosis.loc(rarities[1]));

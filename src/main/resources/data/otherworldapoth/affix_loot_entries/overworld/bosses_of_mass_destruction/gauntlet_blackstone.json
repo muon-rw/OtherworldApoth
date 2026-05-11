@@ -1,0 +1,9 @@
+{
+    "conditions": [{"type": "forge:mod_loaded", "modid": "bosses_of_mass_destruction"}],
+    "weight": 50,
+    "quality": 7.0,
+    "min_rarity": "apotheosis:common",
+    "max_rarity": "apotheosis:rare",
+    "dimensions": ["minecraft:overworld"],
+    "stack": {"item": "bosses_of_mass_destruction:gauntlet_blackstone", "count": 1, "nbt": {"Damage": 0}}
+}

@@ -1,0 +1,9 @@
+{
+    "conditions": [{"type": "forge:mod_loaded", "modid": "iceandfire"}],
+    "weight": 65,
+    "quality": 4.5,
+    "min_rarity": "apotheosis:common",
+    "max_rarity": "apotheosis:rare",
+    "dimensions": ["minecraft:overworld"],
+    "stack": {"item": "iceandfire:troll_weapon_axe", "count": 1, "nbt": {"Damage": 0}}
+}

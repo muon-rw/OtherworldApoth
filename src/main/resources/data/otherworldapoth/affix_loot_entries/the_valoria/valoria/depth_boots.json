@@ -1,0 +1,9 @@
+{
+    "conditions": [{"type": "forge:mod_loaded", "modid": "valoria"}],
+    "weight": 50,
+    "quality": 6.5,
+    "min_rarity": "apotheosis:common",
+    "max_rarity": "apotheosis:rare",
+    "dimensions": ["valoria:the_valoria"],
+    "stack": {"item": "valoria:depth_boots", "count": 1, "nbt": {"Damage": 0}}
+}

@@ -1,0 +1,9 @@
+{
+    "conditions": [{"type": "forge:mod_loaded", "modid": "iceandfire"}],
+    "weight": 40,
+    "quality": 9.0,
+    "min_rarity": "apotheosis:rare",
+    "max_rarity": "apotheosis:mythic",
+    "dimensions": ["minecraft:overworld"],
+    "stack": {"item": "iceandfire:dragonsteel_ice_sword", "count": 1, "nbt": {"Damage": 0}}
+}

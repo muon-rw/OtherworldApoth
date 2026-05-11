@@ -1,0 +1,9 @@
+{
+  "weight": 45,
+  "quality": 8.0,
+  "stack": { "item": "aquamirae:whisper_of_the_abyss", "count": 1, "nbt": { "Damage": 0 } },
+  "dimensions": ["minecraft:overworld"],
+  "min_rarity": "apotheosis:common",
+  "max_rarity": "apotheosis:rare",
+  "conditions": [{ "type": "forge:mod_loaded", "modid": "aquamirae" }]
+}

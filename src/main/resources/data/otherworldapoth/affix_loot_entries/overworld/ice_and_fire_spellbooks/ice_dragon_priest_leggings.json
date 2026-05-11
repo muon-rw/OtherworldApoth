@@ -1,0 +1,9 @@
+{
+    "conditions": [{"type": "forge:mod_loaded", "modid": "ice_and_fire_spellbooks"}],
+    "weight": 50,
+    "quality": 6,
+    "min_rarity": "apotheosis:common",
+    "max_rarity": "apotheosis:rare",
+    "dimensions": ["minecraft:overworld"],
+    "stack": {"item": "ice_and_fire_spellbooks:ice_dragon_priest_leggings", "count": 1, "nbt": {"Damage": 0}}
+}

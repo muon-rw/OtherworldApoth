@@ -1,0 +1,9 @@
+{
+    "conditions": [{"type": "forge:mod_loaded", "modid": "cataclysm"}],
+    "weight": 70,
+    "quality": 4.5,
+    "min_rarity": "apotheosis:common",
+    "max_rarity": "apotheosis:rare",
+    "dimensions": ["minecraft:overworld"],
+    "stack": {"item": "cataclysm:black_steel_sword", "count": 1, "nbt": {"Damage": 0}}
+}

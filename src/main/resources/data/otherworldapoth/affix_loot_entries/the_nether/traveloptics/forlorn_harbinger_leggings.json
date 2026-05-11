@@ -1,0 +1,9 @@
+{
+    "conditions": [{"type": "forge:mod_loaded", "modid": "traveloptics"}],
+    "weight": 50,
+    "quality": 8.0,
+    "min_rarity": "apotheosis:uncommon",
+    "max_rarity": "apotheosis:epic",
+    "dimensions": ["minecraft:the_nether"],
+    "stack": {"item": "traveloptics:forlorn_harbinger_leggings", "count": 1, "nbt": {"Damage": 0}}
+}

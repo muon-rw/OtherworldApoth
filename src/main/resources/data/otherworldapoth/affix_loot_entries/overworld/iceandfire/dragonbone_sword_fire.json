@@ -1,0 +1,9 @@
+{
+    "conditions": [{"type": "forge:mod_loaded", "modid": "iceandfire"}],
+    "weight": 45,
+    "quality": 7.5,
+    "min_rarity": "apotheosis:common",
+    "max_rarity": "apotheosis:rare",
+    "dimensions": ["minecraft:overworld"],
+    "stack": {"item": "iceandfire:dragonbone_sword_fire", "count": 1, "nbt": {"Damage": 0}}
+}

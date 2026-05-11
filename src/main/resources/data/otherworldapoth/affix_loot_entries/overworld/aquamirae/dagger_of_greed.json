@@ -1,0 +1,9 @@
+{
+  "weight": 70,
+  "quality": 4.5,
+  "stack": { "item": "aquamirae:dagger_of_greed", "count": 1, "nbt": { "Damage": 0 } },
+  "dimensions": ["minecraft:overworld"],
+  "min_rarity": "apotheosis:common",
+  "max_rarity": "apotheosis:rare",
+  "conditions": [{ "type": "forge:mod_loaded", "modid": "aquamirae" }]
+}

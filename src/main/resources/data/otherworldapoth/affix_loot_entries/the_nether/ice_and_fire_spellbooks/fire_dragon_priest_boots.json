@@ -1,0 +1,9 @@
+{
+    "conditions": [{"type": "forge:mod_loaded", "modid": "ice_and_fire_spellbooks"}],
+    "weight": 50,
+    "quality": 7,
+    "min_rarity": "apotheosis:uncommon",
+    "max_rarity": "apotheosis:epic",
+    "dimensions": ["minecraft:the_nether"],
+    "stack": {"item": "ice_and_fire_spellbooks:fire_dragon_priest_boots", "count": 1, "nbt": {"Damage": 0}}
+}

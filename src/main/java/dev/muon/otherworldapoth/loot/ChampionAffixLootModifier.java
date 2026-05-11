@@ -2,10 +2,9 @@ package dev.muon.otherworldapoth.loot;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import dev.muon.otherworld.leveling.LevelingUtils;
 import dev.shadowsoffire.apotheosis.Apotheosis;
-import dev.shadowsoffire.apotheosis.adventure.affix.AffixHelper;
-import dev.shadowsoffire.apotheosis.adventure.loot.LootCategory;
+import dev.shadowsoffire.apotheosis.adventure.loot.AffixLootEntry;
+import dev.shadowsoffire.apotheosis.adventure.loot.AffixLootRegistry;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootController;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootRarity;
 import dev.shadowsoffire.apotheosis.adventure.socket.gem.Gem;
@@ -20,12 +19,16 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
+import top.theillusivec4.champions.api.IChampion;
+import top.theillusivec4.champions.common.capability.ChampionCapability;
+import top.theillusivec4.champions.common.rank.Rank;
 
 /**
  * Global loot modifier for champion entity deaths.
- * Uses Champions' entity_champion condition - when conditions pass (champion + killed by player):
- * 1. Guarantees that all dropped affixable items are converted to level-appropriate rarity.
- * 2. Always injects one gem with quality based on the champion's level.
+ * When the champions:entity_champion + killed_by_player conditions pass:
+ * 1. Injects a fresh affix loot item drawn from the AffixLootRegistry, with rarity scaled to the champion's rank.
+ * 2. Injects a gem with quality scaled to the champion's rank.
+ * Rank tier (1-5, 5 = Ultimate) is read from the Champions capability.
  */
 public class ChampionAffixLootModifier extends LootModifier {
 
@@ -47,34 +50,51 @@ public class ChampionAffixLootModifier extends LootModifier {
             return generatedLoot;
         }
 
-        int level = LevelingUtils.getEntityLevel(living);
-        if (level <= 0) {
+        int rankTier = getChampionRankTier(living);
+        if (rankTier <= 0) {
             return generatedLoot;
         }
 
         float luck = context.getLuck();
 
-        // Guarantee conversion of dropped items to level-appropriate rarity
-        for (ItemStack stack : generatedLoot) {
-            if (!LootCategory.forItem(stack).isNone() && AffixHelper.getAffixes(stack).isEmpty()) {
-                LootRarity rarity = LootUtils.getRarityForMobLevel(level, context.getRandom(), luck, false);
-                LootController.createLootItem(stack, rarity, context.getRandom());
+        AffixLootEntry entry = AffixLootRegistry.INSTANCE.getRandomItem(
+                context.getRandom(),
+                luck,
+                IDimensional.matches(context.getLevel())
+        );
+        if (entry != null) {
+            LootRarity itemRarity = LootUtils.getRarityForChampionRank(rankTier, context.getRandom(), luck);
+            ItemStack affixItem = LootController.createLootItem(
+                    entry.getStack(),
+                    entry.getType(),
+                    itemRarity,
+                    context.getRandom()
+            );
+            if (!affixItem.isEmpty()) {
+                generatedLoot.add(affixItem);
             }
         }
 
-        // Always inject a gem with quality based on champion level
-        LootRarity gemRarity = LootUtils.getRarityForMobLevel(level, context.getRandom(), luck, true);
         Gem gem = GemRegistry.INSTANCE.getRandomItem(
                 context.getRandom(),
                 luck,
                 IDimensional.matches(context.getLevel())
         );
         if (gem != null) {
-            ItemStack gemStack = GemRegistry.createGemStack(gem, gemRarity);
-            generatedLoot.add(gemStack);
+            LootRarity gemRarity = LootUtils.getRarityForChampionRank(rankTier, context.getRandom(), luck);
+            generatedLoot.add(GemRegistry.createGemStack(gem, gemRarity));
         }
 
         return generatedLoot;
+    }
+
+    private static int getChampionRankTier(LivingEntity entity) {
+        return ChampionCapability.getCapability(entity)
+                .resolve()
+                .map(IChampion::getServer)
+                .flatMap(IChampion.Server::getRank)
+                .map(Rank::getTier)
+                .orElse(0);
     }
 
     @Override
