@@ -1,5 +1,6 @@
 ## 0.7.2
 - Fix Champions loot multiplying 4 times 
+- More ALE balancing
 
 ## 0.7.1
 - Fix Champions ALE inject not respecting ALE min rarity
