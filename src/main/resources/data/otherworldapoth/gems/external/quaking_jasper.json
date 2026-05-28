@@ -1,0 +1,118 @@
+{
+  "forge:conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "gtbcs_geomancy_plus"
+    }
+  ],
+  "type": "apotheosis:gem",
+  "min_purity": "common",
+  "unique": false,
+  "weight": 5,
+  "quality": 2,
+  "dimensions": [],
+  "bonuses": [
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "magic_weapons",
+        "types": [
+          "staff"
+        ]
+      },
+      "attribute": "gtbcs_geomancy_plus:geo_spell_power",
+      "operation": "MULTIPLY_BASE",
+      "values": {
+        "common": 0.04,
+        "uncommon": 0.08,
+        "rare": 0.12,
+        "epic": 0.16,
+        "mythic": 0.20,
+        "ancient": 0.25
+      }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "melee_weapon",
+        "types": [
+          "sword",
+          "heavy_weapon"
+        ]
+      },
+      "attribute": "gtbcs_geomancy_plus:geo_magic_resist",
+      "operation": "MULTIPLY_BASE",
+      "values": {
+        "common": 0.025,
+        "uncommon": 0.05,
+        "rare": 0.10,
+        "epic": 0.125,
+        "mythic": 0.15,
+        "ancient": 0.20
+      }
+    },
+    {
+      "type": "apotheosis:mob_effect",
+      "gem_class": {
+        "key": "helmet",
+        "types": [
+          "helmet"
+        ]
+      },
+      "mob_effect": "alexscaves:stunned",
+      "target": "hurt_attacker",
+      "operation": "ADDITION",
+      "values": {
+        "common": {
+          "duration": 30,
+          "amplifier": 0,
+          "cooldown": 200
+        },
+        "uncommon": {
+          "duration": 40,
+          "amplifier": 0,
+          "cooldown": 200
+        },
+        "rare": {
+          "duration": 50,
+          "amplifier": 0,
+          "cooldown": 200
+        },
+        "epic": {
+          "duration": 60,
+          "amplifier": 0,
+          "cooldown": 200
+        },
+        "mythic": {
+          "duration": 70,
+          "amplifier": 0,
+          "cooldown": 180
+        },
+        "ancient": {
+          "duration": 80,
+          "amplifier": 0,
+          "cooldown": 160
+        }
+      }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "boots",
+        "types": [
+          "boots"
+        ]
+      },
+      "attribute": "minecraft:generic.knockback_resistance",
+      "operation": "ADDITION",
+      "values": {
+        "common": 0.10,
+        "uncommon": 0.15,
+        "rare": 0.20,
+        "epic": 0.25,
+        "mythic": 0.30,
+        "ancient": 0.40
+      }
+    }
+  ]
+}

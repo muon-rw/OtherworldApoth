@@ -125,6 +125,7 @@
   "item.apotheosis.gem.otherworldapoth:external/harmonic_geode": "Harmonic Geode",
   "item.apotheosis.gem.otherworldapoth:external/resonant_quartz": "Resonant Quartz",
   "item.apotheosis.gem.otherworldapoth:external/arcanists_edge": "Arcanist's Edge",
+  "item.apotheosis.gem.otherworldapoth:external/quaking_jasper": "Quaking Jasper",
 
   "affix.otherworldapoth.target.spell_damage_self": "On spell damage, gain %s",
   "affix.otherworldapoth.target.spell_damage_target": "On spell damage, inflict %s",
