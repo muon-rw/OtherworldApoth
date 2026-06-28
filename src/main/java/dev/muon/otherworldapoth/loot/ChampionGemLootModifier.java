@@ -2,12 +2,9 @@ package dev.muon.otherworldapoth.loot;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import dev.muon.otherworldapoth.config.OWApothConfig;
 import dev.shadowsoffire.apotheosis.Apotheosis;
-import dev.shadowsoffire.apotheosis.adventure.loot.AffixLootEntry;
-import dev.shadowsoffire.apotheosis.adventure.loot.AffixLootRegistry;
-import dev.shadowsoffire.apotheosis.adventure.loot.LootController;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootRarity;
-import dev.shadowsoffire.apotheosis.adventure.loot.RarityClamp;
 import dev.shadowsoffire.apotheosis.adventure.socket.gem.Gem;
 import dev.shadowsoffire.apotheosis.adventure.socket.gem.GemRegistry;
 import dev.shadowsoffire.placebo.reload.WeightedDynamicRegistry.IDimensional;
@@ -26,22 +23,24 @@ import top.theillusivec4.champions.common.capability.ChampionCapability;
 import top.theillusivec4.champions.common.rank.Rank;
 
 /**
- * Global loot modifier for champion entity deaths.
- * When the champions:entity_champion + killed_by_player conditions pass:
- * Injects EITHER a fresh affix loot item OR a gem (50/50 roll), with rarity scaled to the champion's rank.
- * Rank tier is read from the Champions capability and mapped to a rarity range via
- * {@link dev.muon.otherworldapoth.config.OWApothConfig#championRankRarityMappings}.
+ * Global loot modifier for champion entity deaths — gem drop only.
+ * <p>
+ * The guaranteed affix item is handed to the champion at spawn time (see
+ * {@link LootEvents#onChampionSpawn}, mirroring Apotheosis' equip-on-spawn approach). This modifier
+ * handles the <em>additional</em> gem drop: when the champions:entity_champion + killed_by_player
+ * conditions pass, it rolls a luck-scaled chance to add a gem whose rarity is scaled to the champion's
+ * rank via {@link dev.muon.otherworldapoth.config.OWApothConfig#championRankRarityMappings}.
  */
-public class ChampionAffixLootModifier extends LootModifier {
+public class ChampionGemLootModifier extends LootModifier {
 
-    public static final Codec<ChampionAffixLootModifier> CODEC =
-            RecordCodecBuilder.create(inst -> codecStart(inst).apply(inst, ChampionAffixLootModifier::new));
+    public static final Codec<ChampionGemLootModifier> CODEC =
+            RecordCodecBuilder.create(inst -> codecStart(inst).apply(inst, ChampionGemLootModifier::new));
 
     // Prevents re-entry when the Champions champion_loot GLM calls lootTable.getRandomItems on
     // a separate table, which re-runs all GLMs including this one. See ChampionLootModifier#doApply.
     private static final ThreadLocal<Boolean> IS_PROCESSING = ThreadLocal.withInitial(() -> false);
 
-    public ChampionAffixLootModifier(LootItemCondition[] conditions) {
+    public ChampionGemLootModifier(LootItemCondition[] conditions) {
         super(conditions);
     }
 
@@ -71,27 +70,11 @@ public class ChampionAffixLootModifier extends LootModifier {
         IS_PROCESSING.set(true);
         try {
             float luck = context.getLuck();
-            LootRarity rarity = LootUtils.getRarityForChampionRank(rankTier, context.getRandom(), luck);
-
-            if (context.getRandom().nextBoolean()) {
-                AffixLootEntry entry = AffixLootRegistry.INSTANCE.getRandomItem(
-                        context.getRandom(),
-                        luck,
-                        IDimensional.matches(context.getLevel()),
-                        clampAccepts(rarity)
-                );
-                if (entry != null) {
-                    ItemStack affixItem = LootController.createLootItem(
-                            entry.getStack(),
-                            entry.getType(),
-                            rarity,
-                            context.getRandom()
-                    );
-                    if (!affixItem.isEmpty()) {
-                        generatedLoot.add(affixItem);
-                    }
-                }
-            } else {
+            float gemChance = (float) Math.min(
+                    OWApothConfig.championGemChance + luck * OWApothConfig.championGemLuckFactor,
+                    1.0);
+            if (context.getRandom().nextFloat() < gemChance) {
+                LootRarity rarity = LootUtils.getRarityForChampionRank(rankTier, context.getRandom(), luck);
                 Gem gem = GemRegistry.INSTANCE.getRandomItem(
                         context.getRandom(),
                         luck,
@@ -115,11 +98,6 @@ public class ChampionAffixLootModifier extends LootModifier {
                 .flatMap(IChampion.Server::getRank)
                 .map(Rank::getTier)
                 .orElse(0);
-    }
-
-    private static <T extends RarityClamp> java.util.function.Predicate<T> clampAccepts(LootRarity rarity) {
-        int o = rarity.ordinal();
-        return c -> c.getMinRarity().ordinal() <= o && o <= c.getMaxRarity().ordinal();
     }
 
     @Override

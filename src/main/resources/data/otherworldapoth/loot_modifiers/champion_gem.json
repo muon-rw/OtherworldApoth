@@ -1,5 +1,5 @@
 {
-  "type": "otherworldapoth:champion_affix",
+  "type": "otherworldapoth:champion_gem",
   "conditions": [
     {
       "condition": "champions:entity_champion",

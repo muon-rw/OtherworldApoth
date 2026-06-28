@@ -54,9 +54,10 @@ public class LeveledAffixLootModifier extends LootModifier {
             for (ItemStack stack : generatedLoot) {
                 if (!LootCategory.forItem(stack).isNone() &&
                         AffixHelper.getAffixes(stack).isEmpty() &&
-                        shouldConvertItem(level, context.getRandom())) {
+                        shouldConvertItem(level, context.getLuck(), context.getRandom())) {
                     LootRarity rarity = LootUtils.getRarityForMobLevel(level, context.getRandom(), context.getLuck(), false);
                     LootController.createLootItem(stack, rarity, context.getRandom());
+                    LootUtils.markRandomSpawn(stack);
                 }
             }
         } finally {
@@ -66,9 +67,10 @@ public class LeveledAffixLootModifier extends LootModifier {
         return generatedLoot;
     }
 
-    private boolean shouldConvertItem(int level, RandomSource rand) {
+    private boolean shouldConvertItem(int level, float luck, RandomSource rand) {
         return rand.nextFloat() < Math.min(
-                OWApothConfig.affixBaseChance + (level * OWApothConfig.affixLevelChanceIncrease),
+                OWApothConfig.affixBaseChance + (level * OWApothConfig.affixLevelChanceIncrease)
+                        + (luck * OWApothConfig.affixLuckFactor),
                 OWApothConfig.affixMaxChance
         );
     }

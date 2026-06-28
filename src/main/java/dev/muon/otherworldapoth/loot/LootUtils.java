@@ -8,6 +8,7 @@ import dev.shadowsoffire.apotheosis.adventure.loot.RarityRegistry;
 import dev.shadowsoffire.placebo.reload.DynamicHolder;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 
@@ -52,6 +53,17 @@ public class LootUtils {
         if (ctx.getParamOrNull(LootContextParams.KILLER_ENTITY) instanceof Player p) return p;
         if (ctx.getParamOrNull(LootContextParams.LAST_DAMAGE_PLAYER) != null) return ctx.getParamOrNull(LootContextParams.LAST_DAMAGE_PLAYER);
         return null;
+    }
+
+    /**
+     * Marks an affix item as a random-monster drop, mirroring the flag Apotheosis sets on
+     * affix items it equips on naturally-spawned monsters (see AdventureEvents#special, which
+     * does {@code stack.getOrCreateTag().putBoolean("apoth_rspawn", true)}). This is exactly
+     * what the "How'd You Get This?" advancement (apotheosis:affix/random) tests for via its
+     * {@code {apoth_rspawn:true}} nbt predicate, so our level/champion drops count toward it.
+     */
+    public static void markRandomSpawn(ItemStack stack) {
+        stack.getOrCreateTag().putBoolean("apoth_rspawn", true);
     }
 
     public static LootRarity getRarityForPlayerLevel(int playerLevel, RandomSource rand, float luck) {

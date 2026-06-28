@@ -9,6 +9,9 @@ public class OWApothConfig {
     public static double affixBaseChance;
     public static double affixLevelChanceIncrease;
     public static double affixMaxChance;
+    public static double affixLuckFactor;
+    public static double championGemChance;
+    public static double championGemLuckFactor;
     public static double gemBaseChance;
     public static double gemLevelChanceIncrease;
     public static double gemMaxChance;
@@ -35,6 +38,15 @@ public class OWApothConfig {
 
         affixMaxChance = config.getFloat("affixMaxChance", category, 0.25f, 0, 1,
                 "Maximum chance for an item to receive affixes");
+
+        affixLuckFactor = config.getFloat("affixLuckFactor", category, 0.01f, 0, 1,
+                "How much each point of the killing player's Luck adds to the level-based affix conversion chance");
+
+        championGemChance = config.getFloat("championGemChance", category, 0.25f, 0, 1,
+                "Base chance for a champion to also drop a gem, on top of its guaranteed affix item");
+
+        championGemLuckFactor = config.getFloat("championGemLuckFactor", category, 0.02f, 0, 1,
+                "How much each point of the killing player's Luck adds to the champion gem drop chance");
 
         gemBaseChance = config.getFloat("gemBaseChance", category, 0.02f, 0, 1,
                 "Base chance for a gem to drop");

@@ -3,7 +3,7 @@ package dev.muon.otherworldapoth;
 import dev.muon.otherworldapoth.affix.AttunementAffix;
 import dev.muon.otherworldapoth.affix.*;
 import dev.muon.otherworldapoth.config.OWApothConfig;
-import dev.muon.otherworldapoth.loot.ChampionAffixLootModifier;
+import dev.muon.otherworldapoth.loot.ChampionGemLootModifier;
 import dev.muon.otherworldapoth.loot.LeveledAffixLootModifier;
 import dev.muon.otherworldapoth.loot.LeveledGemLootModifier;
 import dev.muon.otherworldapoth.loot.LootEvents;
@@ -68,8 +68,8 @@ public class OtherworldApoth {
                     loc("leveled_gems"),
                     () -> LeveledGemLootModifier.CODEC);
             event.register(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS,
-                    loc("champion_affix"),
-                    () -> ChampionAffixLootModifier.CODEC);
+                    loc("champion_gem"),
+                    () -> ChampionGemLootModifier.CODEC);
         }
     }
 
