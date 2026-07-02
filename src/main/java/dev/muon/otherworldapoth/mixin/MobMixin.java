@@ -52,6 +52,7 @@ public abstract class MobMixin {
                                 false
                         );
                         LootController.createLootItem(stack, rarity, monster.getRandom());
+                        LootUtils.markRandomSpawn(stack);
                     }
                 }
             }

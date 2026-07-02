@@ -145,6 +145,7 @@ public class LootEvents {
                         if (roll < chance) {
                             LootRarity rarity = LootUtils.getRarityForMobLevel(level, monster.getRandom(), player.getLuck(), false);
                             LootController.createLootItem(stack, rarity, monster.getRandom());
+                            LootUtils.markRandomSpawn(stack);
                         }
                     }
                 }

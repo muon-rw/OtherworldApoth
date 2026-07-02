@@ -1,3 +1,6 @@
+## 0.8.1
+- Mob loot *conversions* now also count as randomly spawned for the purpose of the "How Did You Get This?" advancement. Thanks NightsHigh! 
+
 ## 0.8.0
 - Champions now equip ALEs 
 - ALE and gem chance now affect by luck
