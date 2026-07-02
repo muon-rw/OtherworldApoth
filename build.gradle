@@ -113,7 +113,8 @@ repositories {
             includeGroup "de.dafuqs"
         }
     }
-    maven { url = 'https://maven.theillusivec4.top' }
+    // maven.theillusivec4.top is offline (connection reset) — curios resolves from modmaven.dev instead
+    // maven { url = 'https://maven.theillusivec4.top' }
     maven { url "https://maven.isxander.dev/releases" }
     maven { url = "https://modmaven.dev"
         content {
