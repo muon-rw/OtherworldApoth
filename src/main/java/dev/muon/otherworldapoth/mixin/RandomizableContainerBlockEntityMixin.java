@@ -53,6 +53,7 @@ public abstract class RandomizableContainerBlockEntityMixin {
                         player.getLuck()
                 );
                 LootController.createLootItem(stack, rarity, player.getRandom());
+                LootUtils.markRandomSpawn(stack);
             }
         }
     }
