@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "eeeabsmobs"}],
-    "weight": 35,
-    "quality": 7,
-    "min_rarity": "apotheosis:epic",
-    "max_rarity": "apotheosis:epic",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "eeeabsmobs:ghost_warrior_helmet", "count": 1, "nbt": {"Damage": 0}}
-}

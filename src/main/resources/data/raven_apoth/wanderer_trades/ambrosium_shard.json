@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aether"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "numismaticoverhaul"
+    }
+  ],
+  "type": "placebo:basic_trade",
+  "input_1": {
+    "id": "numismaticoverhaul:silver_coin"
+  },
+  "output": {
+    "id": "aether:ambrosium_shard"
+  },
+  "max_trades": 15,
+  "xp": 3,
+  "price_mult": 1.0
+}

@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "alexscaves"}],
-    "weight": 85,
-    "quality": 3.0,
-    "min_rarity": "apotheosis:common",
-    "max_rarity": "apotheosis:rare",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "alexscaves:frostmint_spear", "count": 1, "nbt": {"Damage": 0}}
-}

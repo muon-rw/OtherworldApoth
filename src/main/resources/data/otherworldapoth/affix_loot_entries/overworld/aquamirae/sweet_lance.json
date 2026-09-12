@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "aquamirae"}],
-    "weight": 55,
-    "quality": 5.0,
-    "min_rarity": "apotheosis:uncommon",
-    "max_rarity": "apotheosis:epic",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "aquamirae:sweet_lance", "count": 1, "nbt": {"Damage": 0}}
-}

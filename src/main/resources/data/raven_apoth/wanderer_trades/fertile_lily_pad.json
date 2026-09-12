@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "reliquary"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "numismaticoverhaul"
+    }
+  ],
+  "type": "placebo:basic_trade",
+  "input_1": {
+    "id": "numismaticoverhaul:silver_coin",
+    "count": 24
+  },
+  "output": {
+    "id": "reliquary:fertile_lily_pad",
+    "count": 2
+  },
+  "max_trades": 2,
+  "xp": 15,
+  "price_mult": 1.0
+}

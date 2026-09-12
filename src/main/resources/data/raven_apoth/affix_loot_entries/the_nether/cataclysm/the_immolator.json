@@ -1,0 +1,25 @@
+{
+  "type": "apotheosis:affix_loot_entry",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "constraints": {
+    "dimensions": [
+      "minecraft:the_nether"
+    ]
+  },
+  "rarities": [
+    "apotheosis:mythic"
+  ],
+  "stack": {
+    "count": 1,
+    "id": "cataclysm:the_immolator"
+  },
+  "weights": {
+    "quality": 9.5,
+    "weight": 20
+  }
+}

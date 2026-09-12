@@ -1,0 +1,26 @@
+{
+  "type": "apotheosis:affix_loot_entry",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "valoria"
+    }
+  ],
+  "constraints": {
+    "dimensions": [
+      "valoria:the_valoria"
+    ]
+  },
+  "rarities": [
+    "apotheosis:rare",
+    "apotheosis:epic"
+  ],
+  "stack": {
+    "count": 1,
+    "id": "valoria:samurai_chestplate"
+  },
+  "weights": {
+    "quality": 5.0,
+    "weight": 60
+  }
+}

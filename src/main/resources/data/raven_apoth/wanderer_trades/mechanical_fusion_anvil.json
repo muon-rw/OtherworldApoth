@@ -1,0 +1,27 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "cataclysm"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "numismaticoverhaul"
+    }
+  ],
+  "type": "placebo:basic_trade",
+  "input_1": {
+    "id": "numismaticoverhaul:gold_coin",
+    "count": 10
+  },
+  "input_2": {
+    "id": "minecraft:redstone_block",
+    "count": 16
+  },
+  "output": {
+    "id": "cataclysm:mechanical_fusion_anvil"
+  },
+  "max_trades": 1,
+  "xp": 50,
+  "price_mult": 1.0
+}

@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "valoria"}],
-    "weight": 25,
-    "quality": 8.5,
-    "min_rarity": "apotheosis:mythic",
-    "max_rarity": "apotheosis:mythic",
-    "dimensions": ["valoria:the_valoria"],
-    "stack": {"item": "valoria:infernal_scythe", "count": 1, "nbt": {"Damage":0}}
-}

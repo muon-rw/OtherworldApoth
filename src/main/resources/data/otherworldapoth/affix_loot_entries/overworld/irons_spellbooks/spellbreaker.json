@@ -1,9 +1,0 @@
-{
-    "conditions": [{"modid": "irons_spellbooks", "type": "forge:mod_loaded"}],
-    "weight": 60,
-    "quality": 5,
-    "min_rarity": "apotheosis:rare",
-    "max_rarity": "apotheosis:epic",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "irons_spellbooks:spellbreaker", "count": 1, "nbt": {"Damage":0}}
-}

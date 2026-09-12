@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "ice_and_fire_spellbooks"}],
-    "weight": 25,
-    "quality": 9,
-    "min_rarity": "apotheosis:mythic",
-    "max_rarity": "apotheosis:mythic",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "ice_and_fire_spellbooks:silver_dragon_priest_staff", "count": 1, "nbt": {"Damage":0}}
-}

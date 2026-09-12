@@ -1,0 +1,25 @@
+{
+  "type": "apotheosis:affix_loot_entry",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "constraints": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
+  },
+  "rarities": [
+    "apotheosis:rare"
+  ],
+  "stack": {
+    "count": 1,
+    "id": "iceandfire:dread_sword"
+  },
+  "weights": {
+    "quality": 6.0,
+    "weight": 50
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "alexscaves"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "numismaticoverhaul"
+    }
+  ],
+  "type": "placebo:basic_trade",
+  "rare": true,
+  "input_1": {
+    "id": "minecraft:netherite_ingot",
+    "count": 3
+  },
+  "input_2": {
+    "id": "numismaticoverhaul:gold_coin",
+    "count": 5
+  },
+  "output": {
+    "id": "alexscaves:desolate_dagger",
+    "components": {
+      "minecraft:enchantments": {
+        "levels": {
+          "minecraft:sharpness": 8,
+          "minecraft:mending": 1,
+          "minecraft:looting": 5,
+          "minecraft:unbreaking": 5,
+          "minecraft:fire_aspect": 2
+        }
+      },
+      "minecraft:custom_name": "{\"translate\":\"name.raven_apoth.caves_dagger\",\"italic\":false,\"color\":\"#f81616\"}"
+    }
+  },
+  "max_trades": 1,
+  "xp": 750,
+  "price_mult": 1.0
+}

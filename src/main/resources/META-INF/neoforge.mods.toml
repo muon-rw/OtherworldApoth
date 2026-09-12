@@ -1,0 +1,97 @@
+modLoader="javafml"
+loaderVersion="${loaderRange}"
+license="ARR"
+
+[[mods]]
+modId="${modid}"
+version="${version}"
+displayName="${modName}"
+authors="${author}"
+description='''${desc}'''
+
+[[mixins]]
+config="${modid}.mixins.json"
+
+[[dependencies.${modid}]]
+    modId="neoforge"
+    type="required"
+    versionRange="${neoVersionRange}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${modid}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${mcVersionRange}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${modid}]]
+    modId="raven_core"
+    type="required"
+    versionRange="*"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${modid}]]
+    modId="apotheosis"
+    type="required"
+    versionRange="[8.6.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${modid}]]
+    modId="apothic_attributes"
+    type="required"
+    versionRange="*"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${modid}]]
+    modId="ancientreforging"
+    type="required"
+    versionRange="*"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${modid}]]
+    modId="irons_spellbooks"
+    type="required"
+    versionRange="*"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${modid}]]
+    modId="irons_apothic"
+    type="required"
+    versionRange="[2.2.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${modid}]]
+    modId="champions"
+    type="required"
+    versionRange="*"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${modid}]]
+    modId="dynamic_difficulty"
+    type="required"
+    versionRange="*"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${modid}]]
+    modId="justlevelingfork"
+    type="optional"
+    versionRange="*"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${modid}]]
+    modId="raven_dnd_origins"
+    type="optional"
+    versionRange="*"
+    ordering="AFTER"
+    side="BOTH"

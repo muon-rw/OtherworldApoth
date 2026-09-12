@@ -1,0 +1,27 @@
+{
+  "type": "apotheosis:affix_loot_entry",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aquamirae"
+    }
+  ],
+  "constraints": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
+  },
+  "rarities": [
+    "apotheosis:common",
+    "apotheosis:uncommon",
+    "apotheosis:rare"
+  ],
+  "stack": {
+    "count": 1,
+    "id": "aquamirae:terrible_helmet"
+  },
+  "weights": {
+    "quality": 2.0,
+    "weight": 92
+  }
+}

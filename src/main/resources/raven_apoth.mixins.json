@@ -1,0 +1,25 @@
+{
+  "required": true,
+  "package": "dev.muon.raven_apoth.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixinextras": {
+    "minVersion": "0.5.3"
+  },
+  "plugin": "dev.muon.raven_apoth.RavenApothMixinPlugin",
+  "mixins": [
+    "LootTableMixin",
+    "apotheosis.DamageSourceTagInheritanceMixin",
+    "apotheosis.SocketLootRuleMixin",
+    "compat.raven_dnd_origins.EnchantmentRestrictionsMixin",
+    "apotheosis.WorldTierMixin",
+    "compat.irons_spellbooks.SchoolTypeAccessor"
+  ],
+  "client": [
+    "client.LevelPlateHandlerMixin",
+    "client.WorldTierSelectScreenMixin"
+  ],
+  "minVersion": "0.8"
+}

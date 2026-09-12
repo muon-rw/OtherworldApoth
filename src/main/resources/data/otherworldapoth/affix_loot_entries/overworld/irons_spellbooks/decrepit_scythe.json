@@ -1,9 +1,0 @@
-{
-    "conditions": [{"modid": "irons_spellbooks", "type": "forge:mod_loaded"}],
-    "weight": 40,
-    "quality": 7,
-    "min_rarity": "apotheosis:epic",
-    "max_rarity": "apotheosis:mythic",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "irons_spellbooks:decrepit_scythe", "count": 1, "nbt": {"Damage":0}}
-}

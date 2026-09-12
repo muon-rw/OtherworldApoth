@@ -1,0 +1,25 @@
+{
+  "type": "apotheosis:affix_loot_entry",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "legendary_monsters"
+    }
+  ],
+  "constraints": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
+  },
+  "rarities": [
+    "apotheosis:rare"
+  ],
+  "stack": {
+    "count": 1,
+    "id": "legendary_monsters:mossy_hammer"
+  },
+  "weights": {
+    "quality": 6.0,
+    "weight": 50
+  }
+}

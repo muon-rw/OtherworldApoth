@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "alexscaves"}],
-    "weight": 42,
-    "quality": 7.0,
-    "min_rarity": "apotheosis:rare",
-    "max_rarity": "apotheosis:mythic",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "alexscaves:resistor_shield", "count": 1, "nbt": {"Damage": 0}}
-}

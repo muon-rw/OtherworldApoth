@@ -1,0 +1,32 @@
+{
+  "type": "raven_apoth:socket_bonus",
+  "definition": {
+    "affix_type": "basic_effect",
+    "exclusive_set": [],
+    "weights": {
+      "weight": 3,
+      "quality": 0
+    }
+  },
+  "values": {
+    "apotheosis:mythic": {
+      "sockets": 1
+    },
+    "ancientreforging:ancient": {
+      "sockets": {
+        "min": 1,
+        "max": 2,
+        "step": 1
+      }
+    }
+  },
+  "types": [
+    "apotheosis:bow",
+    "irons_apothic:staff",
+    "apotheosis:helmet",
+    "apotheosis:chestplate",
+    "apotheosis:leggings",
+    "apotheosis:boots",
+    "apotheosis:melee_weapon"
+  ]
+}

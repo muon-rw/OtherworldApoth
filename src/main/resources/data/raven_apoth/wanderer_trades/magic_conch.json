@@ -1,0 +1,26 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "alexscaves"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "numismaticoverhaul"
+    }
+  ],
+  "type": "placebo:basic_trade",
+  "input_1": {
+    "id": "numismaticoverhaul:gold_coin",
+    "count": 5
+  },
+  "input_2": {
+    "id": "minecraft:heart_of_the_sea"
+  },
+  "output": {
+    "id": "alexscaves:magic_conch"
+  },
+  "max_trades": 1,
+  "xp": 125,
+  "price_mult": 1.0
+}

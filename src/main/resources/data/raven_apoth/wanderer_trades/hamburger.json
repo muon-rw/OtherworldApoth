@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "numismaticoverhaul"
+    }
+  ],
+  "type": "placebo:basic_trade",
+  "input_1": {
+    "id": "numismaticoverhaul:silver_coin",
+    "count": 4
+  },
+  "output": {
+    "id": "farmersdelight:hamburger"
+  },
+  "max_trades": 6,
+  "xp": 5,
+  "price_mult": 1.0
+}

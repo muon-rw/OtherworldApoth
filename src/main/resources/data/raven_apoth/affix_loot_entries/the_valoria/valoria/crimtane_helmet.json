@@ -1,0 +1,26 @@
+{
+  "type": "apotheosis:affix_loot_entry",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "valoria"
+    }
+  ],
+  "constraints": {
+    "dimensions": [
+      "valoria:the_valoria"
+    ]
+  },
+  "rarities": [
+    "apotheosis:rare",
+    "apotheosis:epic"
+  ],
+  "stack": {
+    "count": 1,
+    "id": "valoria:crimtane_helmet"
+  },
+  "weights": {
+    "quality": 6.0,
+    "weight": 50
+  }
+}

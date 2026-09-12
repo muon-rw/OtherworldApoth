@@ -1,0 +1,26 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "type": "apotheosis:gem",
+      "purity": "flawed"
+    }
+  ],
+  "processing_time": 150,
+  "results": [
+    {
+      "id": "apotheosis:gem_dust",
+      "count": 3
+    },
+    {
+      "id": "apotheosis:gem_dust",
+      "chance": 0.35
+    }
+  ]
+}

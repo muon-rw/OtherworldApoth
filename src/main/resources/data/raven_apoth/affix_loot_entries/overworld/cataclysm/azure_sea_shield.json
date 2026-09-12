@@ -1,0 +1,25 @@
+{
+  "type": "apotheosis:affix_loot_entry",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "cataclysm"
+    }
+  ],
+  "constraints": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
+  },
+  "rarities": [
+    "apotheosis:rare"
+  ],
+  "stack": {
+    "count": 1,
+    "id": "cataclysm:azure_sea_shield"
+  },
+  "weights": {
+    "quality": 6.0,
+    "weight": 50
+  }
+}

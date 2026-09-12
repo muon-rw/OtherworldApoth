@@ -1,0 +1,21 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ancientreforging"
+    }
+  ],
+  "type": "apotheosis:salvaging",
+  "input": {
+    "item": "ancientreforging:ancient_material"
+  },
+  "outputs": [
+    {
+      "stack": {
+        "id": "apotheosis:godforged_pearl"
+      },
+      "min_count": 1,
+      "max_count": 2
+    }
+  ]
+}

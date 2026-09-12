@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "cataclysm"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "numismaticoverhaul"
+    }
+  ],
+  "type": "placebo:basic_trade",
+  "input_1": {
+    "id": "numismaticoverhaul:silver_coin",
+    "count": 12
+  },
+  "output": {
+    "id": "cataclysm:flame_eye"
+  },
+  "max_trades": 3,
+  "xp": 5,
+  "price_mult": 1.0
+}

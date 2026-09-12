@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "farmersdelight"}],
-    "weight": 55,
-    "quality": 6.0,
-    "min_rarity": "apotheosis:rare",
-    "max_rarity": "apotheosis:mythic",
-    "dimensions": ["minecraft:the_nether"],
-    "stack": {"item": "farmersdelight:netherite_knife", "count": 1, "nbt": {"Damage": 0}}
-}

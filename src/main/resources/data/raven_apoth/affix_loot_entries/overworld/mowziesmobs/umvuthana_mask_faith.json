@@ -1,0 +1,25 @@
+{
+  "type": "apotheosis:affix_loot_entry",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mowziesmobs"
+    }
+  ],
+  "constraints": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
+  },
+  "rarities": [
+    "apotheosis:epic"
+  ],
+  "stack": {
+    "count": 1,
+    "id": "mowziesmobs:umvuthana_mask_faith"
+  },
+  "weights": {
+    "quality": 8.0,
+    "weight": 25
+  }
+}

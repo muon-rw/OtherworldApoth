@@ -1,0 +1,27 @@
+{
+  "type": "apotheosis:affix_loot_entry",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "alexscaves"
+    }
+  ],
+  "constraints": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
+  },
+  "rarities": [
+    "apotheosis:rare",
+    "apotheosis:epic",
+    "apotheosis:mythic"
+  ],
+  "stack": {
+    "count": 1,
+    "id": "alexscaves:rainbounce_boots"
+  },
+  "weights": {
+    "quality": 7.0,
+    "weight": 40
+  }
+}

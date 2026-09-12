@@ -1,0 +1,15 @@
+{
+  "type": "apotheosis:salvaging",
+  "input": {
+    "item": "apotheosis:arcane_sands"
+  },
+  "outputs": [
+    {
+      "stack": {
+        "id": "apotheosis:luminous_crystal_shard"
+      },
+      "min_count": 1,
+      "max_count": 2
+    }
+  ]
+}

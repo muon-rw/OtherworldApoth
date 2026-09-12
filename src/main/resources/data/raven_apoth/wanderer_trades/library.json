@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "apothic_enchanting"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "numismaticoverhaul"
+    }
+  ],
+  "type": "placebo:basic_trade",
+  "input_1": {
+    "id": "numismaticoverhaul:gold_coin",
+    "count": 64
+  },
+  "output": {
+    "id": "apothic_enchanting:library"
+  },
+  "max_trades": 2,
+  "xp": 75,
+  "price_mult": 1.0
+}

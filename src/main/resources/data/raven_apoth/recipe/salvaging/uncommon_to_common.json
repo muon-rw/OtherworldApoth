@@ -1,0 +1,15 @@
+{
+  "type": "apotheosis:salvaging",
+  "input": {
+    "item": "apotheosis:timeworn_fabric"
+  },
+  "outputs": [
+    {
+      "stack": {
+        "id": "apotheosis:mysterious_scrap_metal"
+      },
+      "min_count": 1,
+      "max_count": 2
+    }
+  ]
+}

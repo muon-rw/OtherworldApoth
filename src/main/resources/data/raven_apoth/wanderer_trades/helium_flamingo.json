@@ -1,0 +1,26 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "artifacts"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "numismaticoverhaul"
+    }
+  ],
+  "type": "placebo:basic_trade",
+  "input_1": {
+    "id": "numismaticoverhaul:silver_coin",
+    "count": 12
+  },
+  "input_2": {
+    "id": "minecraft:water_bucket"
+  },
+  "output": {
+    "id": "artifacts:helium_flamingo"
+  },
+  "max_trades": 1,
+  "xp": 15,
+  "price_mult": 1.0
+}

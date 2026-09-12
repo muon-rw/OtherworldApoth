@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "alexsmobs"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "numismaticoverhaul"
+    }
+  ],
+  "type": "placebo:basic_trade",
+  "input_1": {
+    "id": "numismaticoverhaul:silver_coin",
+    "count": 4
+  },
+  "output": {
+    "id": "alexsmobs:rainbow_jelly",
+    "count": 6
+  },
+  "max_trades": 4,
+  "xp": 10,
+  "price_mult": 1.0
+}

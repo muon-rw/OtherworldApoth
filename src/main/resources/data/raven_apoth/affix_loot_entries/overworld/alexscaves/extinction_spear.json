@@ -1,0 +1,27 @@
+{
+  "type": "apotheosis:affix_loot_entry",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "alexscaves"
+    }
+  ],
+  "constraints": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
+  },
+  "rarities": [
+    "apotheosis:rare",
+    "apotheosis:epic",
+    "apotheosis:mythic"
+  ],
+  "stack": {
+    "count": 1,
+    "id": "alexscaves:extinction_spear"
+  },
+  "weights": {
+    "quality": 6.0,
+    "weight": 48
+  }
+}

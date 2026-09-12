@@ -1,0 +1,21 @@
+{
+  "type": "raven_apoth:attunement",
+  "definition": {
+    "affix_type": "basic_effect",
+    "weights": {
+      "weight": 3,
+      "quality": 0
+    },
+    "exclusive_set": []
+  },
+  "min_rarity": "apotheosis:epic",
+  "types": [
+    "apotheosis:bow",
+    "irons_apothic:staff",
+    "apotheosis:helmet",
+    "apotheosis:chestplate",
+    "apotheosis:leggings",
+    "apotheosis:boots",
+    "apotheosis:melee_weapon"
+  ]
+}

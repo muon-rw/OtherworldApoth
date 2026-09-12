@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "numismaticoverhaul"
+    }
+  ],
+  "type": "placebo:basic_trade",
+  "input_1": {
+    "id": "numismaticoverhaul:silver_coin",
+    "count": 3
+  },
+  "output": {
+    "id": "enderio:grains_of_infinity",
+    "count": 4
+  },
+  "max_trades": 8,
+  "xp": 10,
+  "price_mult": 1.0
+}

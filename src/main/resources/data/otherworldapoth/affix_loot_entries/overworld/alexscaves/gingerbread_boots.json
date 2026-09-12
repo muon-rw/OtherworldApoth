@@ -1,9 +1,0 @@
-{
-    "conditions": [{"type": "forge:mod_loaded", "modid": "alexscaves"}],
-    "weight": 82,
-    "quality": 3.0,
-    "min_rarity": "apotheosis:uncommon",
-    "max_rarity": "apotheosis:epic",
-    "dimensions": ["minecraft:overworld"],
-    "stack": {"item": "alexscaves:gingerbread_boots", "count": 1, "nbt": {"Damage": 0}}
-}

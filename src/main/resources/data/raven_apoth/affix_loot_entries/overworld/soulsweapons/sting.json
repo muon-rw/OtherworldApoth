@@ -1,0 +1,26 @@
+{
+  "type": "apotheosis:affix_loot_entry",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "soulsweapons"
+    }
+  ],
+  "constraints": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
+  },
+  "rarities": [
+    "apotheosis:uncommon",
+    "apotheosis:rare"
+  ],
+  "stack": {
+    "count": 1,
+    "id": "soulsweapons:sting"
+  },
+  "weights": {
+    "quality": 5.0,
+    "weight": 55
+  }
+}

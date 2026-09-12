@@ -1,0 +1,15 @@
+{
+  "type": "apotheosis:salvaging",
+  "input": {
+    "item": "apotheosis:godforged_pearl"
+  },
+  "outputs": [
+    {
+      "stack": {
+        "id": "apotheosis:arcane_sands"
+      },
+      "min_count": 1,
+      "max_count": 2
+    }
+  ]
+}

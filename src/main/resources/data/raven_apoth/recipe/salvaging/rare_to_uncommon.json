@@ -1,0 +1,15 @@
+{
+  "type": "apotheosis:salvaging",
+  "input": {
+    "item": "apotheosis:luminous_crystal_shard"
+  },
+  "outputs": [
+    {
+      "stack": {
+        "id": "apotheosis:timeworn_fabric"
+      },
+      "min_count": 1,
+      "max_count": 2
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "alexscaves"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "numismaticoverhaul"
+    }
+  ],
+  "type": "placebo:basic_trade",
+  "rare": true,
+  "input_1": {
+    "id": "minecraft:netherite_ingot",
+    "count": 4
+  },
+  "input_2": {
+    "id": "numismaticoverhaul:gold_coin",
+    "count": 6
+  },
+  "output": {
+    "id": "alexscaves:hood_of_darkness",
+    "components": {
+      "minecraft:enchantments": {
+        "levels": {
+          "minecraft:protection": 8,
+          "minecraft:mending": 1,
+          "minecraft:respiration": 3,
+          "minecraft:unbreaking": 5,
+          "minecraft:thorns": 3
+        }
+      },
+      "minecraft:custom_name": "{\"translate\":\"name.raven_apoth.forsaken_hood\",\"italic\":false,\"color\":\"#f81616\"}"
+    }
+  },
+  "max_trades": 1,
+  "xp": 750,
+  "price_mult": 1.0
+}

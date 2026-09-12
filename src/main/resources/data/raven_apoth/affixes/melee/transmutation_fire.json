@@ -1,0 +1,26 @@
+{
+  "type": "raven_apoth:transmutation",
+  "definition": {
+    "affix_type": "ability",
+    "weights": {
+      "weight": 5,
+      "quality": 0
+    },
+    "exclusive_set": [
+      "raven_apoth:melee/transmutation_abyssal",
+      "raven_apoth:melee/transmutation_blood",
+      "raven_apoth:melee/transmutation_eldritch",
+      "raven_apoth:melee/transmutation_ender",
+      "raven_apoth:melee/transmutation_evocation",
+      "raven_apoth:melee/transmutation_holy",
+      "raven_apoth:melee/transmutation_ice",
+      "raven_apoth:melee/transmutation_lightning",
+      "raven_apoth:melee/transmutation_nature",
+      "raven_apoth:melee/transmutation_hydro"
+    ]
+  },
+  "school": "irons_spellbooks:fire",
+  "types": [
+    "apotheosis:melee_weapon"
+  ]
+}

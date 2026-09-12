@@ -1,0 +1,25 @@
+{
+  "type": "apotheosis:affix_loot_entry",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "traveloptics"
+    }
+  ],
+  "constraints": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
+  },
+  "rarities": [
+    "apotheosis:mythic"
+  ],
+  "stack": {
+    "count": 1,
+    "id": "traveloptics:riptide_sovereign_hat"
+  },
+  "weights": {
+    "quality": 9.0,
+    "weight": 20
+  }
+}

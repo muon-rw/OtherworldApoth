@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aces_spell_utils"
+    }
+  ],
+  "type": "raven_apoth:transmutation",
+  "definition": {
+    "affix_type": "ability",
+    "weights": {
+      "weight": 5,
+      "quality": 0
+    },
+    "exclusive_set": [
+      "raven_apoth:ranged/transmutation_abyssal",
+      "raven_apoth:ranged/transmutation_blood",
+      "raven_apoth:ranged/transmutation_eldritch",
+      "raven_apoth:ranged/transmutation_ender",
+      "raven_apoth:ranged/transmutation_evocation",
+      "raven_apoth:ranged/transmutation_fire",
+      "raven_apoth:ranged/transmutation_holy",
+      "raven_apoth:ranged/transmutation_ice",
+      "raven_apoth:ranged/transmutation_lightning",
+      "raven_apoth:ranged/transmutation_nature"
+    ]
+  },
+  "school": "aces_spell_utils:hydro",
+  "types": [
+    "apotheosis:bow"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "type": "apotheosis:affix_loot_entry",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aether"
+    }
+  ],
+  "constraints": {
+    "dimensions": [
+      "aether:the_aether"
+    ]
+  },
+  "rarities": [
+    "apotheosis:uncommon",
+    "apotheosis:rare",
+    "apotheosis:epic"
+  ],
+  "stack": {
+    "count": 1,
+    "id": "aether:zanite_boots"
+  },
+  "weights": {
+    "quality": 4.0,
+    "weight": 72
+  }
+}

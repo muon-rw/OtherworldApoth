@@ -1,0 +1,40 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "alexscaves"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "numismaticoverhaul"
+    }
+  ],
+  "type": "placebo:basic_trade",
+  "rare": true,
+  "input_1": {
+    "id": "minecraft:netherite_ingot",
+    "count": 5
+  },
+  "input_2": {
+    "id": "numismaticoverhaul:gold_coin",
+    "count": 8
+  },
+  "output": {
+    "id": "alexscaves:cloak_of_darkness",
+    "components": {
+      "minecraft:enchantments": {
+        "levels": {
+          "minecraft:blast_protection": 8,
+          "minecraft:mending": 1,
+          "apothic_enchanting:berserkers_fury": 3,
+          "minecraft:unbreaking": 5,
+          "minecraft:thorns": 3
+        }
+      },
+      "minecraft:custom_name": "{\"translate\":\"name.raven_apoth.forlorn_cloak\",\"italic\":false,\"color\":\"#f81616\"}"
+    }
+  },
+  "max_trades": 1,
+  "xp": 750,
+  "price_mult": 1.0
+}
