@@ -3,6 +3,7 @@ package dev.muon.raven_apoth.command;
 import com.google.common.collect.Multimap;
 import dev.muon.raven_apoth.RavenApoth;
 import dev.muon.raven_apoth.mixin.compat.irons_spellbooks.SchoolTypeAccessor;
+import dev.muon.raven_apoth.mixin.compat.irons_spellbooks.SpellConfigManagerAccessor;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -272,9 +273,14 @@ public final class RegistryDumper {
     }
 
     private JsonArray dumpSpells() {
-        // Iron's only builds the per-spell config on the first datapack sync, so before any player joins every
-        // spell still reports the parameter defaults (school evocation). Trigger the build the same way a sync would.
-        SpellConfigManager.onDatapackSync(new OnDatapackSyncEvent(this.server.getPlayerList(), null));
+        // Iron's only builds the per-spell config on the first datapack sync, so on a dedicated server before any
+        // player joins every spell still reports the parameter defaults (school evocation). Only force that first
+        // build: once a client sync has run, a forced sync rebuilds from the config folder and drops every datapack override
+        SpellConfigManagerAccessor manager = (SpellConfigManagerAccessor) SpellConfigManager.INSTANCE;
+        boolean unbuilt = manager.raven_apoth$getConfig() == null || manager.raven_apoth$getConfig().isEmpty();
+        if (unbuilt || manager.raven_apoth$getDatapackOverride() != null) {
+            SpellConfigManager.onDatapackSync(new OnDatapackSyncEvent(this.server.getPlayerList(), null));
+        }
         JsonArray out = new JsonArray();
         for (AbstractSpell spell : SpellRegistry.REGISTRY) {
             JsonObject entry = new JsonObject();

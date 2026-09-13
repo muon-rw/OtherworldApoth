@@ -15,7 +15,8 @@
     "apotheosis.SocketLootRuleMixin",
     "compat.raven_dnd_origins.EnchantmentRestrictionsMixin",
     "apotheosis.WorldTierMixin",
-    "compat.irons_spellbooks.SchoolTypeAccessor"
+    "compat.irons_spellbooks.SchoolTypeAccessor",
+    "compat.irons_spellbooks.SpellConfigManagerAccessor"
   ],
   "client": [
     "client.LevelPlateHandlerMixin",

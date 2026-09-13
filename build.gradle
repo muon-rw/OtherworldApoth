@@ -269,7 +269,7 @@ dependencies {
     localRuntime("pack:block_factorys_bosses:2.1.2-neo-1.21.1")
     localRuntime("pack:simplyswords-neoforge:1.70.2-1.21.1")
     localRuntime("pack:undead_unleashed:2.0.6-neoforge-1.21.1")
-    localRuntime("pack:mythsandlegends:1.0.3")
+    localRuntime("pack:mythsandlegends:1.0.4")
     localRuntime("pack:gtbcs_geomancy_plus:1.1.0-1.21.1")
     localRuntime("pack:gtbcs_spell_lib:2.1.0-1.21.1")
     localRuntime("pack:discerning_the_eldritch:1.4.4-1.21")
@@ -288,6 +288,12 @@ dependencies {
     localRuntime("pack:cataclysm_spellbooks:1.1.14-1.21")
     compileOnly("pack:elemental_synergies:1.1.1")
     localRuntime("pack:elemental_synergies:1.1.1")
+
+    // Wind Spellbooks + IronSable (Sable ship physics bridge); they re-school Iron's spells, so keep them in dev
+    localRuntime("pack:wind_spellbooks:1.0.5")
+    localRuntime("pack:sable-neoforge-1.21.1:2.0.5")
+    localRuntime("pack:ironsable:1.2.0")
+    localRuntime("pack:ironsable-wind:1.0.0")
     localRuntime("pack:legendary_spellbooks:1.21.1+neo-0.3.2")
     localRuntime("pack:ess_requiem:0.1.7")
     localRuntime("pack:magic_realms:1.2")
