@@ -8,6 +8,7 @@ import dev.muon.raven_apoth.command.DumpRegistriesCommand;
 import dev.muon.raven_apoth.config.RavenApothConfig;
 import dev.muon.raven_apoth.data.OverridePacks;
 import dev.muon.raven_apoth.loot.LootEvents;
+import dev.muon.raven_apoth.tiers.SpawnTier;
 import dev.muon.raven_apoth.loot.RavenApothLootModifiers;
 import dev.shadowsoffire.apotheosis.affix.AffixRegistry;
 import net.minecraft.resources.ResourceLocation;
@@ -32,12 +33,14 @@ public class RavenApoth {
     public RavenApoth(IEventBus modBus, ModContainer container) {
         RavenApothConfig.init();
         RavenApothComponents.register(modBus);
+        RavenApothAttachments.register(modBus);
         RavenApothLootModifiers.register(modBus);
         OverridePacks.register(modBus);
         modBus.addListener(this::commonSetup);
 
         NeoForge.EVENT_BUS.register(new AffixEvents());
         NeoForge.EVENT_BUS.register(new LootEvents());
+        NeoForge.EVENT_BUS.register(new SpawnTier());
         NeoForge.EVENT_BUS.addListener((RegisterCommandsEvent e) -> DumpRegistriesCommand.register(e.getDispatcher()));
         NeoForge.EVENT_BUS.addListener(DumpRegistriesCommand::onServerStarted);
 

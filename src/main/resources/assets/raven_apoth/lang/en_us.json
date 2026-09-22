@@ -65,5 +65,12 @@
   "name.raven_apoth.hellforged_dagger": "Hellforged Dagger",
   "name.raven_apoth.hyperion": "Hyperion",
   "rank.champions.title.6": "Eldritch",
-  "button.raven_apoth.tier_level": "Reach level %s to unlock %s."
+  "button.raven_apoth.tier_level": "Reach level %s to unlock %s.",
+  "config.jade.plugin_raven_apoth.mob_loot": "Mob Loot Range",
+  "jade.raven_apoth.gear": "Gear: %s",
+  "jade.raven_apoth.gems": "Gems: %s",
+  "jade.raven_apoth.range": "%s–%s",
+  "jade.raven_apoth.chances": "Affix %s · Gem %s",
+  "jade.raven_apoth.drop_tier": "Drop Tier: %s",
+  "jade.raven_apoth.champion_tier": "★%s · %s"
 }

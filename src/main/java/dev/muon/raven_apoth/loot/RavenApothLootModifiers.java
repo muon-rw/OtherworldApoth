@@ -14,7 +14,6 @@ public final class RavenApothLootModifiers {
     static {
         REGISTER.register("leveled_affixes", () -> LeveledAffixLootModifier.CODEC);
         REGISTER.register("leveled_gems", () -> LeveledGemLootModifier.CODEC);
-        REGISTER.register("champion_gem", () -> ChampionGemLootModifier.CODEC);
     }
 
     private RavenApothLootModifiers() {}

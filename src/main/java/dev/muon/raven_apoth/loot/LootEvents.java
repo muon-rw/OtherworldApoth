@@ -1,6 +1,5 @@
 package dev.muon.raven_apoth.loot;
 
-import dev.muon.dynamic_difficulty.api.LevelingAPI;
 import dev.muon.raven_apoth.RavenApothComponents;
 import dev.shadowsoffire.apotheosis.loot.AffixLootEntry;
 import dev.shadowsoffire.apotheosis.loot.AffixLootRegistry;
@@ -9,14 +8,12 @@ import dev.shadowsoffire.apotheosis.loot.LootController;
 import dev.shadowsoffire.apotheosis.loot.LootRarity;
 import dev.shadowsoffire.apotheosis.tiers.Constraints;
 import dev.shadowsoffire.apotheosis.tiers.GenContext;
-import dev.shadowsoffire.apotheosis.tiers.WorldTier;
 import dev.shadowsoffire.apothic_attributes.modifiers.EquipmentSlotCompat;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -25,7 +22,6 @@ import net.neoforged.neoforge.event.entity.item.ItemTossEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 
 import java.util.Arrays;
-import java.util.OptionalInt;
 import java.util.function.Predicate;
 
 public class LootEvents {
@@ -47,15 +43,15 @@ public class LootEvents {
         if (event.isCanceled() || !(event.getEntity() instanceof Monster monster)) {
             return;
         }
-        if (!(event.getSource().getEntity() instanceof ServerPlayer player) || !LevelingAPI.hasLevel(monster)) {
+        if (!(event.getSource().getEntity() instanceof ServerPlayer player) || !DropProfile.isEligible(monster)) {
             return;
         }
-        int level = LevelingAPI.getLevel(monster);
-        GenContext gCtx = GenContext.forPlayerAtPos(monster.getRandom(), player, monster.blockPosition());
+        DropProfile profile = DropProfile.of(monster, player.getLuck());
+        GenContext killer = GenContext.forPlayerAtPos(monster.getRandom(), player, monster.blockPosition());
         for (EquipmentSlot slot : EquipmentSlot.values()) {
             ItemStack stack = monster.getItemBySlot(slot);
-            if (LootUtils.isConvertible(stack) && gCtx.rand().nextFloat() < LootUtils.affixChance(level, player.getLuck())) {
-                LootController.createLootItem(stack, LootUtils.rarityForMobLevel(level, gCtx), gCtx);
+            if (LootUtils.isConvertible(stack) && killer.rand().nextFloat() < profile.affixChance()) {
+                LootController.createLootItem(stack, profile.rollRarity(killer), profile.context(killer));
                 LootUtils.markFromMob(stack);
             }
         }
@@ -72,16 +68,14 @@ public class LootEvents {
         if (mob.getPersistentData().getBoolean(CHAMPION_ALE_GIVEN)) {
             return;
         }
-        OptionalInt tier = ChampionRanks.tierOf(mob);
-        if (tier.isEmpty()) {
+        if (ChampionRanks.tierOf(mob).isEmpty() || !DropProfile.isEligible(mob)) {
             return;
         }
 
-        Player nearest = level.getNearestPlayer(mob, -1.0D);
-        GenContext gCtx = nearest != null
-                ? GenContext.forPlayerAtPos(mob.getRandom(), nearest, mob.blockPosition())
-                : GenContext.standalone(mob.getRandom(), WorldTier.HAVEN, 0, level, mob.blockPosition());
-        LootRarity rarity = LootUtils.rarityForChampionTier(tier.getAsInt(), gCtx);
+        // The spawn tier is stamped in FinalizeSpawnEvent, which runs before the entity joins the level.
+        DropProfile profile = DropProfile.of(mob, 0);
+        GenContext gCtx = GenContext.standalone(mob.getRandom(), profile.tier(), 0, level, mob.blockPosition());
+        LootRarity rarity = profile.rollRarity(gCtx);
         Predicate<AffixLootEntry> acceptsRarity = e -> e.rarities().isEmpty() || e.rarities().contains(rarity);
         AffixLootEntry entry = AffixLootRegistry.INSTANCE.getRandomItem(gCtx, Constraints.eval(gCtx), acceptsRarity);
         if (entry == null) {

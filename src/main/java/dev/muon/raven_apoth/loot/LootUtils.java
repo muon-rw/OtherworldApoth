@@ -16,6 +16,7 @@ import dev.shadowsoffire.placebo.reload.DynamicHolder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.EnumSet;
@@ -39,50 +40,37 @@ public final class LootUtils {
                 .orElse("common-common");
     }
 
-    public static GenContext rollContext(GenContext ctx) {
-        String tierName = RavenApothConfig.weightTier;
-        if (tierName == null || tierName.equalsIgnoreCase("player")) {
-            return ctx;
-        }
-        for (WorldTier tier : WorldTier.values()) {
-            if (tier.getSerializedName().equalsIgnoreCase(tierName)) {
-                return new GenContext(ctx.rand(), tier, ctx.luck(), ctx.dimension(), ctx.biome(), ctx.stages());
-            }
-        }
-        warnOnce("weightTier:" + tierName, "Unknown weightTier '{}', using the player's tier", tierName);
-        return ctx;
+    public static GenContext withTier(GenContext ctx, WorldTier tier) {
+        return new GenContext(ctx.rand(), tier, ctx.luck(), ctx.dimension(), ctx.biome(), ctx.stages());
     }
 
-    public static LootRarity rarityForMobLevel(int level, GenContext ctx) {
-        return rollRarity(findMappingForLevel(RavenApothConfig.levelRarityMappings, level), ctx);
+    public static List<LootRarity> mobRarityBracket(int effectiveLevel) {
+        return rarityBracket(findMappingForLevel(RavenApothConfig.levelRarityMappings, effectiveLevel));
+    }
+
+    public static LootRarity rollRarity(List<LootRarity> bracket, GenContext ctx) {
+        LootRarity rolled = RarityRegistry.INSTANCE.getRandomItem(ctx, new LinkedHashSet<>(bracket));
+        return rolled != null ? rolled : bracket.getFirst();
     }
 
     public static LootRarity rarityForPlayerLevel(int level, GenContext ctx) {
-        return rollRarity(findMappingForLevel(RavenApothConfig.playerLevelRarityMappings, level), ctx);
+        return rollRarity(rarityBracket(findMappingForLevel(RavenApothConfig.playerLevelRarityMappings, level)), ctx);
     }
 
-    public static LootRarity rarityForChampionTier(int tier, GenContext ctx) {
-        return rollRarity(findMappingForLevel(RavenApothConfig.championRankRarityMappings, tier), ctx);
+    /**
+     * Gems follow the same bracket as gear: a rarity's position among the sorted rarities is the purity's ordinal,
+     * so common..ancient lines up with cracked..perfect.
+     */
+    public static Set<Purity> purityBracket(List<LootRarity> rarityBracket) {
+        List<LootRarity> sorted = RarityRegistry.getSortedRarities();
+        Purity[] purities = Purity.values();
+        int lo = Math.clamp(sorted.indexOf(rarityBracket.getFirst()), 0, purities.length - 1);
+        int hi = Math.clamp(sorted.indexOf(rarityBracket.getLast()), lo, purities.length - 1);
+        return EnumSet.range(purities[lo], purities[hi]);
     }
 
-    public static Purity purityForMobLevel(int level, GenContext ctx) {
-        return rollPurity(findMappingForLevel(RavenApothConfig.levelPurityMappings, level), ctx);
-    }
-
-    public static Purity purityForChampionTier(int tier, GenContext ctx) {
-        return rollPurity(findMappingForLevel(RavenApothConfig.championPurityMappings, tier), ctx);
-    }
-
-    public static float affixChance(int level, float luck) {
-        double chance = RavenApothConfig.affixBaseChance
-                + level * RavenApothConfig.affixLevelChanceIncrease
-                + luck * RavenApothConfig.affixLuckFactor;
-        return (float) Math.min(chance, RavenApothConfig.affixMaxChance);
-    }
-
-    public static float gemChance(int level) {
-        double chance = RavenApothConfig.gemBaseChance + level * RavenApothConfig.gemLevelChanceIncrease;
-        return (float) Math.min(chance, RavenApothConfig.gemMaxChance);
+    public static Purity rollPurity(Set<Purity> bracket, GenContext ctx) {
+        return Purity.random(ctx, bracket);
     }
 
     public static float chestChance(int playerLevel) {
@@ -104,13 +92,7 @@ public final class LootUtils {
         stack.set(Apoth.Components.FROM_CHEST, true);
     }
 
-    private static LootRarity rollRarity(String mapping, GenContext ctx) {
-        Set<LootRarity> pool = rarityPool(mapping);
-        LootRarity rolled = RarityRegistry.INSTANCE.getRandomItem(rollContext(ctx), pool);
-        return rolled != null ? rolled : pool.iterator().next();
-    }
-
-    private static Set<LootRarity> rarityPool(String mapping) {
+    private static List<LootRarity> rarityBracket(String mapping) {
         List<LootRarity> sorted = RarityRegistry.getSortedRarities();
         String[] bounds = mapping.split("-");
         int min = Integer.MIN_VALUE;
@@ -120,17 +102,17 @@ public final class LootUtils {
         LootRarity maxRarity = resolveRarity(bounds.length > 1 ? bounds[1] : bounds[0]);
         if (maxRarity != null) max = maxRarity.sortIndex();
 
-        Set<LootRarity> pool = new LinkedHashSet<>();
+        List<LootRarity> bracket = new ArrayList<>();
         for (LootRarity rarity : sorted) {
             if (rarity.sortIndex() >= min && rarity.sortIndex() <= max) {
-                pool.add(rarity);
+                bracket.add(rarity);
             }
         }
-        if (pool.isEmpty()) {
-            warnOnce("emptyPool:" + mapping, "Rarity range '{}' matches no rarity, using the lowest rarity", mapping);
-            pool.add(sorted.getFirst());
+        if (bracket.isEmpty()) {
+            warnOnce("emptyBracket:" + mapping, "Rarity range '{}' matches no rarity, using the lowest rarity", mapping);
+            bracket.add(sorted.getFirst());
         }
-        return pool;
+        return bracket;
     }
 
     private static LootRarity resolveRarity(String name) {
@@ -143,36 +125,10 @@ public final class LootUtils {
         return holder.get();
     }
 
-    private static ResourceLocation rarityId(String name) {
+    public static ResourceLocation rarityId(String name) {
         if (name.contains(":")) return ResourceLocation.parse(name);
         if (name.equals("ancient")) return ResourceLocation.parse(ANCIENT_RARITY);
         return Apotheosis.loc(name);
-    }
-
-    private static Purity rollPurity(String mapping, GenContext ctx) {
-        return Purity.random(rollContext(ctx), purityPool(mapping));
-    }
-
-    private static Set<Purity> purityPool(String mapping) {
-        String[] bounds = mapping.split("-");
-        Purity min = resolvePurity(bounds[0]);
-        Purity max = resolvePurity(bounds.length > 1 ? bounds[1] : bounds[0]);
-        int lo = min != null ? min.ordinal() : 0;
-        int hi = max != null ? max.ordinal() : Purity.PERFECT.ordinal();
-        if (lo > hi) {
-            warnOnce("purityRange:" + mapping, "Purity range '{}' is inverted, using the lowest purity", mapping);
-            return EnumSet.of(Purity.CRACKED);
-        }
-        return EnumSet.range(Purity.values()[lo], Purity.values()[hi]);
-    }
-
-    private static Purity resolvePurity(String name) {
-        String trimmed = name.trim();
-        for (Purity purity : Purity.values()) {
-            if (purity.getSerializedName().equalsIgnoreCase(trimmed)) return purity;
-        }
-        warnOnce("purity:" + trimmed, "Purity '{}' is unknown, dropping that bound", trimmed);
-        return null;
     }
 
     private static void warnOnce(String key, String message, Object arg) {

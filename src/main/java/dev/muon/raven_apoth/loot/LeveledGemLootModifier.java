@@ -2,7 +2,6 @@ package dev.muon.raven_apoth.loot;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import dev.muon.dynamic_difficulty.api.LevelingAPI;
 import dev.shadowsoffire.apotheosis.loot.modifiers.ContextualLootModifier;
 import dev.shadowsoffire.apotheosis.socket.gem.Gem;
 import dev.shadowsoffire.apotheosis.socket.gem.GemRegistry;
@@ -32,17 +31,17 @@ public class LeveledGemLootModifier extends ContextualLootModifier {
         if (IS_PROCESSING.get() || "champions".equals(ctx.getQueriedLootTableId().getNamespace())) {
             return loot;
         }
-        if (!(ctx.getParamOrNull(LootContextParams.THIS_ENTITY) instanceof LivingEntity living) || !LevelingAPI.hasLevel(living)) {
+        if (!(ctx.getParamOrNull(LootContextParams.THIS_ENTITY) instanceof LivingEntity living) || !DropProfile.isEligible(living)) {
             return loot;
         }
-        int level = LevelingAPI.getLevel(living);
+        DropProfile profile = DropProfile.of(living, gCtx.luck());
 
         IS_PROCESSING.set(true);
         try {
-            if (gCtx.rand().nextFloat() < LootUtils.gemChance(level)) {
-                Gem gem = GemRegistry.INSTANCE.getRandomItem(gCtx);
+            if (gCtx.rand().nextFloat() < profile.gemChance()) {
+                Gem gem = GemRegistry.INSTANCE.getRandomItem(profile.context(gCtx));
                 if (gem != null) {
-                    loot.add(gem.toStack(LootUtils.purityForMobLevel(level, gCtx)));
+                    loot.add(gem.toStack(profile.rollPurity(gCtx)));
                 }
             }
         } finally {

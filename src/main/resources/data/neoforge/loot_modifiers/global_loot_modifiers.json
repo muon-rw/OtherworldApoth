@@ -2,7 +2,6 @@
   "replace": false,
   "entries": [
     "raven_apoth:leveled_affixes",
-    "raven_apoth:leveled_gems",
-    "raven_apoth:champion_gem"
+    "raven_apoth:leveled_gems"
   ]
 }

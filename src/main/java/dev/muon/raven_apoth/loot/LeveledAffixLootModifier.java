@@ -2,7 +2,6 @@ package dev.muon.raven_apoth.loot;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import dev.muon.dynamic_difficulty.api.LevelingAPI;
 import dev.shadowsoffire.apotheosis.loot.LootController;
 import dev.shadowsoffire.apotheosis.loot.modifiers.ContextualLootModifier;
 import dev.shadowsoffire.apotheosis.tiers.GenContext;
@@ -31,16 +30,17 @@ public class LeveledAffixLootModifier extends ContextualLootModifier {
         if (IS_PROCESSING.get() || "champions".equals(ctx.getQueriedLootTableId().getNamespace())) {
             return loot;
         }
-        if (!(ctx.getParamOrNull(LootContextParams.THIS_ENTITY) instanceof LivingEntity living) || !LevelingAPI.hasLevel(living)) {
+        if (!(ctx.getParamOrNull(LootContextParams.THIS_ENTITY) instanceof LivingEntity living) || !DropProfile.isEligible(living)) {
             return loot;
         }
-        int level = LevelingAPI.getLevel(living);
+        DropProfile profile = DropProfile.of(living, gCtx.luck());
+        GenContext mobContext = profile.context(gCtx);
 
         IS_PROCESSING.set(true);
         try {
             for (ItemStack stack : loot) {
-                if (LootUtils.isConvertible(stack) && gCtx.rand().nextFloat() < LootUtils.affixChance(level, gCtx.luck())) {
-                    LootController.createLootItem(stack, LootUtils.rarityForMobLevel(level, gCtx), gCtx);
+                if (LootUtils.isConvertible(stack) && gCtx.rand().nextFloat() < profile.affixChance()) {
+                    LootController.createLootItem(stack, profile.rollRarity(gCtx), mobContext);
                     LootUtils.markFromMob(stack);
                 }
             }

@@ -4,10 +4,9 @@
 - Kept: attunement, socket bonus, transmutation and cleanse
 - Leveled loot rolls a rarity range from the mob or player level and a purity range for gems, both weighted by the Apotheosis world tier (weightTier config)
 - World tiers unlock by player level (worldTierLevels config) instead of Apotheosis progression advancements
-- Apotheosis' own affix and gem loot injection, invaders and elites are disabled by a built-in override pack
-- Mob equipment converts at death - still needs to be tested thoroughly
+- Apotheosis' own affix and gem loot injection, invaders and elites are now instead disabled by a built-in override pack
 - Champions: gear at spawn and the gem drop use the new Champions tiers
-- Added /raven_apoth dump for Apotheosis, Champions and Iron's registry dumps
+- Added lots of debug commands
 
 ## 0.8.1
 - Mob loot *conversions* now also count as randomly spawned for the purpose of the "How Did You Get This?" advancement. Thanks NightsHigh! 

@@ -8,11 +8,7 @@ import dev.shadowsoffire.placebo.config.Configuration;
 public class RavenApothConfig {
     private static final String RARITY_NAMES =
             "Rarity names may be bare (apotheosis namespace; bare 'ancient' means ancientreforging:ancient) or full ids.\n" +
-            "Within a range the rarity is rolled with Apotheosis tier weights (see weightTier) and Luck.";
-    private static final String PURITY_NAMES =
-            "Valid purities: cracked, chipped, flawed, normal, flawless, perfect.\n" +
-            "Within a range the purity is rolled with Apotheosis tier weights (see weightTier) and Luck.";
-
+            "Within a range the rarity is rolled with Apotheosis tier weights and Luck: the spawn tier of the mob for mob drops, the tier of the opener for chests.";
     public static double affixBaseChance;
     public static double affixLevelChanceIncrease;
     public static double affixMaxChance;
@@ -24,15 +20,17 @@ public class RavenApothConfig {
     public static double chestLootLevelChanceIncrease;
     public static double chestLootMaxChance;
     public static double championGemChance;
-    public static double championGemLuckFactor;
+    public static double championGemRankBonus;
+    public static int championLevelBonus;
+    public static double gemLuckFactor;
+    public static double tierAffixChanceBonus;
+    public static double tierGemChanceBonus;
+    public static double bossAffixChance;
+    public static double bossGemChance;
+    public static double spawnerChanceFactor;
 
     public static String[] levelRarityMappings;
     public static String[] playerLevelRarityMappings;
-    public static String[] championRankRarityMappings;
-    public static String[] levelPurityMappings;
-    public static String[] championPurityMappings;
-
-    public static String weightTier;
     public static boolean gateWorldTiersByLevel;
     public static String[] worldTierLevels;
 
@@ -47,21 +45,39 @@ public class RavenApothConfig {
         affixLevelChanceIncrease = config.getFloat("affixLevelChanceIncrease", category, 0.01f, 0, 1,
                 "How much the affix chance increases per level");
         affixMaxChance = config.getFloat("affixMaxChance", category, 0.25f, 0, 1,
-                "Maximum chance for an item to receive affixes");
+                "Maximum level-based chance for an item to receive affixes; tier and Luck bonuses apply on top");
         affixLuckFactor = config.getFloat("affixLuckFactor", category, 0.01f, 0, 1,
                 "How much each point of the killing player's Luck adds to the level-based affix conversion chance");
 
+        tierAffixChanceBonus = config.getFloat("tierAffixChanceBonus", category, 0.02f, 0, 1,
+                "Added to the affix conversion chance per world tier above Haven, using the tier the mob spawned under");
+
+        championLevelBonus = config.getInt("championLevelBonus", category, 3, 0, 100,
+                "Levels a champion counts as being above its real level, per champion rank, when picking its rarity range");
         championGemChance = config.getFloat("championGemChance", category, 0.25f, 0, 1,
-                "Base chance for a champion to also drop a gem, on top of its guaranteed affix item");
-        championGemLuckFactor = config.getFloat("championGemLuckFactor", category, 0.02f, 0, 1,
-                "How much each point of the killing player's Luck adds to the champion gem drop chance");
+                "Added to the gem drop chance of any champion, on top of its guaranteed affix item");
+        championGemRankBonus = config.getFloat("championGemRankBonus", category, 0.15f, 0, 1,
+                "Added to the gem drop chance per champion rank; with the defaults a rank 5 champion always drops a gem");
 
         gemBaseChance = config.getFloat("gemBaseChance", category, 0.02f, 0, 1,
                 "Base chance for a gem to drop");
         gemLevelChanceIncrease = config.getFloat("gemLevelChanceIncrease", category, 0.005f, 0, 1,
                 "How much the gem drop chance increases per level");
         gemMaxChance = config.getFloat("gemMaxChance", category, 0.15f, 0, 1,
-                "Maximum chance for a gem to drop");
+                "Maximum level-based chance for a gem to drop; tier, champion and Luck bonuses apply on top");
+        gemLuckFactor = config.getFloat("gemLuckFactor", category, 0.005f, 0, 1,
+                "How much each point of Luck on the killing player adds to the gem drop chance");
+        tierGemChanceBonus = config.getFloat("tierGemChanceBonus", category, 0.01f, 0, 1,
+                "Added to the gem drop chance per world tier above Haven, using the tier the mob spawned under");
+
+        bossAffixChance = config.getFloat("bossAffixChance", category, 1.0f, 0, 1,
+                "Minimum affix conversion chance for the gear dropped by mobs in the c:bosses entity tag");
+        bossGemChance = config.getFloat("bossGemChance", category, 1.0f, 0, 1,
+                "Minimum gem drop chance for mobs in the c:bosses entity tag");
+
+        spawnerChanceFactor = config.getFloat("spawnerChanceFactor", category, 0.5f, 0, 1,
+                "Multiplier on the affix and gem chances of mobs that came from a spawner; 0 makes them drop nothing.\n" +
+                        "Only hostile mobs that spawned on their own (or from a spawner) and mobs in c:bosses ever roll loot.");
 
         chestLootBaseChance = config.getFloat("chestLootBaseChance", category, 0.15f, 0, 1,
                 "Base chance for a chest item to receive affixes");
@@ -79,7 +95,8 @@ public class RavenApothConfig {
                         "5=common-uncommon",
                         "1=common-common"
                 },
-                "Level threshold to rarity mapping for affixes. Format: 'level=minRarity-maxRarity'\n" +
+                "Mob level to rarity range for mob drops; gem purity follows the same range (common..ancient as cracked..perfect).\n" +
+                        "Format: 'level=minRarity-maxRarity'. Champions count as championLevelBonus levels higher per rank.\n" +
                         "Each entry applies to levels from its value up to (but not including) the next threshold.\n" +
                         "For example: '20=epic-mythic' applies to levels 20-24 if the next threshold is 25.\n" +
                         RARITY_NAMES);
@@ -96,49 +113,6 @@ public class RavenApothConfig {
                         "Each entry applies to levels from its value up to (but not including) the next threshold.\n" +
                         "For example: '12=rare-epic' applies to levels 12-15 if the next threshold is 16.\n" +
                         RARITY_NAMES);
-
-        championRankRarityMappings = config.getStringList("championRankMappings", category,
-                new String[] {
-                        "6=mythic-ancient",
-                        "5=epic-mythic",
-                        "4=rare-epic",
-                        "3=uncommon-rare",
-                        "2=common-uncommon",
-                        "1=common-common"
-                },
-                "Champion rank (tier) to rarity mapping for the bonus affix item dropped by champions.\n" +
-                        "Format: 'tier=minRarity-maxRarity'.\n" +
-                        RARITY_NAMES);
-
-        levelPurityMappings = config.getStringList("levelPurityMappings", category,
-                new String[] {
-                        "25=flawless-perfect",
-                        "20=normal-flawless",
-                        "15=flawed-normal",
-                        "10=chipped-flawed",
-                        "5=cracked-chipped",
-                        "1=cracked-cracked"
-                },
-                "Level threshold to gem purity mapping. Format: 'level=minPurity-maxPurity'\n" +
-                        "Each entry applies to levels from its value up to (but not including) the next threshold.\n" +
-                        PURITY_NAMES);
-
-        championPurityMappings = config.getStringList("championPurityMappings", category,
-                new String[] {
-                        "5=flawless-perfect",
-                        "4=normal-flawless",
-                        "3=flawed-normal",
-                        "2=chipped-flawed",
-                        "1=cracked-chipped"
-                },
-                "Champion rank (tier) to gem purity mapping for the bonus gem dropped by champions.\n" +
-                        "Format: 'tier=minPurity-maxPurity'.\n" +
-                        PURITY_NAMES);
-
-        weightTier = config.getString("weightTier", category, "player", """
-                Rarity and purity weights come from Apotheosis world tiers.
-                'player' uses the player's tier; name a tier (haven, frontier, ascent, summit, pinnacle),
-                such as pinnacle, so mob level alone decides.""");
 
         String tiers = "world_tiers";
         gateWorldTiersByLevel = config.getBoolean("gateWorldTiersByLevel", tiers, true,

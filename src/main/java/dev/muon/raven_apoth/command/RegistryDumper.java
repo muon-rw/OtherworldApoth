@@ -5,13 +5,11 @@ import dev.muon.raven_apoth.RavenApoth;
 import dev.muon.raven_apoth.mixin.compat.irons_spellbooks.SchoolTypeAccessor;
 import dev.muon.raven_apoth.mixin.compat.irons_spellbooks.SpellConfigManagerAccessor;
 import net.minecraft.core.Holder;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
-import top.theillusivec4.curios.api.type.capability.ICurioItem;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -47,6 +45,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
@@ -79,6 +78,7 @@ public final class RegistryDumper {
     private static final Map<String, Supplier<DynamicRegistry<?>>> PLACEBO_REGISTRIES = new LinkedHashMap<>();
     private static final String LOOT_CATEGORIES = "loot_categories";
     private static final String RECIPES = "recipes";
+    private static final String ITEM_RECIPES = "item_recipes";
     private static final String ITEMS = "items";
     private static final String SCHOOLS = "schools";
     private static final String SPELLS = "spells";
@@ -102,6 +102,7 @@ public final class RegistryDumper {
         TARGETS.addAll(PLACEBO_REGISTRIES.keySet());
         TARGETS.add(LOOT_CATEGORIES);
         TARGETS.add(RECIPES);
+        TARGETS.add(ITEM_RECIPES);
         TARGETS.add(ITEMS);
         TARGETS.add(SCHOOLS);
         TARGETS.add(SPELLS);
@@ -152,6 +153,7 @@ public final class RegistryDumper {
         return switch (target) {
             case LOOT_CATEGORIES -> this.dumpLootCategories();
             case RECIPES -> this.dumpRecipes();
+            case ITEM_RECIPES -> this.dumpItemRecipes();
             case ITEMS -> this.dumpItems();
             case SCHOOLS -> this.dumpSchools();
             case SPELLS -> this.dumpSpells();
@@ -206,8 +208,16 @@ public final class RegistryDumper {
             entry.addProperty("id", id.toString());
             entry.addProperty("mod", id.getNamespace());
             entry.addProperty("loot_category", LootCategory.forItem(stack).getKey().toString());
+            entry.addProperty("rarity", stack.getRarity().getSerializedName());
+            entry.addProperty("max_damage", stack.getMaxDamage());
             entry.add("attributes", defaultAttributes(stack));
-            entry.add("curio_attributes", curioAttributes(stack));
+            entry.add("curio_slots", curioSlots(stack));
+            try {
+                entry.add("curio_attributes", curioAttributes(stack));
+            } catch (RuntimeException e) {
+                this.errors++;
+                entry.addProperty("curio_error", e.toString());
+            }
             entry.add("focus_schools", focusSchools(stack));
             out.add(entry);
         }
@@ -216,19 +226,23 @@ public final class RegistryDumper {
 
     private static JsonArray defaultAttributes(ItemStack stack) {
         JsonArray out = new JsonArray();
-        ItemAttributeModifiers modifiers = stack.getOrDefault(DataComponents.ATTRIBUTE_MODIFIERS, stack.getItem().getDefaultAttributeModifiers(stack));
-        for (ItemAttributeModifiers.Entry entry : modifiers.modifiers()) {
+        for (ItemAttributeModifiers.Entry entry : stack.getAttributeModifiers().modifiers()) {
             out.add(attributeEntry(entry.attribute(), entry.modifier(), entry.slot().getSerializedName()));
         }
         return out;
     }
 
+    private static JsonArray curioSlots(ItemStack stack) {
+        JsonArray out = new JsonArray();
+        CuriosApi.getItemStackSlots(stack, false).keySet().forEach(out::add);
+        return out;
+    }
+
     private static JsonArray curioAttributes(ItemStack stack) {
         JsonArray out = new JsonArray();
-        if (!(stack.getItem() instanceof ICurioItem curio)) return out;
         for (String slotId : CuriosApi.getItemStackSlots(stack, false).keySet()) {
             SlotContext context = new SlotContext(slotId, null, -1, false, true);
-            Multimap<Holder<Attribute>, AttributeModifier> modifiers = curio.getAttributeModifiers(context, RavenApoth.loc("dump"), stack);
+            Multimap<Holder<Attribute>, AttributeModifier> modifiers = CuriosApi.getAttributeModifiers(context, RavenApoth.loc("dump"), stack);
             for (Map.Entry<Holder<Attribute>, AttributeModifier> entry : modifiers.entries()) {
                 out.add(attributeEntry(entry.getKey(), entry.getValue(), "curio:" + slotId));
             }
@@ -239,6 +253,8 @@ public final class RegistryDumper {
     private static JsonObject attributeEntry(Holder<Attribute> attribute, AttributeModifier modifier, String slot) {
         JsonObject out = new JsonObject();
         out.addProperty("attribute", attributeId(attribute));
+        // Entries sharing an id overwrite each other on equip instead of stacking
+        out.addProperty("id", modifier.id().toString());
         out.addProperty("operation", modifier.operation().getSerializedName());
         out.addProperty("amount", modifier.amount());
         out.addProperty("slot", slot);
@@ -302,6 +318,42 @@ public final class RegistryDumper {
             entry.addProperty("type", typeId.toString());
             this.encode(entry, Recipe.CODEC, holder.value());
             out.add(entry);
+        }
+        return out;
+    }
+
+    private JsonArray dumpItemRecipes() {
+        JsonArray out = new JsonArray();
+        for (RecipeHolder<?> holder : this.server.getRecipeManager().getRecipes()) {
+            JsonObject entry = new JsonObject();
+            entry.addProperty("id", holder.id().toString());
+            try {
+                Recipe<?> recipe = holder.value();
+                ItemStack result = recipe.getResultItem(this.server.registryAccess());
+                if (result.isEmpty()) continue;
+                entry.addProperty("type", String.valueOf(BuiltInRegistries.RECIPE_TYPE.getKey(recipe.getType())));
+                entry.addProperty("result", BuiltInRegistries.ITEM.getKey(result.getItem()).toString());
+                entry.addProperty("count", result.getCount());
+                // Smithing and most modded recipe types leave getIngredients() empty
+                if (recipe.getIngredients().isEmpty()) {
+                    this.encode(entry, Recipe.CODEC, recipe);
+                } else {
+                    entry.add("ingredients", this.ingredients(recipe));
+                }
+            } catch (RuntimeException e) {
+                this.errors++;
+                entry.addProperty("error", e.toString());
+            }
+            out.add(entry);
+        }
+        return out;
+    }
+
+    private JsonArray ingredients(Recipe<?> recipe) {
+        JsonArray out = new JsonArray();
+        for (Ingredient ingredient : recipe.getIngredients()) {
+            if (ingredient.isEmpty()) continue;
+            Ingredient.CODEC.encodeStart(this.ops, ingredient).result().ifPresent(out::add);
         }
         return out;
     }
