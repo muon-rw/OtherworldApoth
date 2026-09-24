@@ -21,7 +21,21 @@
     "id": "aether:neptune_chestplate"
   },
   "weights": {
-    "quality": 6.0,
-    "weight": 42
+    "frontier": {
+      "weight": 1,
+      "quality": 1.5
+    },
+    "ascent": {
+      "weight": 7,
+      "quality": 1.5
+    },
+    "summit": {
+      "weight": 10,
+      "quality": 1.5
+    },
+    "pinnacle": {
+      "weight": 11,
+      "quality": 1.5
+    }
   }
 }

@@ -21,7 +21,25 @@
     "id": "aquamirae:salvager_suit"
   },
   "weights": {
-    "quality": 5.0,
-    "weight": 68
+    "haven": {
+      "weight": 8,
+      "quality": 1.5
+    },
+    "frontier": {
+      "weight": 14,
+      "quality": 1.5
+    },
+    "ascent": {
+      "weight": 17,
+      "quality": 1.5
+    },
+    "summit": {
+      "weight": 18,
+      "quality": 1.5
+    },
+    "pinnacle": {
+      "weight": 14,
+      "quality": 1.5
+    }
   }
 }

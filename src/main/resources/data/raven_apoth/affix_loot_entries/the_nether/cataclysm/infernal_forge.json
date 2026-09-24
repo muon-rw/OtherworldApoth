@@ -19,7 +19,13 @@
     "id": "cataclysm:infernal_forge"
   },
   "weights": {
-    "quality": 9.5,
-    "weight": 18
+    "summit": {
+      "weight": 1,
+      "quality": 2.5
+    },
+    "pinnacle": {
+      "weight": 5,
+      "quality": 2.5
+    }
   }
 }

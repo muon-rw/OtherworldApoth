@@ -19,7 +19,25 @@
     "id": "iceandfire:amphithere_macuahuitl"
   },
   "weights": {
-    "quality": 6.0,
-    "weight": 50
+    "haven": {
+      "weight": 1,
+      "quality": 1.5
+    },
+    "frontier": {
+      "weight": 3,
+      "quality": 1.5
+    },
+    "ascent": {
+      "weight": 14,
+      "quality": 1.5
+    },
+    "summit": {
+      "weight": 8,
+      "quality": 1.5
+    },
+    "pinnacle": {
+      "weight": 3,
+      "quality": 1.5
+    }
   }
 }

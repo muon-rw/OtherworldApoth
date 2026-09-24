@@ -19,7 +19,17 @@
     "id": "legendary_monsters:the_great_frost"
   },
   "weights": {
-    "quality": 8.0,
-    "weight": 30
+    "ascent": {
+      "weight": 1,
+      "quality": 2.0
+    },
+    "summit": {
+      "weight": 7,
+      "quality": 2.0
+    },
+    "pinnacle": {
+      "weight": 8,
+      "quality": 2.0
+    }
   }
 }

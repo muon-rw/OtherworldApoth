@@ -19,7 +19,17 @@
     "id": "iceandfire:dragonbone_axe"
   },
   "weights": {
-    "quality": 7.5,
-    "weight": 40
+    "ascent": {
+      "weight": 2,
+      "quality": 2.0
+    },
+    "summit": {
+      "weight": 9,
+      "quality": 2.0
+    },
+    "pinnacle": {
+      "weight": 11,
+      "quality": 2.0
+    }
   }
 }

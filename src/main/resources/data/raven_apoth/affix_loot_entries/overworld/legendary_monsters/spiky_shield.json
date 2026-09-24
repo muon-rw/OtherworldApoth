@@ -19,7 +19,25 @@
     "id": "legendary_monsters:spiky_shield"
   },
   "weights": {
-    "quality": 5.0,
-    "weight": 55
+    "haven": {
+      "weight": 1,
+      "quality": 1.5
+    },
+    "frontier": {
+      "weight": 3,
+      "quality": 1.5
+    },
+    "ascent": {
+      "weight": 15,
+      "quality": 1.5
+    },
+    "summit": {
+      "weight": 9,
+      "quality": 1.5
+    },
+    "pinnacle": {
+      "weight": 3,
+      "quality": 1.5
+    }
   }
 }

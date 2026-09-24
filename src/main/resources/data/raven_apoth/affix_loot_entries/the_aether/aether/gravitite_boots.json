@@ -21,7 +21,25 @@
     "id": "aether:gravitite_boots"
   },
   "weights": {
-    "quality": 6.0,
-    "weight": 48
+    "haven": {
+      "weight": 1,
+      "quality": 1.5
+    },
+    "frontier": {
+      "weight": 1,
+      "quality": 1.5
+    },
+    "ascent": {
+      "weight": 8,
+      "quality": 1.5
+    },
+    "summit": {
+      "weight": 12,
+      "quality": 1.5
+    },
+    "pinnacle": {
+      "weight": 13,
+      "quality": 1.5
+    }
   }
 }

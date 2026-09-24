@@ -20,7 +20,25 @@
     "id": "valoria:crimtane_boots"
   },
   "weights": {
-    "quality": 6.0,
-    "weight": 50
+    "haven": {
+      "weight": 1,
+      "quality": 1.5
+    },
+    "frontier": {
+      "weight": 2,
+      "quality": 1.5
+    },
+    "ascent": {
+      "weight": 10,
+      "quality": 1.5
+    },
+    "summit": {
+      "weight": 14,
+      "quality": 1.5
+    },
+    "pinnacle": {
+      "weight": 12,
+      "quality": 1.5
+    }
   }
 }

@@ -21,7 +21,25 @@
     "id": "alexscaves:frostmint_spear"
   },
   "weights": {
-    "quality": 3.0,
-    "weight": 85
+    "haven": {
+      "weight": 23,
+      "quality": 1.0
+    },
+    "frontier": {
+      "weight": 23,
+      "quality": 1.0
+    },
+    "ascent": {
+      "weight": 21,
+      "quality": 1.0
+    },
+    "summit": {
+      "weight": 9,
+      "quality": 1.0
+    },
+    "pinnacle": {
+      "weight": 2,
+      "quality": 1.0
+    }
   }
 }

@@ -19,7 +19,13 @@
     "id": "mowziesmobs:geomancer_belt"
   },
   "weights": {
-    "quality": 9.0,
-    "weight": 15
+    "summit": {
+      "weight": 1,
+      "quality": 2.5
+    },
+    "pinnacle": {
+      "weight": 4,
+      "quality": 2.5
+    }
   }
 }

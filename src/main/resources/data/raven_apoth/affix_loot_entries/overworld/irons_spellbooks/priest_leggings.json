@@ -21,7 +21,25 @@
     "id": "irons_spellbooks:priest_leggings"
   },
   "weights": {
-    "quality": 2.0,
-    "weight": 85
+    "haven": {
+      "weight": 23,
+      "quality": 0.5
+    },
+    "frontier": {
+      "weight": 23,
+      "quality": 0.5
+    },
+    "ascent": {
+      "weight": 21,
+      "quality": 0.5
+    },
+    "summit": {
+      "weight": 9,
+      "quality": 0.5
+    },
+    "pinnacle": {
+      "weight": 2,
+      "quality": 0.5
+    }
   }
 }

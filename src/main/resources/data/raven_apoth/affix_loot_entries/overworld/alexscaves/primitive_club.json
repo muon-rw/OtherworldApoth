@@ -21,7 +21,25 @@
     "id": "alexscaves:primitive_club"
   },
   "weights": {
-    "quality": 2.0,
-    "weight": 95
+    "haven": {
+      "weight": 26,
+      "quality": 0.5
+    },
+    "frontier": {
+      "weight": 25,
+      "quality": 0.5
+    },
+    "ascent": {
+      "weight": 23,
+      "quality": 0.5
+    },
+    "summit": {
+      "weight": 11,
+      "quality": 0.5
+    },
+    "pinnacle": {
+      "weight": 3,
+      "quality": 0.5
+    }
   }
 }

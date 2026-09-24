@@ -20,7 +20,17 @@
     "id": "valoria:quantum_reaper"
   },
   "weights": {
-    "quality": 8.0,
-    "weight": 25
+    "ascent": {
+      "weight": 1,
+      "quality": 2.0
+    },
+    "summit": {
+      "weight": 4,
+      "quality": 2.0
+    },
+    "pinnacle": {
+      "weight": 7,
+      "quality": 2.0
+    }
   }
 }

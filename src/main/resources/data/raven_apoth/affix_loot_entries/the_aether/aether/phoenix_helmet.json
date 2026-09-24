@@ -21,7 +21,21 @@
     "id": "aether:phoenix_helmet"
   },
   "weights": {
-    "quality": 6.0,
-    "weight": 45
+    "frontier": {
+      "weight": 1,
+      "quality": 1.5
+    },
+    "ascent": {
+      "weight": 7,
+      "quality": 1.5
+    },
+    "summit": {
+      "weight": 11,
+      "quality": 1.5
+    },
+    "pinnacle": {
+      "weight": 12,
+      "quality": 1.5
+    }
   }
 }

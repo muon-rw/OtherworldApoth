@@ -19,7 +19,13 @@
     "id": "traveloptics:mechanized_exoskeleton_leggings"
   },
   "weights": {
-    "quality": 8.5,
-    "weight": 22
+    "summit": {
+      "weight": 1,
+      "quality": 2.5
+    },
+    "pinnacle": {
+      "weight": 6,
+      "quality": 2.5
+    }
   }
 }

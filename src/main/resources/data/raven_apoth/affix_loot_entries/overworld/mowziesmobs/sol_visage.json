@@ -19,7 +19,13 @@
     "id": "mowziesmobs:sol_visage"
   },
   "weights": {
-    "quality": 10.0,
-    "weight": 15
+    "summit": {
+      "weight": 1,
+      "quality": 2.5
+    },
+    "pinnacle": {
+      "weight": 4,
+      "quality": 2.5
+    }
   }
 }

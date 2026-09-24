@@ -19,7 +19,9 @@
     "id": "valoria:void_edge"
   },
   "weights": {
-    "quality": 10.0,
-    "weight": 10
+    "pinnacle": {
+      "weight": 3,
+      "quality": 2.5
+    }
   }
 }

@@ -21,7 +21,25 @@
     "id": "aquamirae:terrible_boots"
   },
   "weights": {
-    "quality": 2.0,
-    "weight": 92
+    "haven": {
+      "weight": 25,
+      "quality": 0.5
+    },
+    "frontier": {
+      "weight": 25,
+      "quality": 0.5
+    },
+    "ascent": {
+      "weight": 22,
+      "quality": 0.5
+    },
+    "summit": {
+      "weight": 10,
+      "quality": 0.5
+    },
+    "pinnacle": {
+      "weight": 2,
+      "quality": 0.5
+    }
   }
 }

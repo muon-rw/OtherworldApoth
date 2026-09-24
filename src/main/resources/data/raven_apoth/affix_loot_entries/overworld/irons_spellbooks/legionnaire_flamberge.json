@@ -20,7 +20,17 @@
     "id": "irons_spellbooks:legionnaire_flamberge"
   },
   "weights": {
-    "quality": 7.5,
-    "weight": 40
+    "ascent": {
+      "weight": 1,
+      "quality": 2.0
+    },
+    "summit": {
+      "weight": 7,
+      "quality": 2.0
+    },
+    "pinnacle": {
+      "weight": 11,
+      "quality": 2.0
+    }
   }
 }

@@ -20,7 +20,17 @@
     "id": "irons_spellbooks:electromancer_chestplate"
   },
   "weights": {
-    "quality": 7.0,
-    "weight": 40
+    "ascent": {
+      "weight": 1,
+      "quality": 2.0
+    },
+    "summit": {
+      "weight": 7,
+      "quality": 2.0
+    },
+    "pinnacle": {
+      "weight": 11,
+      "quality": 2.0
+    }
   }
 }

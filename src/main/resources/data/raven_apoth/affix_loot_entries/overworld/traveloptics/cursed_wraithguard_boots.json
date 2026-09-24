@@ -19,7 +19,13 @@
     "id": "traveloptics:cursed_wraithguard_boots"
   },
   "weights": {
-    "quality": 9.0,
-    "weight": 20
+    "summit": {
+      "weight": 1,
+      "quality": 2.5
+    },
+    "pinnacle": {
+      "weight": 5,
+      "quality": 2.5
+    }
   }
 }

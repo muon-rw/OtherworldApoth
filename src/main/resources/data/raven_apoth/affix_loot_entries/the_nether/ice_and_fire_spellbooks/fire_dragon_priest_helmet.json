@@ -19,7 +19,13 @@
     "id": "ice_and_fire_spellbooks:fire_dragon_priest_helmet"
   },
   "weights": {
-    "quality": 9.0,
-    "weight": 25
+    "summit": {
+      "weight": 1,
+      "quality": 2.5
+    },
+    "pinnacle": {
+      "weight": 7,
+      "quality": 2.5
+    }
   }
 }

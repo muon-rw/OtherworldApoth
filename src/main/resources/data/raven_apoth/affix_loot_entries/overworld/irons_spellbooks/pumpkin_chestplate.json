@@ -20,7 +20,25 @@
     "id": "irons_spellbooks:pumpkin_chestplate"
   },
   "weights": {
-    "quality": 4.0,
-    "weight": 70
+    "haven": {
+      "weight": 9,
+      "quality": 1.0
+    },
+    "frontier": {
+      "weight": 17,
+      "quality": 1.0
+    },
+    "ascent": {
+      "weight": 19,
+      "quality": 1.0
+    },
+    "summit": {
+      "weight": 10,
+      "quality": 1.0
+    },
+    "pinnacle": {
+      "weight": 2,
+      "quality": 1.0
+    }
   }
 }

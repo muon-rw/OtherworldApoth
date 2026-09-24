@@ -21,7 +21,25 @@
     "id": "irons_spellbooks:wandering_magician_leggings"
   },
   "weights": {
-    "quality": 2.0,
-    "weight": 90
+    "haven": {
+      "weight": 24,
+      "quality": 0.5
+    },
+    "frontier": {
+      "weight": 24,
+      "quality": 0.5
+    },
+    "ascent": {
+      "weight": 22,
+      "quality": 0.5
+    },
+    "summit": {
+      "weight": 10,
+      "quality": 0.5
+    },
+    "pinnacle": {
+      "weight": 2,
+      "quality": 0.5
+    }
   }
 }

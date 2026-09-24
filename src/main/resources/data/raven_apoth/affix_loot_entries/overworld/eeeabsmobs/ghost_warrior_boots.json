@@ -19,7 +19,17 @@
     "id": "eeeabsmobs:ghost_warrior_boots"
   },
   "weights": {
-    "quality": 7.0,
-    "weight": 35
+    "ascent": {
+      "weight": 1,
+      "quality": 2.0
+    },
+    "summit": {
+      "weight": 8,
+      "quality": 2.0
+    },
+    "pinnacle": {
+      "weight": 9,
+      "quality": 2.0
+    }
   }
 }

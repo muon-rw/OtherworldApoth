@@ -20,7 +20,25 @@
     "id": "valoria:samurai_katana"
   },
   "weights": {
-    "quality": 5.0,
-    "weight": 60
+    "haven": {
+      "weight": 1,
+      "quality": 1.5
+    },
+    "frontier": {
+      "weight": 2,
+      "quality": 1.5
+    },
+    "ascent": {
+      "weight": 12,
+      "quality": 1.5
+    },
+    "summit": {
+      "weight": 16,
+      "quality": 1.5
+    },
+    "pinnacle": {
+      "weight": 14,
+      "quality": 1.5
+    }
   }
 }

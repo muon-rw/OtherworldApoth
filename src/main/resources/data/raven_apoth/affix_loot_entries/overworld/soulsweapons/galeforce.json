@@ -20,7 +20,25 @@
     "id": "soulsweapons:galeforce"
   },
   "weights": {
-    "quality": 2.5,
-    "weight": 50
+    "haven": {
+      "weight": 1,
+      "quality": 0.5
+    },
+    "frontier": {
+      "weight": 2,
+      "quality": 0.5
+    },
+    "ascent": {
+      "weight": 10,
+      "quality": 0.5
+    },
+    "summit": {
+      "weight": 14,
+      "quality": 0.5
+    },
+    "pinnacle": {
+      "weight": 12,
+      "quality": 0.5
+    }
   }
 }

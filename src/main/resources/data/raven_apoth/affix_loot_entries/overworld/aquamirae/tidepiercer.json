@@ -21,7 +21,25 @@
     "id": "aquamirae:tidepiercer"
   },
   "weights": {
-    "quality": 5.0,
-    "weight": 65
+    "haven": {
+      "weight": 7,
+      "quality": 1.5
+    },
+    "frontier": {
+      "weight": 13,
+      "quality": 1.5
+    },
+    "ascent": {
+      "weight": 17,
+      "quality": 1.5
+    },
+    "summit": {
+      "weight": 18,
+      "quality": 1.5
+    },
+    "pinnacle": {
+      "weight": 14,
+      "quality": 1.5
+    }
   }
 }

@@ -20,7 +20,21 @@
     "id": "soulsweapons:bloodthirster"
   },
   "weights": {
-    "quality": 7.0,
-    "weight": 35
+    "frontier": {
+      "weight": 1,
+      "quality": 2.0
+    },
+    "ascent": {
+      "weight": 7,
+      "quality": 2.0
+    },
+    "summit": {
+      "weight": 9,
+      "quality": 2.0
+    },
+    "pinnacle": {
+      "weight": 8,
+      "quality": 2.0
+    }
   }
 }

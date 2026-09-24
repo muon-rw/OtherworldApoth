@@ -19,7 +19,13 @@
     "id": "traveloptics:forlorn_harbinger_robe"
   },
   "weights": {
-    "quality": 10.0,
-    "weight": 15
+    "summit": {
+      "weight": 1,
+      "quality": 2.5
+    },
+    "pinnacle": {
+      "weight": 4,
+      "quality": 2.5
+    }
   }
 }

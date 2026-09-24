@@ -21,7 +21,25 @@
     "id": "aquamirae:shatterspike"
   },
   "weights": {
-    "quality": 5.0,
-    "weight": 55
+    "haven": {
+      "weight": 6,
+      "quality": 1.5
+    },
+    "frontier": {
+      "weight": 11,
+      "quality": 1.5
+    },
+    "ascent": {
+      "weight": 14,
+      "quality": 1.5
+    },
+    "summit": {
+      "weight": 15,
+      "quality": 1.5
+    },
+    "pinnacle": {
+      "weight": 12,
+      "quality": 1.5
+    }
   }
 }

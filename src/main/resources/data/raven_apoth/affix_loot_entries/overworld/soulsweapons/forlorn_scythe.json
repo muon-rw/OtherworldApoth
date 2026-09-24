@@ -20,7 +20,21 @@
     "id": "soulsweapons:forlorn_scythe"
   },
   "weights": {
-    "quality": 3.0,
-    "weight": 70
+    "haven": {
+      "weight": 19,
+      "quality": 1.0
+    },
+    "frontier": {
+      "weight": 18,
+      "quality": 1.0
+    },
+    "ascent": {
+      "weight": 8,
+      "quality": 1.0
+    },
+    "summit": {
+      "weight": 2,
+      "quality": 1.0
+    }
   }
 }

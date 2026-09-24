@@ -19,7 +19,13 @@
     "id": "cataclysm:ignitium_boots"
   },
   "weights": {
-    "quality": 9.0,
-    "weight": 22
+    "summit": {
+      "weight": 1,
+      "quality": 2.5
+    },
+    "pinnacle": {
+      "weight": 6,
+      "quality": 2.5
+    }
   }
 }

@@ -4,8 +4,8 @@
     "affix_type": "basic_effect",
     "exclusive_set": [],
     "weights": {
-      "weight": 3,
-      "quality": 0
+      "weight": 25,
+      "quality": 0.1
     }
   },
   "values": {

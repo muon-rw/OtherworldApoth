@@ -20,7 +20,21 @@
     "id": "soulsweapons:chaos_helmet"
   },
   "weights": {
-    "quality": 7.0,
-    "weight": 30
+    "frontier": {
+      "weight": 1,
+      "quality": 2.0
+    },
+    "ascent": {
+      "weight": 6,
+      "quality": 2.0
+    },
+    "summit": {
+      "weight": 8,
+      "quality": 2.0
+    },
+    "pinnacle": {
+      "weight": 7,
+      "quality": 2.0
+    }
   }
 }

@@ -21,7 +21,25 @@
     "id": "aether:sentry_boots"
   },
   "weights": {
-    "quality": 4.0,
-    "weight": 68
+    "haven": {
+      "weight": 8,
+      "quality": 1.0
+    },
+    "frontier": {
+      "weight": 14,
+      "quality": 1.0
+    },
+    "ascent": {
+      "weight": 17,
+      "quality": 1.0
+    },
+    "summit": {
+      "weight": 18,
+      "quality": 1.0
+    },
+    "pinnacle": {
+      "weight": 14,
+      "quality": 1.0
+    }
   }
 }

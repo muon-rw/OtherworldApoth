@@ -21,7 +21,25 @@
     "id": "aquamirae:remnant_saber"
   },
   "weights": {
-    "quality": 6.0,
-    "weight": 52
+    "haven": {
+      "weight": 1,
+      "quality": 1.5
+    },
+    "frontier": {
+      "weight": 2,
+      "quality": 1.5
+    },
+    "ascent": {
+      "weight": 9,
+      "quality": 1.5
+    },
+    "summit": {
+      "weight": 12,
+      "quality": 1.5
+    },
+    "pinnacle": {
+      "weight": 14,
+      "quality": 1.5
+    }
   }
 }

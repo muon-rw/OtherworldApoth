@@ -21,7 +21,25 @@
     "id": "aquamirae:shatterblade"
   },
   "weights": {
-    "quality": 1.0,
-    "weight": 100
+    "haven": {
+      "weight": 27,
+      "quality": 0.5
+    },
+    "frontier": {
+      "weight": 27,
+      "quality": 0.5
+    },
+    "ascent": {
+      "weight": 24,
+      "quality": 0.5
+    },
+    "summit": {
+      "weight": 11,
+      "quality": 0.5
+    },
+    "pinnacle": {
+      "weight": 3,
+      "quality": 0.5
+    }
   }
 }

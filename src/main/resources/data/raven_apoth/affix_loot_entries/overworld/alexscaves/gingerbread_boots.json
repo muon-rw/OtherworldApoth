@@ -21,7 +21,25 @@
     "id": "alexscaves:gingerbread_boots"
   },
   "weights": {
-    "quality": 3.0,
-    "weight": 82
+    "haven": {
+      "weight": 9,
+      "quality": 1.0
+    },
+    "frontier": {
+      "weight": 17,
+      "quality": 1.0
+    },
+    "ascent": {
+      "weight": 21,
+      "quality": 1.0
+    },
+    "summit": {
+      "weight": 22,
+      "quality": 1.0
+    },
+    "pinnacle": {
+      "weight": 17,
+      "quality": 1.0
+    }
   }
 }

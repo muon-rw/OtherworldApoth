@@ -20,7 +20,13 @@
     "id": "iceandfire:dragonsteel_fire_sword"
   },
   "weights": {
-    "quality": 10.0,
-    "weight": 22
+    "summit": {
+      "weight": 1,
+      "quality": 2.5
+    },
+    "pinnacle": {
+      "weight": 6,
+      "quality": 2.5
+    }
   }
 }

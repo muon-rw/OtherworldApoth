@@ -21,7 +21,21 @@
     "id": "aether:phoenix_bow"
   },
   "weights": {
-    "quality": 2.5,
-    "weight": 40
+    "frontier": {
+      "weight": 1,
+      "quality": 0.5
+    },
+    "ascent": {
+      "weight": 7,
+      "quality": 0.5
+    },
+    "summit": {
+      "weight": 10,
+      "quality": 0.5
+    },
+    "pinnacle": {
+      "weight": 11,
+      "quality": 0.5
+    }
   }
 }

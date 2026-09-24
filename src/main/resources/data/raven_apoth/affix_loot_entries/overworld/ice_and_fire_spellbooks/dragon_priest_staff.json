@@ -20,7 +20,25 @@
     "id": "ice_and_fire_spellbooks:dragon_priest_staff"
   },
   "weights": {
-    "quality": 6.0,
-    "weight": 55
+    "haven": {
+      "weight": 1,
+      "quality": 1.5
+    },
+    "frontier": {
+      "weight": 2,
+      "quality": 1.5
+    },
+    "ascent": {
+      "weight": 11,
+      "quality": 1.5
+    },
+    "summit": {
+      "weight": 15,
+      "quality": 1.5
+    },
+    "pinnacle": {
+      "weight": 13,
+      "quality": 1.5
+    }
   }
 }
