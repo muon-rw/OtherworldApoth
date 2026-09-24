@@ -14,6 +14,7 @@
     "apotheosis.DamageSourceTagInheritanceMixin",
     "apotheosis.SocketLootRuleMixin",
     "compat.raven_dnd_origins.EnchantmentRestrictionsMixin",
+    "compat.raven_dnd_origins.SpellRestrictionsMixin",
     "apotheosis.WorldTierMixin",
     "compat.irons_spellbooks.SchoolTypeAccessor",
     "compat.irons_spellbooks.SpellConfigManagerAccessor"

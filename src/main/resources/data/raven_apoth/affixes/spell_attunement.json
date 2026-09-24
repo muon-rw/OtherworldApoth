@@ -1,5 +1,5 @@
 {
-  "type": "raven_apoth:attunement",
+  "type": "raven_apoth:spell_attunement",
   "definition": {
     "affix_type": "basic_effect",
     "weights": {
@@ -7,7 +7,7 @@
       "quality": 0
     },
     "exclusive_set": [
-      "raven_apoth:spell_attunement"
+      "raven_apoth:attunement"
     ]
   },
   "min_rarity": "apotheosis:epic",

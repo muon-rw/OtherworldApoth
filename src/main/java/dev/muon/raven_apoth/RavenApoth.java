@@ -3,6 +3,7 @@ package dev.muon.raven_apoth;
 import dev.muon.raven_apoth.affix.AffixEvents;
 import dev.muon.raven_apoth.affix.AttunementAffix;
 import dev.muon.raven_apoth.affix.SocketBonusAffix;
+import dev.muon.raven_apoth.affix.SpellAttunementAffix;
 import dev.muon.raven_apoth.affix.TransmutationAffix;
 import dev.muon.raven_apoth.command.DumpRegistriesCommand;
 import dev.muon.raven_apoth.config.RavenApothConfig;
@@ -49,6 +50,7 @@ public class RavenApoth {
 
     private void commonSetup(FMLCommonSetupEvent event) {
         AffixRegistry.INSTANCE.registerCodec(loc("attunement"), AttunementAffix.CODEC);
+        AffixRegistry.INSTANCE.registerCodec(loc("spell_attunement"), SpellAttunementAffix.CODEC);
         AffixRegistry.INSTANCE.registerCodec(loc("socket_bonus"), SocketBonusAffix.CODEC);
         AffixRegistry.INSTANCE.registerCodec(loc("transmutation"), TransmutationAffix.CODEC);
     }
