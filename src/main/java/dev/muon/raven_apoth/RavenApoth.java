@@ -1,7 +1,9 @@
 package dev.muon.raven_apoth;
 
 import dev.muon.raven_apoth.affix.AffixEvents;
+import dev.muon.raven_apoth.affix.AptitudeBonusAffix;
 import dev.muon.raven_apoth.affix.AttunementAffix;
+import dev.muon.raven_apoth.affix.GearAptitudeBonuses;
 import dev.muon.raven_apoth.affix.SkillLevelAffix;
 import dev.muon.raven_apoth.affix.SocketBonusAffix;
 import dev.muon.raven_apoth.affix.SpellAttunementAffix;
@@ -16,6 +18,7 @@ import dev.shadowsoffire.apotheosis.affix.AffixRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
@@ -39,6 +42,9 @@ public class RavenApoth {
         RavenApothLootModifiers.register(modBus);
         OverridePacks.register(modBus);
         modBus.addListener(this::commonSetup);
+        if (ModList.get().isLoaded("raven_dnd_origins")) {
+            GearAptitudeBonuses.register(modBus);
+        }
 
         NeoForge.EVENT_BUS.register(new AffixEvents());
         NeoForge.EVENT_BUS.register(new LootEvents());
@@ -55,5 +61,8 @@ public class RavenApoth {
         AffixRegistry.INSTANCE.registerCodec(loc("socket_bonus"), SocketBonusAffix.CODEC);
         AffixRegistry.INSTANCE.registerCodec(loc("transmutation"), TransmutationAffix.CODEC);
         AffixRegistry.INSTANCE.registerCodec(loc("skill_level"), SkillLevelAffix.CODEC);
+        if (ModList.get().isLoaded("raven_dnd_origins")) {
+            AffixRegistry.INSTANCE.registerCodec(loc("aptitude_bonus"), AptitudeBonusAffix.CODEC);
+        }
     }
 }
