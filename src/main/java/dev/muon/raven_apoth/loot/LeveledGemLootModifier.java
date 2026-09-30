@@ -7,6 +7,7 @@ import dev.shadowsoffire.apotheosis.socket.gem.Gem;
 import dev.shadowsoffire.apotheosis.socket.gem.GemRegistry;
 import dev.shadowsoffire.apotheosis.tiers.GenContext;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -19,8 +20,9 @@ public class LeveledGemLootModifier extends ContextualLootModifier {
     public static final MapCodec<LeveledGemLootModifier> CODEC = RecordCodecBuilder.mapCodec(inst -> codecStart(inst)
             .apply(inst, LeveledGemLootModifier::new));
 
-    // Champions' champion_loot GLM queries an inner table, which re-runs every GLM on the same thread.
-    private static final ThreadLocal<Boolean> IS_PROCESSING = ThreadLocal.withInitial(() -> false);
+    // One kill runs several loot tables with the same entity (Dynamic Difficulty's leveled_mobs table and
+    // inject_level_drops GLM, Champions' champion_loot), and each one re-runs every GLM.
+    private static final String GEM_ROLLED = "raven_apoth.gem_rolled";
 
     protected LeveledGemLootModifier(LootItemCondition[] conditions) {
         super(conditions);
@@ -28,24 +30,21 @@ public class LeveledGemLootModifier extends ContextualLootModifier {
 
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> loot, LootContext ctx, GenContext gCtx) {
-        if (IS_PROCESSING.get() || "champions".equals(ctx.getQueriedLootTableId().getNamespace())) {
-            return loot;
-        }
         if (!(ctx.getParamOrNull(LootContextParams.THIS_ENTITY) instanceof LivingEntity living) || !DropProfile.isEligible(living)) {
             return loot;
         }
-        DropProfile profile = DropProfile.of(living, gCtx.luck());
+        CompoundTag data = living.getPersistentData();
+        if (data.getBoolean(GEM_ROLLED)) {
+            return loot;
+        }
+        data.putBoolean(GEM_ROLLED, true);
 
-        IS_PROCESSING.set(true);
-        try {
-            if (gCtx.rand().nextFloat() < profile.gemChance()) {
-                Gem gem = GemRegistry.INSTANCE.getRandomItem(profile.context(gCtx));
-                if (gem != null) {
-                    loot.add(gem.toStack(profile.rollPurity(gCtx)));
-                }
+        DropProfile profile = DropProfile.of(living, gCtx.luck());
+        if (gCtx.rand().nextFloat() < profile.gemChance()) {
+            Gem gem = GemRegistry.INSTANCE.getRandomItem(profile.context(gCtx));
+            if (gem != null) {
+                loot.add(gem.toStack(profile.rollPurity(gCtx)));
             }
-        } finally {
-            IS_PROCESSING.set(false);
         }
         return loot;
     }

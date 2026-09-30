@@ -9,6 +9,8 @@ import dev.shadowsoffire.apotheosis.loot.LootRarity;
 import dev.shadowsoffire.apotheosis.tiers.Constraints;
 import dev.shadowsoffire.apotheosis.tiers.GenContext;
 import dev.shadowsoffire.apothic_attributes.modifiers.EquipmentSlotCompat;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.TickTask;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -59,16 +61,22 @@ public class LootEvents {
 
     // Champions rolls natural champions in its own EntityJoinLevelEvent listener at NORMAL priority;
     // commands and presets write the champion data before the entity is added, so LOW sees both.
+    // Dynamic Difficulty levels and equips the mob at LOWEST, so the ALE waits until every listener has run.
     @SubscribeEvent(priority = EventPriority.LOW)
-    @SuppressWarnings("UnstableApiUsage")
     public void onChampionJoin(EntityJoinLevelEvent event) {
         if (event.loadedFromDisk() || !(event.getLevel() instanceof ServerLevel level) || !(event.getEntity() instanceof Mob mob)) {
             return;
         }
-        if (mob.getPersistentData().getBoolean(CHAMPION_ALE_GIVEN)) {
+        if (mob.getPersistentData().getBoolean(CHAMPION_ALE_GIVEN) || ChampionRanks.tierOf(mob).isEmpty()) {
             return;
         }
-        if (ChampionRanks.tierOf(mob).isEmpty() || !DropProfile.isEligible(mob)) {
+        MinecraftServer server = level.getServer();
+        server.tell(new TickTask(server.getTickCount(), () -> equipChampionAle(mob)));
+    }
+
+    @SuppressWarnings("UnstableApiUsage")
+    private static void equipChampionAle(Mob mob) {
+        if (!mob.isAlive() || !(mob.level() instanceof ServerLevel level) || !DropProfile.isEligible(mob)) {
             return;
         }
 

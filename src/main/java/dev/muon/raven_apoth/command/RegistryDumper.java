@@ -5,6 +5,8 @@ import dev.muon.raven_apoth.RavenApoth;
 import dev.muon.raven_apoth.mixin.compat.irons_spellbooks.SchoolTypeAccessor;
 import dev.muon.raven_apoth.mixin.compat.irons_spellbooks.SpellConfigManagerAccessor;
 import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.RegistryDataLoader;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
@@ -51,6 +53,7 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.event.OnDatapackSyncEvent;
 import net.neoforged.neoforge.common.loot.LootModifierManager;
+import net.neoforged.neoforge.registries.DataPackRegistriesHooks;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import top.theillusivec4.champions.api.champion.ChampionTier;
 import top.theillusivec4.champions.common.api.ChampionsRegistries;
@@ -76,6 +79,8 @@ public final class RegistryDumper {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
     private static final Map<String, Supplier<DynamicRegistry<?>>> PLACEBO_REGISTRIES = new LinkedHashMap<>();
+    // NeoForge datapack registries, encoded with their own codecs so the owning mod needs no compile dependency
+    private static final Map<String, ResourceLocation> DATAPACK_REGISTRIES = new LinkedHashMap<>();
     private static final String LOOT_CATEGORIES = "loot_categories";
     private static final String RECIPES = "recipes";
     private static final String ITEM_RECIPES = "item_recipes";
@@ -99,7 +104,11 @@ public final class RegistryDumper {
         PLACEBO_REGISTRIES.put("augmentations", () -> AugmentRegistry.INSTANCE);
         PLACEBO_REGISTRIES.put("tier_augments", () -> TierAugmentRegistry.INSTANCE);
         PLACEBO_REGISTRIES.put("wanderer_trades", () -> WandererTradesRegistry.INSTANCE);
+        DATAPACK_REGISTRIES.put("jewelry_materials", ResourceLocation.fromNamespaceAndPath("irons_jewelry", "material"));
+        DATAPACK_REGISTRIES.put("jewelry_patterns", ResourceLocation.fromNamespaceAndPath("irons_jewelry", "pattern"));
+        DATAPACK_REGISTRIES.put("jewelry_parts", ResourceLocation.fromNamespaceAndPath("irons_jewelry", "part"));
         TARGETS.addAll(PLACEBO_REGISTRIES.keySet());
+        TARGETS.addAll(DATAPACK_REGISTRIES.keySet());
         TARGETS.add(LOOT_CATEGORIES);
         TARGETS.add(RECIPES);
         TARGETS.add(ITEM_RECIPES);
@@ -150,6 +159,8 @@ public final class RegistryDumper {
     private JsonArray collect(String target) {
         Supplier<DynamicRegistry<?>> placebo = PLACEBO_REGISTRIES.get(target);
         if (placebo != null) return this.dumpDynamicRegistry(placebo.get());
+        ResourceLocation datapackRegistry = DATAPACK_REGISTRIES.get(target);
+        if (datapackRegistry != null) return this.dumpDatapackRegistry(datapackRegistry);
         return switch (target) {
             case LOOT_CATEGORIES -> this.dumpLootCategories();
             case RECIPES -> this.dumpRecipes();
@@ -187,6 +198,28 @@ public final class RegistryDumper {
             out.add(entry);
         }
         return out;
+    }
+
+    // Empty when the owning mod is absent
+    private JsonArray dumpDatapackRegistry(ResourceLocation registryId) {
+        JsonArray out = new JsonArray();
+        for (RegistryDataLoader.RegistryData<?> data : DataPackRegistriesHooks.getDataPackRegistries()) {
+            if (data.key().location().equals(registryId)) {
+                this.dumpRegistryData(data, out);
+            }
+        }
+        return out;
+    }
+
+    private <T> void dumpRegistryData(RegistryDataLoader.RegistryData<T> data, JsonArray out) {
+        ResourceLocation registryId = data.key().location();
+        String folder = registryId.getNamespace() + "/" + registryId.getPath();
+        Registry<T> registry = this.server.registryAccess().registryOrThrow(data.key());
+        registry.keySet().stream().sorted().forEach(id -> {
+            JsonObject entry = this.entry(id, dataFile(id, folder));
+            this.encode(entry, data.elementCodec(), registry.get(id));
+            out.add(entry);
+        });
     }
 
     private JsonArray dumpLootCategories() {
