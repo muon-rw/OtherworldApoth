@@ -45,15 +45,11 @@ public enum MobLootProvider implements IEntityComponentProvider, IServerDataProv
 
     @Override
     public void appendTooltip(ITooltip tooltip, EntityAccessor accessor, IPluginConfig config) {
-        if (!accessor.getServerData().contains(DATA)) {
+        if (!accessor.showDetails() || !accessor.getServerData().contains(DATA)) {
             return;
         }
         CompoundTag tag = accessor.getServerData().getCompound(DATA);
         MutableComponent gear = range(rarity(tag.getString("min_rarity")), rarity(tag.getString("max_rarity")));
-        if (!accessor.showDetails()) {
-            tooltip.add(Component.translatable("jade.raven_apoth.drop_tier", gear));
-            return;
-        }
         Purity[] purities = Purity.values();
         tooltip.add(Component.translatable("jade.raven_apoth.gear", gear));
         tooltip.add(Component.translatable("jade.raven_apoth.gems",
