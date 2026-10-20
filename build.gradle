@@ -214,8 +214,8 @@ dependencies {
     // Iron's Apothic now has most of what was here before
     implementation("io.redspace:irons_spellbooks:${irons_version}")
     implementation("io.redspace:irons_lib:${irons_lib_version}")
-    compileOnly("pack:irons_apothic:2.2.6")
-    localRuntime("pack:irons_apothic:2.2.6")
+    compileOnly("pack:irons_apothic:2.2.8")
+    localRuntime("pack:irons_apothic:2.2.8")
 
     // Champions
     implementation("curse.maven:champions-unofficial-1074990:8593069")

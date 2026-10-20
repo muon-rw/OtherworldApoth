@@ -21,6 +21,7 @@
     "compat.irons_spellbooks.SpellConfigManagerAccessor"
   ],
   "client": [
+    "client.AffixItemEffectRendererMixin",
     "client.LevelPlateHandlerMixin",
     "client.WorldTierSelectScreenMixin"
   ],
