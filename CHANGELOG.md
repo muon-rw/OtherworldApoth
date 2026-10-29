@@ -1,5 +1,5 @@
 ## 1.0.0
-- Ported to 1.21.1 NeoForge and renamed to Raven Apoth (raven_apoth); requires Raven Core, Iron's Apothic, Ancient Reforging, Champions and Dynamic Difficulty
+- Ported to 1.21.1 NeoForge 
 - Removed casting affixes, the staff loot category, school gems (now in Apoth x Iron's)
 - Kept: attunement, socket bonus, transmutation and cleanse
 - Leveled loot rolls a rarity range from the mob or player level and a purity range for gems, both weighted by the Apotheosis world tier (weightTier config)
